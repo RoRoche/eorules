@@ -32,6 +32,7 @@ import com.tngtech.archunit.lang.EvaluationResult;
  *
  * @since 0.0.1
  */
+@ExcludeFromArchUnit
 public abstract class ArchRuleEnvelope implements ArchRule {
 
     /**

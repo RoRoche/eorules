@@ -256,8 +256,10 @@
           <targetTests>
             <param>com.github.roroche.*</param>
           </targetTests>
-          <!--<mutationThreshold>85</mutationThreshold>--><!-- @todo #8:5m/DEV Restore PiTest mutationThreshold -->
-          <!--<coverageThreshold>90</coverageThreshold>--><!-- @todo #8:5m/DEV Restore PiTest coverageThreshold -->
+          <!--<mutationThreshold>85</mutationThreshold>-->
+          <!-- @todo #8:5m/DEV Restore PiTest mutationThreshold -->
+          <!--<coverageThreshold>90</coverageThreshold>-->
+          <!-- @todo #8:5m/DEV Restore PiTest coverageThreshold -->
           <mutators>
             <mutator>DEFAULTS</mutator>
           </mutators>
