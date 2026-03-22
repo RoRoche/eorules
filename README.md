@@ -40,7 +40,7 @@ Lightweight, immutable and composable configuration library for Java.
 
 ## ✨ Features
 
-- TODO
+- To describe
 
 ## 📥 Installation
 
@@ -56,7 +56,7 @@ Add the dependency to your project:
 
 ## 🚀 Usage
 
-- TODO
+- To describe
 
 ## 🤝 Contributing
 
