@@ -21,39 +21,25 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.github.roroche.eorules;
+package com.github.roroche.eorules.matchers;
 
-import com.tngtech.archunit.core.domain.JavaClasses;
-import com.tngtech.archunit.core.importer.ClassFileImporter;
-import com.tngtech.archunit.core.importer.ImportOption;
-import org.junit.jupiter.api.Test;
+import com.tngtech.archunit.lang.EvaluationResult;
+import org.hamcrest.Description;
+import org.hamcrest.TypeSafeMatcher;
 
 /**
- * Test class for the architecture of the library.
+ * Matcher for {@link EvaluationResult} with violations.
  *
  * @since 0.0.1
- * @todo #1:25m/DEV Add rule for classes to not have setter or getter
- * @todo #1:25m/DEV Add rule for classes to not have static methods
- * @todo #1:25m/DEV Add rule for classes to not have private methods
- * @todo #1:25m/DEV Add rule for fields to be final
- * @todo #1:25m/DEV Add rule for classes to have public methods declared in an interface
  */
-@SuppressWarnings({
-    "allpublic",
-    "JTCOP.RuleEveryTestHasProductionClass",
-    "JTCOP.RuleAssertionMessage"
-})
-final class ArchitectureTest {
+public final class HasViolations extends TypeSafeMatcher<EvaluationResult> {
+    @Override
+    public boolean matchesSafely(final EvaluationResult item) {
+        return item.hasViolation();
+    }
 
-    /**
-     * The classes to be checked.
-     */
-    private final JavaClasses classes = new ClassFileImporter()
-        .withImportOption(ImportOption.Predefined.DO_NOT_INCLUDE_TESTS)
-        .importPackages("com.github.roroche.eorules");
-
-    @Test
-    void checksClassesAreAbstractOrFinal() {
-        new ClassesAreAbstractOrFinalRule().check(this.classes);
+    @Override
+    public void describeTo(final Description description) {
+        description.appendText("evaluation should have violations");
     }
 }
