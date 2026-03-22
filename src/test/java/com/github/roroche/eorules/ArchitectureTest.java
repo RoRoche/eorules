@@ -72,4 +72,9 @@ final class ArchitectureTest {
     void checksPublicMethodsAreDeclaredInInterfaces() {
         new PublicMethodsDeclaredInInterfacesRule().check(this.classes);
     }
+
+    @Test
+    void checksFieldsAreFinal() {
+        new FieldsShouldBeFinalRule().check(this.classes);
+    }
 }

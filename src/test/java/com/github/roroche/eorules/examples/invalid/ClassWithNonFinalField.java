@@ -21,24 +21,19 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.github.roroche.eorules.examples.valid;
+package com.github.roroche.eorules.examples.invalid;
 
 /**
- * This class is final, so it should be valid.
+ * Class with non final field.
  *
  * @since 0.0.1
  */
-public final class FinalClass {
+@SuppressWarnings("allfinal")
+public final class ClassWithNonFinalField {
 
     /**
-     * A final field, to make the class final.
-     * @checkstyle ConstantUsageCheck (5 lines)
+     * Non final field.
      */
     @SuppressWarnings("PMD.UnusedPrivateField")
-    private final String description = "This class is final, so it should be valid.";
-
-    @Override
-    public void theMethod() {
-        // does noting
-    }
+    private String invalid;
 }
