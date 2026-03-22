@@ -56,6 +56,7 @@ Add the dependency to your project:
     <groupId>com.github.roroche</groupId>
     <artifactId>eorules</artifactId>
     <version>${latest.version}</version>
+    <scope>test</scope>
 </dependency>
 ```
 
