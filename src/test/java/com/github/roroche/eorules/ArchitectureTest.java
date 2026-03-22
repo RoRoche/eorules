@@ -33,7 +33,6 @@ import org.junit.jupiter.api.Test;
  *
  * @since 0.0.1
  * @todo #8:25m/DEV Add rule for fields to be final
- * @todo #8:25m/DEV Add rule for classes to have public methods declared in an interface
  */
 @SuppressWarnings({
     "allpublic",
