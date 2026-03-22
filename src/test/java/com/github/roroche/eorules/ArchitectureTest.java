@@ -62,6 +62,11 @@ final class ArchitectureTest {
     }
 
     @Test
+    void checksThereAreNoStaticMethods() {
+        new ClassesShouldHaveNoStaticMethodsRule().check(this.classes);
+    }
+
+    @Test
     void checksClassesDoNotHavePrivateMethods() {
         new ClassesShouldNotHavePrivateMethodsRule().check(this.classes);
     }
