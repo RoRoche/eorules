@@ -1,0 +1,26 @@
+{
+    "plugins": {
+        "@textlint/markdown": {
+            "extensions": [
+                ".md"
+            ]
+        }
+    },
+    "filters": {},
+    "rules": {
+        "no-todo": true,
+        "common-misspellings": true,
+        "spellcheck-tech-word": true,
+        "write-good": {
+            "tooWordy": true,
+            "passive": true
+        },
+        "max-comma": {
+            "max": 3
+        },
+        "en-max-word-count": {
+            "max": 30
+        },
+        "no-start-duplicated-conjunction": true
+    }
+}

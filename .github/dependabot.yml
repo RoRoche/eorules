@@ -1,0 +1,48 @@
+---
+version: 2
+updates:
+  - package-ecosystem: "maven"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "04:00"
+      timezone: "Europe/Paris"
+    open-pull-requests-limit: 5
+    reviewers:
+      - "RoRoche"
+    labels:
+      - "dependencies"
+      - "maven"
+    commit-message:
+      prefix: "⬆️"
+      include: "scope"
+
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "04:10"
+      timezone: "Europe/Paris"
+    open-pull-requests-limit: 5
+    reviewers:
+      - "RoRoche"
+    labels:
+      - "dependencies"
+      - "npm"
+    commit-message:
+      prefix: "⬆️"
+      include: "scope"
+    groups:
+      npm-dependencies:
+        patterns:
+          - "*"
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    labels:
+      - "ci"
+      - "dependencies"
