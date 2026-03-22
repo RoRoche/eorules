@@ -6,7 +6,7 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
   <name>eorules</name>
-  <description>Elegant Objects library to deal with Java Properties</description>
+  <description>Set of custom ArchUnit rules to ensure Elegant Objects principles respect</description>
   <url>https://github.com/RoRoche/eorules</url>
   <licenses>
     <license>
