@@ -23,46 +23,45 @@
  */
 package com.github.roroche.eorules;
 
-import com.tngtech.archunit.core.domain.JavaClasses;
+import com.github.roroche.eorules.matchers.HasViolationContaining;
+import com.github.roroche.eorules.matchers.HasViolations;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
-import com.tngtech.archunit.core.importer.ImportOption;
+import org.hamcrest.MatcherAssert;
+import org.hamcrest.core.AllOf;
+import org.hamcrest.core.IsNot;
 import org.junit.jupiter.api.Test;
 
 /**
- * Test class for the architecture of the library.
+ * Test class for {@link ClassesShouldNotHavePrivateMethodsRule}.
  *
  * @since 0.0.1
- * @todo #8:25m/DEV Add rule for classes to not have static methods
- * @todo #8:25m/DEV Add rule for classes to not have private methods
- * @todo #8:25m/DEV Add rule for fields to be final
- * @todo #8:25m/DEV Add rule for classes to have public methods declared in an interface
  */
-@SuppressWarnings({
-    "allpublic",
-    "JTCOP.RuleEveryTestHasProductionClass",
-    "JTCOP.RuleAssertionMessage"
-})
-final class ArchitectureTest {
-
-    /**
-     * The classes to be checked.
-     */
-    private final JavaClasses classes = new ClassFileImporter()
-        .withImportOption(ImportOption.Predefined.DO_NOT_INCLUDE_TESTS)
-        .importPackages("com.github.roroche.eorules");
-
+@SuppressWarnings("allpublic")
+final class ClassesShouldNotHavePrivateMethodsRuleTest {
     @Test
-    void checksClassesAreAbstractOrFinal() {
-        new ClassesAreAbstractOrFinalRule().check(this.classes);
+    void isOk() {
+        MatcherAssert.assertThat(
+            "Valid classes does not violate the rule",
+            new ClassesShouldNotHavePrivateMethodsRule().evaluate(
+                new ClassFileImporter()
+                    .importPackages("com.github.roroche.eorules.examples.valid")
+            ),
+            new IsNot<>(new HasViolations())
+        );
     }
 
     @Test
-    void checksClassesDoNotHaveGettersOrSetters() {
-        new ClassesShouldNotHaveGettersOrSettersRule().check(this.classes);
-    }
-
-    @Test
-    void checksClassesDoNotHavePrivateMethods() {
-        new ClassesShouldNotHavePrivateMethodsRule().check(this.classes);
+    void isNotOk() {
+        MatcherAssert.assertThat(
+            "Classes that have getters or setters should violate the rule with message",
+            new ClassesShouldNotHavePrivateMethodsRule().evaluate(
+                new ClassFileImporter()
+                    .importPackages("com.github.roroche.eorules.examples.invalid")
+            ),
+            new AllOf<>(
+                new HasViolations(),
+                new HasViolationContaining("unusedPrivateMethod")
+            )
+        );
     }
 }
