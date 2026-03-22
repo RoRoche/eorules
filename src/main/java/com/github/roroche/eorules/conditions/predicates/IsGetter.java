@@ -21,32 +21,44 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.github.roroche.eorules.conditions.messages;
+package com.github.roroche.eorules.conditions.predicates;
 
-import com.tngtech.archunit.core.domain.JavaClass;
-import org.cactoos.text.FormattedText;
-import org.cactoos.text.TextEnvelope;
+import com.tngtech.archunit.core.domain.JavaMethod;
+import java.util.stream.Stream;
+import org.cactoos.Scalar;
+import org.cactoos.scalar.Unchecked;
 
 /**
- * Error message for {@link com.tngtech.archunit.lang.ArchRule} when classes
- * are not abstract or final.
+ * Check if a method is a getter.
  *
  * @since 0.0.1
  */
-public final class ClassesAreAbstractOrFinalMessage extends TextEnvelope {
+public final class IsGetter implements Scalar<Boolean> {
 
-    public ClassesAreAbstractOrFinalMessage(
-        final JavaClass clazz,
-        final boolean abstraction,
-        final boolean finalization
-    ) {
-        super(
-            new FormattedText(
-                "Class %s should be either final or abstract (currently: abstract=%s, final=%s)",
-                clazz.getFullName(),
-                abstraction,
-                finalization
-            )
-        );
+    /**
+     * The {@link JavaMethod} to test.
+     */
+    private final JavaMethod method;
+
+    public IsGetter(final JavaMethod method) {
+        this.method = method;
+    }
+
+    @Override
+    public Boolean value() {
+        final boolean result;
+        if (this.method.reflect().isSynthetic()) {
+            result = false;
+        } else {
+            result = Stream.of(
+                new IsGet(this.method),
+                new IsIs(this.method)
+            ).map(
+                Unchecked::new
+            ).anyMatch(
+                Unchecked::value
+            );
+        }
+        return result;
     }
 }

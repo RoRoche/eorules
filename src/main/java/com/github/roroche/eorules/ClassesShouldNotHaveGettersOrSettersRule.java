@@ -23,41 +23,22 @@
  */
 package com.github.roroche.eorules;
 
-import com.tngtech.archunit.core.domain.JavaClasses;
-import com.tngtech.archunit.core.importer.ClassFileImporter;
-import com.tngtech.archunit.core.importer.ImportOption;
-import org.junit.jupiter.api.Test;
+import com.github.roroche.eorules.conditions.NotHaveGettersOrSetters;
+import com.tngtech.archunit.lang.syntax.ArchRuleDefinition;
 
 /**
- * Test class for the architecture of the library.
+ * {@link com.tngtech.archunit.lang.ArchRule} to assert that classes have no getters and setters.
  *
  * @since 0.0.1
- * @todo #8:25m/DEV Add rule for classes to not have static methods
- * @todo #8:25m/DEV Add rule for classes to not have private methods
- * @todo #8:25m/DEV Add rule for fields to be final
- * @todo #8:25m/DEV Add rule for classes to have public methods declared in an interface
  */
-@SuppressWarnings({
-    "allpublic",
-    "JTCOP.RuleEveryTestHasProductionClass",
-    "JTCOP.RuleAssertionMessage"
-})
-final class ArchitectureTest {
+public final class ClassesShouldNotHaveGettersOrSettersRule extends ArchRuleEnvelope {
 
-    /**
-     * The classes to be checked.
-     */
-    private final JavaClasses classes = new ClassFileImporter()
-        .withImportOption(ImportOption.Predefined.DO_NOT_INCLUDE_TESTS)
-        .importPackages("com.github.roroche.eorules");
-
-    @Test
-    void checksClassesAreAbstractOrFinal() {
-        new ClassesAreAbstractOrFinalRule().check(this.classes);
-    }
-
-    @Test
-    void checksClassesDoNotHaveGettersOrSetters() {
-        new ClassesShouldNotHaveGettersOrSettersRule().check(this.classes);
+    public ClassesShouldNotHaveGettersOrSettersRule() {
+        super(
+            ArchRuleDefinition.classes()
+                .that().areNotAnnotatedWith(ExcludeFromArchUnit.class)
+                .should(new NotHaveGettersOrSetters())
+                .because("https://www.yegor256.com/2014/09/16/getters-and-setters-are-evil.html")
+        );
     }
 }

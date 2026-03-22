@@ -21,32 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.github.roroche.eorules.conditions.messages;
-
-import com.tngtech.archunit.core.domain.JavaClass;
-import org.cactoos.text.FormattedText;
-import org.cactoos.text.TextEnvelope;
-
 /**
- * Error message for {@link com.tngtech.archunit.lang.ArchRule} when classes
- * are not abstract or final.
- *
- * @since 0.0.1
+ * Package grouping predicates for {@link com.tngtech.archunit.lang.ArchRule}.
  */
-public final class ClassesAreAbstractOrFinalMessage extends TextEnvelope {
-
-    public ClassesAreAbstractOrFinalMessage(
-        final JavaClass clazz,
-        final boolean abstraction,
-        final boolean finalization
-    ) {
-        super(
-            new FormattedText(
-                "Class %s should be either final or abstract (currently: abstract=%s, final=%s)",
-                clazz.getFullName(),
-                abstraction,
-                finalization
-            )
-        );
-    }
-}
+package com.github.roroche.eorules.conditions.predicates;

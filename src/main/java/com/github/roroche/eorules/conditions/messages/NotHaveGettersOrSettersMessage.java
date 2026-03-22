@@ -21,41 +21,31 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.github.roroche.eorules.conditions;
+package com.github.roroche.eorules.conditions.messages;
 
-import com.github.roroche.eorules.conditions.messages.ClassesAreAbstractOrFinalMessage;
 import com.tngtech.archunit.core.domain.JavaClass;
-import com.tngtech.archunit.core.domain.JavaModifier;
-import com.tngtech.archunit.lang.ArchCondition;
-import com.tngtech.archunit.lang.ConditionEvents;
-import com.tngtech.archunit.lang.SimpleConditionEvent;
+import com.tngtech.archunit.core.domain.JavaMethod;
+import org.cactoos.text.FormattedText;
+import org.cactoos.text.TextEnvelope;
 
 /**
- * {@link ArchCondition} to assert a {@link JavaClass} is abstract or final.
+ * Error message for {@link com.tngtech.archunit.lang.ArchRule} when classes
+ * have getters or setters.
  *
  * @since 0.0.1
  */
-public final class BeAbstractOrFinal extends ArchCondition<JavaClass> {
+public final class NotHaveGettersOrSettersMessage extends TextEnvelope {
 
-    public BeAbstractOrFinal() {
-        super("be final or abstract");
-    }
-
-    @Override
-    public void check(final JavaClass clazz, final ConditionEvents events) {
-        if (!clazz.getModifiers().contains(JavaModifier.ABSTRACT)
-            &&
-            !clazz.getModifiers().contains(JavaModifier.FINAL)) {
-            events.add(
-                SimpleConditionEvent.violated(
-                    clazz,
-                    new ClassesAreAbstractOrFinalMessage(
-                        clazz,
-                        clazz.getModifiers().contains(JavaModifier.ABSTRACT),
-                        clazz.getModifiers().contains(JavaModifier.FINAL)
-                    ).toString()
-                )
-            );
-        }
+    public NotHaveGettersOrSettersMessage(
+        final JavaClass clazz,
+        final JavaMethod method
+    ) {
+        super(
+            new FormattedText(
+                "Class %s contains getter/setter method %s",
+                clazz.getName(),
+                method.getFullName()
+            )
+        );
     }
 }

@@ -23,39 +23,43 @@
  */
 package com.github.roroche.eorules.conditions;
 
-import com.github.roroche.eorules.conditions.messages.ClassesAreAbstractOrFinalMessage;
+import com.github.roroche.eorules.conditions.messages.NotHaveGettersOrSettersMessage;
+import com.github.roroche.eorules.conditions.predicates.IsGetter;
+import com.github.roroche.eorules.conditions.predicates.IsSetter;
 import com.tngtech.archunit.core.domain.JavaClass;
-import com.tngtech.archunit.core.domain.JavaModifier;
+import com.tngtech.archunit.core.domain.JavaMethod;
 import com.tngtech.archunit.lang.ArchCondition;
 import com.tngtech.archunit.lang.ConditionEvents;
 import com.tngtech.archunit.lang.SimpleConditionEvent;
 
 /**
- * {@link ArchCondition} to assert a {@link JavaClass} is abstract or final.
+ * {@link ArchCondition} to assert a {@link JavaClass} has no getters or setters.
  *
  * @since 0.0.1
  */
-public final class BeAbstractOrFinal extends ArchCondition<JavaClass> {
+public final class NotHaveGettersOrSetters extends ArchCondition<JavaClass> {
 
-    public BeAbstractOrFinal() {
-        super("be final or abstract");
+    public NotHaveGettersOrSetters() {
+        super("not have getter or setter methods");
     }
 
     @Override
     public void check(final JavaClass clazz, final ConditionEvents events) {
-        if (!clazz.getModifiers().contains(JavaModifier.ABSTRACT)
-            &&
-            !clazz.getModifiers().contains(JavaModifier.FINAL)) {
-            events.add(
-                SimpleConditionEvent.violated(
-                    clazz,
-                    new ClassesAreAbstractOrFinalMessage(
-                        clazz,
-                        clazz.getModifiers().contains(JavaModifier.ABSTRACT),
-                        clazz.getModifiers().contains(JavaModifier.FINAL)
-                    ).toString()
-                )
+        clazz
+            .getMethods()
+            .stream()
+            .filter(
+                (final JavaMethod method) ->
+                    new IsGetter(method).value() || new IsSetter(method).value()
+            )
+            .forEach(
+                (final JavaMethod method) ->
+                    events.add(
+                        SimpleConditionEvent.violated(
+                            method,
+                            new NotHaveGettersOrSettersMessage(clazz, method).toString()
+                        )
+                    )
             );
-        }
     }
 }

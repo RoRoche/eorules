@@ -21,32 +21,34 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.github.roroche.eorules.conditions.messages;
+package com.github.roroche.eorules.conditions.predicates;
 
-import com.tngtech.archunit.core.domain.JavaClass;
-import org.cactoos.text.FormattedText;
-import org.cactoos.text.TextEnvelope;
+import com.tngtech.archunit.core.domain.JavaMethod;
+import org.cactoos.Scalar;
 
 /**
- * Error message for {@link com.tngtech.archunit.lang.ArchRule} when classes
- * are not abstract or final.
+ * Check if a method start with "get" and is a getter.
  *
  * @since 0.0.1
  */
-public final class ClassesAreAbstractOrFinalMessage extends TextEnvelope {
+public final class IsGet implements Scalar<Boolean> {
+    /**
+     * The {@link JavaMethod} to test.
+     */
+    private final JavaMethod method;
 
-    public ClassesAreAbstractOrFinalMessage(
-        final JavaClass clazz,
-        final boolean abstraction,
-        final boolean finalization
-    ) {
-        super(
-            new FormattedText(
-                "Class %s should be either final or abstract (currently: abstract=%s, final=%s)",
-                clazz.getFullName(),
-                abstraction,
-                finalization
-            )
-        );
+    public IsGet(final JavaMethod method) {
+        this.method = method;
+    }
+
+    @Override
+    public Boolean value() throws Exception {
+        return this.method.getName().startsWith("get")
+            &&
+            !this.method.getName().equals("getClass")
+            &&
+            this.method.getRawParameterTypes().isEmpty()
+            &&
+            !this.method.getRawReturnType().isEquivalentTo(void.class);
     }
 }

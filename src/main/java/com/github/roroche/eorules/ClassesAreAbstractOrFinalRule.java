@@ -37,6 +37,8 @@ public final class ClassesAreAbstractOrFinalRule extends ArchRuleEnvelope {
         super(
             ArchRuleDefinition.classes()
                 .that()
+                .areNotAnnotatedWith(ExcludeFromArchUnit.class)
+                .and()
                 .areNotInterfaces()
                 .and()
                 .areNotEnums()
