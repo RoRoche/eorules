@@ -24,9 +24,11 @@
 package com.github.roroche.eorules.conditions;
 
 import com.github.roroche.eorules.ExcludeFromArchUnit;
-import com.github.roroche.eorules.conditions.messages.NoStaticMethodsMessage;
-import com.github.roroche.eorules.conditions.predicates.IsAllowedStaticMethod;
+import com.github.roroche.eorules.conditions.collections.InterfaceMethods;
+import com.github.roroche.eorules.conditions.messages.PublicMethodsDeclaredInInterfacesMessage;
+import com.github.roroche.eorules.conditions.predicates.IsDeclaredInInterfaces;
 import com.github.roroche.eorules.conditions.predicates.IsMainMethod;
+import com.github.roroche.eorules.conditions.predicates.IsObjectMethod;
 import com.tngtech.archunit.core.domain.JavaClass;
 import com.tngtech.archunit.core.domain.JavaMethod;
 import com.tngtech.archunit.core.domain.JavaModifier;
@@ -35,38 +37,48 @@ import com.tngtech.archunit.lang.ConditionEvents;
 import com.tngtech.archunit.lang.SimpleConditionEvent;
 
 /**
- * {@link ArchCondition} to assert a {@link JavaClass} has no static methods.
+ * {@link ArchCondition} to assert a {@link JavaClass}
+ * has public methods only declared in interfaces.
  *
  * @since 0.0.1
  */
 @ExcludeFromArchUnit
-public final class HaveNoStaticMethods extends ArchCondition<JavaClass> {
+public final class HaveOnlyPublicMethodsDeclaredInInterfaces extends ArchCondition<JavaClass> {
 
-    public HaveNoStaticMethods() {
-        super("not have static methods");
+    public HaveOnlyPublicMethodsDeclaredInInterfaces() {
+        super("have only public methods declared in implemented interfaces");
     }
 
     @Override
     public void check(final JavaClass clazz, final ConditionEvents events) {
-        clazz
-            .getMethods()
-            .stream()
-            .filter(
-                (final JavaMethod method) ->
-                    method.getModifiers().contains(JavaModifier.STATIC)
-                        &&
-                        !new IsMainMethod(method).value()
-                        &&
-                        !new IsAllowedStaticMethod(method).value()
-            )
-            .forEach(
-                (final JavaMethod method) ->
-                    events.add(
-                        SimpleConditionEvent.violated(
-                            method,
-                            new NoStaticMethodsMessage(clazz, method).toString()
+        if (!clazz.isInterface()) {
+            clazz
+                .getMethods()
+                .stream()
+                .filter(
+                    (final JavaMethod method) ->
+                        method.getModifiers().contains(JavaModifier.PUBLIC)
+                )
+                .filter(
+                    (final JavaMethod method) ->
+                        !new IsObjectMethod(method).value() && !new IsMainMethod(method).value()
+                )
+                .filter(
+                    (final JavaMethod method) ->
+                        !new IsDeclaredInInterfaces(method, new InterfaceMethods(clazz)).value()
+                )
+                .forEach(
+                    (final JavaMethod method) ->
+                        events.add(
+                            SimpleConditionEvent.violated(
+                                method,
+                                new PublicMethodsDeclaredInInterfacesMessage(
+                                    clazz,
+                                    method
+                                ).toString()
+                            )
                         )
-                    )
-            );
+                );
+        }
     }
 }

@@ -23,6 +23,7 @@
  */
 package com.github.roroche.eorules.conditions;
 
+import com.github.roroche.eorules.ExcludeFromArchUnit;
 import com.github.roroche.eorules.conditions.messages.NotHavePrivateMethodsMessage;
 import com.tngtech.archunit.core.domain.JavaClass;
 import com.tngtech.archunit.core.domain.JavaMethod;
@@ -36,6 +37,7 @@ import com.tngtech.archunit.lang.SimpleConditionEvent;
  *
  * @since 0.0.1
  */
+@ExcludeFromArchUnit
 public final class NotHavePrivateMethods extends ArchCondition<JavaClass> {
 
     public NotHavePrivateMethods() {

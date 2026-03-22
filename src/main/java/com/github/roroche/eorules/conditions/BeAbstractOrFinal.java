@@ -23,6 +23,7 @@
  */
 package com.github.roroche.eorules.conditions;
 
+import com.github.roroche.eorules.ExcludeFromArchUnit;
 import com.github.roroche.eorules.conditions.messages.ClassesAreAbstractOrFinalMessage;
 import com.tngtech.archunit.core.domain.JavaClass;
 import com.tngtech.archunit.core.domain.JavaModifier;
@@ -35,6 +36,7 @@ import com.tngtech.archunit.lang.SimpleConditionEvent;
  *
  * @since 0.0.1
  */
+@ExcludeFromArchUnit
 public final class BeAbstractOrFinal extends ArchCondition<JavaClass> {
 
     public BeAbstractOrFinal() {

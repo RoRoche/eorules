@@ -23,6 +23,7 @@
  */
 package com.github.roroche.eorules.conditions;
 
+import com.github.roroche.eorules.ExcludeFromArchUnit;
 import com.github.roroche.eorules.conditions.messages.NotHaveGettersOrSettersMessage;
 import com.github.roroche.eorules.conditions.predicates.IsGetter;
 import com.github.roroche.eorules.conditions.predicates.IsSetter;
@@ -37,6 +38,7 @@ import com.tngtech.archunit.lang.SimpleConditionEvent;
  *
  * @since 0.0.1
  */
+@ExcludeFromArchUnit
 public final class NotHaveGettersOrSetters extends ArchCondition<JavaClass> {
 
     public NotHaveGettersOrSetters() {
