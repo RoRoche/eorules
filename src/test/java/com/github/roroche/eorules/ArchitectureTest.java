@@ -56,4 +56,9 @@ final class ArchitectureTest {
     void checksClassesAreAbstractOrFinal() {
         new ClassesAreAbstractOrFinalRule().check(this.classes);
     }
+
+    @Test
+    void checksClassesDoNotHaveGettersOrSetters() {
+        new ClassesShouldNotHaveGettersOrSettersRule().check(this.classes);
+    }
 }
