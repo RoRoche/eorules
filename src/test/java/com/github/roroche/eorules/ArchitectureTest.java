@@ -53,13 +53,13 @@ final class ArchitectureTest {
     }
 
     @Test
-    void checksClassesDoNotHaveGettersOrSetters() {
-        new ClassesShouldNotHaveGettersOrSettersRule().check(this.classes);
+    void checksThereAreNoStaticMethods() {
+        new ClassesShouldHaveNoStaticMethodsRule().check(this.classes);
     }
 
     @Test
-    void checksThereAreNoStaticMethods() {
-        new ClassesShouldHaveNoStaticMethodsRule().check(this.classes);
+    void checksClassesDoNotHaveGettersOrSetters() {
+        new ClassesShouldNotHaveGettersOrSettersRule().check(this.classes);
     }
 
     @Test
@@ -68,12 +68,12 @@ final class ArchitectureTest {
     }
 
     @Test
-    void checksPublicMethodsAreDeclaredInInterfaces() {
-        new PublicMethodsDeclaredInInterfacesRule().check(this.classes);
+    void checksFieldsAreFinal() {
+        new FieldsShouldBeFinalRule().check(this.classes);
     }
 
     @Test
-    void checksFieldsAreFinal() {
-        new FieldsShouldBeFinalRule().check(this.classes);
+    void checksPublicMethodsAreDeclaredInInterfaces() {
+        new PublicMethodsDeclaredInInterfacesRule().check(this.classes);
     }
 }
