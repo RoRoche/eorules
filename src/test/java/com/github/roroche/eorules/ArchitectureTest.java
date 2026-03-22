@@ -32,11 +32,11 @@ import org.junit.jupiter.api.Test;
  * Test class for the architecture of the library.
  *
  * @since 0.0.1
- * @todo #1:25m/DEV Add rule for classes to not have setter or getter
- * @todo #1:25m/DEV Add rule for classes to not have static methods
- * @todo #1:25m/DEV Add rule for classes to not have private methods
- * @todo #1:25m/DEV Add rule for fields to be final
- * @todo #1:25m/DEV Add rule for classes to have public methods declared in an interface
+ * @todo #8:25m/DEV Add rule for classes to not have setter or getter
+ * @todo #8:25m/DEV Add rule for classes to not have static methods
+ * @todo #8:25m/DEV Add rule for classes to not have private methods
+ * @todo #8:25m/DEV Add rule for fields to be final
+ * @todo #8:25m/DEV Add rule for classes to have public methods declared in an interface
  */
 @SuppressWarnings({
     "allpublic",
