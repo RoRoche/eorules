@@ -1,5 +1,5 @@
 {
-    "name": "javalib",
+    "name": "eorules",
     "private": true,
     "description": "Elegant Objects library to deal with Java Properties",
     "scripts": {
@@ -7,16 +7,16 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/RoRoche/javalib.git"
+        "url": "git+https://github.com/RoRoche/eorules.git"
     },
     "keywords": [],
     "author": "",
     "license": "MIT",
     "type": "commonjs",
     "bugs": {
-        "url": "https://github.com/RoRoche/javalib/issues"
+        "url": "https://github.com/RoRoche/eorules/issues"
     },
-    "homepage": "https://github.com/RoRoche/javalib#readme",
+    "homepage": "https://github.com/RoRoche/eorules#readme",
     "devDependencies": {
         "@commitlint/cli": "^20.5.0",
         "commitlint-config-gitmoji": "^2.3.1",

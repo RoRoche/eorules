@@ -2,7 +2,7 @@
 docker:
   image: yegor256/java
 assets:
-  settings.xml: roroche/home#assets/javalib/settings.xml
+  settings.xml: roroche/home#assets/eorules/settings.xml
   pubring.gpg: roroche/home#assets/pubring.gpg
   secring.gpg: roroche/home#assets/secring.gpg
 architect: RoRoche
