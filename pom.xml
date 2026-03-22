@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.github.roroche</groupId>
   <artifactId>eorules</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.1</version>
   <packaging>jar</packaging>
   <name>eorules</name>
   <description>Set of custom ArchUnit rules to ensure Elegant Objects principles respect</description>
