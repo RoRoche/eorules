@@ -53,7 +53,7 @@ final class ClassesShouldNotHavePrivateMethodsRuleTest {
     @Test
     void isNotOk() {
         MatcherAssert.assertThat(
-            "Classes with getters or setters violate the rule with message",
+            "Classes with private method violate the rule with message",
             new ClassesShouldNotHavePrivateMethodsRule().evaluate(
                 new ClassFileImporter()
                     .importPackages("com.github.roroche.eorules.examples.invalid")

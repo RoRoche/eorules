@@ -53,7 +53,7 @@ final class FieldsShouldBeFinalRuleTest {
     @Test
     void isNotOk() {
         MatcherAssert.assertThat(
-            "Classes that is not abstract nor final should violate the rule with message",
+            "Classes with non-final fields violate the rule with message",
             new FieldsShouldBeFinalRule().evaluate(
                 new ClassFileImporter()
                     .importPackages("com.github.roroche.eorules.examples.invalid")
