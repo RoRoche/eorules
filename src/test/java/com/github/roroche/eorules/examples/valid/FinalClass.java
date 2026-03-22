@@ -28,7 +28,7 @@ package com.github.roroche.eorules.examples.valid;
  *
  * @since 0.0.1
  */
-public final class FinalClass {
+public final class FinalClass implements Iface {
 
     /**
      * A final field, to make the class final.
