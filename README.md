@@ -1,8 +1,8 @@
 # eorules
 
-Lightweight, immutable and composable configuration library for Java.
+Set of custom ArchUnit rules to ensure [Elegant Objects](https://www.elegantobjects.org/) principles respect.
 
-`eorules` helps you read and compose configuration in a clean and testable way.
+`eorules` helps you design and craft code that respect strong object-oriented programming paradigm.
 
 [![Build Status](https://github.com/RoRoche/eorules/actions/workflows/build-java.yml/badge.svg)](https://github.com/RoRoche/eorules/actions)
 [![YAML Lint](https://github.com/RoRoche/eorules/actions/workflows/yamllint.yml/badge.svg)](https://github.com/RoRoche/eorules/actions/workflows/yamllint.yml)
@@ -40,7 +40,12 @@ Lightweight, immutable and composable configuration library for Java.
 
 ## ✨ Features
 
-- To describe
+- Check that [classes are abstract or final](https://www.yegor256.com/2014/11/20/seven-virtues-of-good-object.html#7-his-class-is-either-final-or-abstract)
+- Check that [classes have no static methods](https://www.yegor256.com/2017/02/07/private-method-is-new-class.html)
+- Check that [classes have no getters and no setters](https://www.yegor256.com/2014/09/16/getters-and-setters-are-evil.html)
+- Check that [classes have no private methods](https://www.yegor256.com/2017/02/07/private-method-is-new-class.html)
+- Check that [fields are final](https://www.yegor256.com/2014/11/20/seven-virtues-of-good-object.html#4-he-is-immutable)
+- Check that [public methods are defined in interface](https://www.yegor256.com/2014/11/20/seven-virtues-of-good-object.html#2-he-works-by-contracts)
 
 ## 📥 Installation
 
@@ -56,7 +61,46 @@ Add the dependency to your project:
 
 ## 🚀 Usage
 
-- To describe
+```java
+class ArchitectureTest {
+
+    private final JavaClasses classes = new ClassFileImporter()
+        .withImportOption(ImportOption.Predefined.DO_NOT_INCLUDE_TESTS)
+        .importPackages("com.example");
+
+    @Test
+    void checksClassesAreAbstractOrFinal() {
+        new ClassesAreAbstractOrFinalRule().check(this.classes);
+    }
+
+    @Test
+    void checksThereAreNoStaticMethods() {
+        new ClassesShouldHaveNoStaticMethodsRule().check(this.classes);
+    }
+
+    @Test
+    void checksClassesDoNotHaveGettersOrSetters() {
+        new ClassesShouldNotHaveGettersOrSettersRule().check(this.classes);
+    }
+
+    @Test
+    void checksClassesDoNotHavePrivateMethods() {
+        new ClassesShouldNotHavePrivateMethodsRule().check(this.classes);
+    }
+
+    @Test
+    void checksFieldsAreFinal() {
+        new FieldsShouldBeFinalRule().check(this.classes);
+    }
+
+    @Test
+    void checksPublicMethodsAreDeclaredInInterfaces() {
+        new PublicMethodsDeclaredInInterfacesRule().check(this.classes);
+    }
+}
+```
+
+To bypass the checks, you can annotate your class with `@ExcludeFromArchUnit`.
 
 ## 🤝 Contributing
 
