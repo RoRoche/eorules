@@ -2,12 +2,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.github.roroche</groupId>
-  <artifactId>javalib</artifactId>
+  <artifactId>eorules</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
-  <name>javalib</name>
+  <name>eorules</name>
   <description>Elegant Objects library to deal with Java Properties</description>
-  <url>https://github.com/RoRoche/javalib</url>
+  <url>https://github.com/RoRoche/eorules</url>
   <licenses>
     <license>
       <name>MIT License</name>
@@ -24,9 +24,9 @@
   </developers>
 
   <scm>
-    <connection>scm:git:git://github.com/RoRoche/javalib.git</connection>
-    <developerConnection>scm:git:ssh://github.com:RoRoche/javalib.git</developerConnection>
-    <url>https://github.com/RoRoche/javalib</url>
+    <connection>scm:git:git://github.com/RoRoche/eorules.git</connection>
+    <developerConnection>scm:git:ssh://github.com:RoRoche/eorules.git</developerConnection>
+    <url>https://github.com/RoRoche/eorules</url>
   </scm>
   <properties>
     <java.version>17</java.version>
