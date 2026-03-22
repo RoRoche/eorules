@@ -68,4 +68,9 @@ final class ArchitectureTest {
     void checksClassesDoNotHavePrivateMethods() {
         new ClassesShouldNotHavePrivateMethodsRule().check(this.classes);
     }
+
+    @Test
+    void checksPublicMethodsAreDeclaredInInterfaces() {
+        new PublicMethodsDeclaredInInterfacesRule().check(this.classes);
+    }
 }

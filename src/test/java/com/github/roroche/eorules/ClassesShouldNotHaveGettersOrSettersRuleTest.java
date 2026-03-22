@@ -53,7 +53,7 @@ final class ClassesShouldNotHaveGettersOrSettersRuleTest {
     @Test
     void isNotOk() {
         MatcherAssert.assertThat(
-            "Classes that have getters or setters should violate the rule with message",
+            "Classes with getters or setters violate the rule with message",
             new ClassesShouldNotHaveGettersOrSettersRule().evaluate(
                 new ClassFileImporter()
                     .importPackages("com.github.roroche.eorules.examples.invalid")

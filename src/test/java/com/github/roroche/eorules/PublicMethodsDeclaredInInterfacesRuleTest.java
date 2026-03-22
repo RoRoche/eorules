@@ -32,17 +32,17 @@ import org.hamcrest.core.IsNot;
 import org.junit.jupiter.api.Test;
 
 /**
- * Test class for {@link ClassesShouldHaveNoStaticMethodsRule}.
+ * Test class for {@link PublicMethodsDeclaredInInterfacesRule}.
  *
  * @since 0.0.1
  */
 @SuppressWarnings("allpublic")
-final class ClassesShouldHaveNoStaticMethodsRuleTest {
+final class PublicMethodsDeclaredInInterfacesRuleTest {
     @Test
     void isOk() {
         MatcherAssert.assertThat(
             "Valid classes does not violate the rule",
-            new ClassesShouldHaveNoStaticMethodsRule().evaluate(
+            new PublicMethodsDeclaredInInterfacesRule().evaluate(
                 new ClassFileImporter()
                     .importPackages("com.github.roroche.eorules.examples.valid")
             ),
@@ -53,14 +53,17 @@ final class ClassesShouldHaveNoStaticMethodsRuleTest {
     @Test
     void isNotOk() {
         MatcherAssert.assertThat(
-            "Classes with static method violate the rule with message",
-            new ClassesShouldHaveNoStaticMethodsRule().evaluate(
+            "Classes with public method not declared in interface violate the rule with message",
+            new PublicMethodsDeclaredInInterfacesRule().evaluate(
                 new ClassFileImporter()
                     .importPackages("com.github.roroche.eorules.examples.invalid")
             ),
             new AllOf<>(
                 new HasViolations(),
-                new HasViolationContaining("getStaticDescription")
+                new HasViolationContaining("getDescription"),
+                new HasViolationContaining("getStaticDescription"),
+                new HasViolationContaining("isInvalid"),
+                new HasViolationContaining("setName")
             )
         );
     }

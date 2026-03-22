@@ -24,14 +24,14 @@
 package com.github.roroche.eorules.examples.valid;
 
 /**
- * This class is abstract, so it should be valid.
+ * An interface with a method.
  *
  * @since 0.0.1
  */
-public abstract class AbstractClass {
+@FunctionalInterface
+public interface Iface {
     /**
      * An abstract method, to make the class abstract.
      */
-    @SuppressWarnings("allpublic")
-    protected abstract void theMethod();
+    void theMethod();
 }

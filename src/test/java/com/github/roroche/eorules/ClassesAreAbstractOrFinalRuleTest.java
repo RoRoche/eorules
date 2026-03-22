@@ -54,7 +54,7 @@ final class ClassesAreAbstractOrFinalRuleTest {
     @Test
     void isNotOk() {
         MatcherAssert.assertThat(
-            "Classes that is not abstract nor final should violate the rule with message",
+            "Classes not abstract nor final violate the rule with message",
             new ClassesAreAbstractOrFinalRule().evaluate(
                 new ClassFileImporter()
                     .importPackages("com.github.roroche.eorules.examples.invalid")
