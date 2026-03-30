@@ -49,7 +49,7 @@
     <nexus.staging.maven.plugin.version>1.7.0</nexus.staging.maven.plugin.version>
     <maven.gpg.plugin.version>3.2.8</maven.gpg.plugin.version>
     <central-publishing-maven-plugin.version>0.10.0</central-publishing-maven-plugin.version>
-    <cactoos.version>0.57.0</cactoos.version>
+    <cactoos.version>0.59.0</cactoos.version>
     <archnit.version>1.4.1</archnit.version>
   </properties>
   <dependencies>
