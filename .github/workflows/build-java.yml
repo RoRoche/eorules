@@ -49,7 +49,7 @@ jobs:
           fail_ci_if_error: true
           verbose: true
 
-      - name: You should not pass
+      - name: You shall not pass
         run: mvn youshallnotpass:youshallnotpass
 
       - name: jtcop
