@@ -18,7 +18,8 @@ We love contributions from the community. By participating, you agree to follow 
 To contribute, you need the following installed locally:
 
 1. Java & Maven
-   Ensure you have Java 21+ and Maven installed.
+
+Ensure you have Java 21+ and Maven installed.
 
 ```bash
 java -version
@@ -26,14 +27,16 @@ mvn -version
 ```
 
 2. Node.js & npm
-   Required for build tooling:
+
+Required for build tooling:
 
 ```bash
 npm install
 ```
 
 3. Python & yamllint
-   For YAML linting:
+
+For YAML linting:
 
 ```bash
 pip install yamllint
