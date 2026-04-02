@@ -18,7 +18,7 @@ We love contributions from the community. By participating, you agree to follow 
 To contribute, you need the following installed locally:
 
 1. Java & Maven
-   Ensure you have Java 17+ and Maven installed.
+   Ensure you have Java 21+ and Maven installed.
 
 ```bash
 java -version
@@ -104,7 +104,7 @@ When reporting a bug or suggesting a feature, please:
 
 ## Puzzle-Driven Development (PDD)
 
-We follow the Puzzle-Driven Development (PDD) approach as described by Yegor Bugayenko and the CQFN community.
+We follow the Puzzle-Driven Development (PDD) approach as described by Yegor Bugayenko.
 
 - 📖 [Concept article](https://www.yegor256.com/2010/03/04/pdd.html)
 - 📐 [Formatting rules](https://github.com/cqfn/pdd#how-to-format)
