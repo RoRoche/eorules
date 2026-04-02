@@ -79,13 +79,13 @@ We follow Gitmoji for commit messages. Example:
 **Format:**
 
 ```bash
-<emoji> Short description (ref #ISSUE_NUMBER)
+<emoji> Short description. See #ISSUE_NUMBER
 ```
 
 Example:
 
 ```bash
-✨ Add support for custom serializers (ref #42)
+✨ Add support for custom serializers. See #42
 ```
 
 ## Code Quality
