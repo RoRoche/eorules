@@ -2,6 +2,7 @@
 default: help
 
 lint: ## Check code formatting
+	@npx validate-branch-name
 	@mvn sortpom:verify
 	@mvn license:check
 	@mvn qulice:check
