@@ -122,10 +122,9 @@ Valid branch names:
 
 ```bash
 main
-feature/add-login-page
 feature/42/add-login-page
 fix/128/null-pointer-error
-hotfix/urgent-crash-fix
+hotfix/12/urgent-crash-fix
 doc/77/improve-installation-guide
 ```
 
@@ -134,7 +133,8 @@ doc/77/improve-installation-guide
 ```bash
 Feature/add-login       # uppercase not allowed
 feature/add_login       # underscores not allowed
-feature//add-login      # missing description
+feature/add-login       # missing issue number
+feature/12              # missing description
 feature/abc/add-login   # issue number must be numeric
 bugfix/123/fix-issue    # invalid type (use "fix")
 ```
