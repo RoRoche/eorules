@@ -7,11 +7,12 @@ We love contributions from the community. By participating, you agree to follow 
 
 1. Getting Started
 2. Development Workflow
-3. Commit Guidelines
-4. Code Quality
-5. Reporting Issues
-6. Puzzle-driven development
-7. References
+3. Branch Naming Convention
+4. Commit Guidelines
+5. Code Quality
+6. Reporting Issues
+7. Puzzle-driven development
+8. References
 
 ## Getting Started
 
@@ -146,7 +147,7 @@ bugfix/123/fix-issue    # invalid type (use "fix")
 
 ## Commit Guidelines
 
-We follow Gitmoji for commit messages. Example:
+We follow [Gitmoji](https://gitmoji.dev/) for commit messages. Example:
 
 * ✨ `:sparkles:` for new features
 * 🐛 `:bug:` for bug fixes
