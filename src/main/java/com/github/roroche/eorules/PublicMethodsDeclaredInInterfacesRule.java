@@ -29,7 +29,6 @@ import com.tngtech.archunit.lang.syntax.ArchRuleDefinition;
 /**
  * {@link com.tngtech.archunit.lang.ArchRule} to assert that classes declare methods
  * that are defined in interface.
- *
  * @since 0.0.1
  */
 public final class PublicMethodsDeclaredInInterfacesRule extends ArchRuleEnvelope {
@@ -40,8 +39,7 @@ public final class PublicMethodsDeclaredInInterfacesRule extends ArchRuleEnvelop
                 .that().areNotAnnotatedWith(ExcludeFromArchUnit.class)
                 .and()
                 .areNotInterfaces()
-                .should(new HaveOnlyPublicMethodsDeclaredInInterfaces())
-                .because(
+                .should(new HaveOnlyPublicMethodsDeclaredInInterfaces()).because(
                     "https://www.yegor256.com/2014/11/20/seven-virtues-of-good-object.html#2-he-works-by-contracts"
                 )
         );

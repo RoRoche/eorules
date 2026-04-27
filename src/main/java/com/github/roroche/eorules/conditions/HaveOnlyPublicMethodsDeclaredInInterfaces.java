@@ -39,7 +39,6 @@ import com.tngtech.archunit.lang.SimpleConditionEvent;
 /**
  * {@link ArchCondition} to assert a {@link JavaClass}
  * has public methods only declared in interfaces.
- *
  * @since 0.0.1
  */
 @ExcludeFromArchUnit
@@ -52,33 +51,27 @@ public final class HaveOnlyPublicMethodsDeclaredInInterfaces extends ArchConditi
     @Override
     public void check(final JavaClass clazz, final ConditionEvents events) {
         if (!clazz.isInterface()) {
-            clazz
-                .getMethods()
-                .stream()
-                .filter(
-                    (final JavaMethod method) ->
-                        method.getModifiers().contains(JavaModifier.PUBLIC)
-                )
-                .filter(
-                    (final JavaMethod method) ->
-                        !new IsObjectMethod(method).value() && !new IsMainMethod(method).value()
-                )
-                .filter(
-                    (final JavaMethod method) ->
-                        !new IsDeclaredInInterfaces(method, new InterfaceMethods(clazz)).value()
-                )
-                .forEach(
-                    (final JavaMethod method) ->
-                        events.add(
-                            SimpleConditionEvent.violated(
-                                method,
-                                new PublicMethodsDeclaredInInterfacesMessage(
-                                    clazz,
-                                    method
-                                ).toString()
-                            )
+            clazz.getMethods().stream().filter(
+                (final JavaMethod method) ->
+                    method.getModifiers().contains(JavaModifier.PUBLIC)
+            ).filter(
+                (final JavaMethod method) ->
+                    !new IsObjectMethod(method).value() && !new IsMainMethod(method).value()
+            ).filter(
+                (final JavaMethod method) ->
+                    !new IsDeclaredInInterfaces(method, new InterfaceMethods(clazz)).value()
+            ).forEach(
+                (final JavaMethod method) ->
+                    events.add(
+                        SimpleConditionEvent.violated(
+                            method,
+                            new PublicMethodsDeclaredInInterfacesMessage(
+                                clazz,
+                                method
+                            ).toString()
                         )
-                );
+                    )
+            );
         }
     }
 }

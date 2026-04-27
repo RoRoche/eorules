@@ -26,15 +26,14 @@ package com.github.roroche.eorules.examples.invalid;
 /**
  * Class with private method, which is not allowed by
  * {@link com.github.roroche.eorules.ClassesShouldNotHavePrivateMethodsRule}.
- *
  * @since 0.0.1
  */
 @SuppressWarnings("allpublic")
 public final class ClassWithPrivateMethod {
+
     /**
      * This method is private, which is not allowed by
      * {@link com.github.roroche.eorules.ClassesShouldNotHavePrivateMethodsRule}.
-     * @checkstyle NonStaticMethodCheck (5 lines)
      */
     @SuppressWarnings("PMD.UnusedPrivateMethod")
     private void unusedPrivateMethod() {

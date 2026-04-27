@@ -28,7 +28,6 @@ import com.tngtech.archunit.lang.syntax.ArchRuleDefinition;
 
 /**
  * {@link com.tngtech.archunit.lang.ArchRule} to assert that classes are abstract of final.
- *
  * @since 0.0.1
  */
 public final class ClassesAreAbstractOrFinalRule extends ArchRuleEnvelope {
@@ -42,8 +41,7 @@ public final class ClassesAreAbstractOrFinalRule extends ArchRuleEnvelope {
                 .areNotInterfaces()
                 .and()
                 .areNotEnums()
-                .should(new BeAbstractOrFinal())
-                .because(
+                .should(new BeAbstractOrFinal()).because(
                     "https://www.yegor256.com/2014/11/20/seven-virtues-of-good-object.html#7-his-class-is-either-final-or-abstract"
                 )
         );

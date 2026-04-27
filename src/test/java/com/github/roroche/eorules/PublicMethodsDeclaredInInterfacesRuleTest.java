@@ -33,11 +33,11 @@ import org.junit.jupiter.api.Test;
 
 /**
  * Test class for {@link PublicMethodsDeclaredInInterfacesRule}.
- *
  * @since 0.0.1
  */
 @SuppressWarnings("allpublic")
 final class PublicMethodsDeclaredInInterfacesRuleTest {
+
     @Test
     void isOk() {
         MatcherAssert.assertThat(

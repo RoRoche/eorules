@@ -28,15 +28,19 @@ import org.cactoos.Scalar;
 
 /**
  * Check if a method start with "is" and is a getter.
- *
  * @since 0.0.1
  */
 public final class IsIs implements Scalar<Boolean> {
+
     /**
      * The {@link JavaMethod} to test.
      */
     private final JavaMethod method;
 
+    /**
+     * Ctor.
+     * @param method The {@link JavaMethod} to test
+     */
     public IsIs(final JavaMethod method) {
         this.method = method;
     }

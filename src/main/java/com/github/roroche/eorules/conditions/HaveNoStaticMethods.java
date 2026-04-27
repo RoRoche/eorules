@@ -36,7 +36,6 @@ import com.tngtech.archunit.lang.SimpleConditionEvent;
 
 /**
  * {@link ArchCondition} to assert a {@link JavaClass} has no static methods.
- *
  * @since 0.0.1
  */
 @ExcludeFromArchUnit
@@ -48,25 +47,21 @@ public final class HaveNoStaticMethods extends ArchCondition<JavaClass> {
 
     @Override
     public void check(final JavaClass clazz, final ConditionEvents events) {
-        clazz
-            .getMethods()
-            .stream()
-            .filter(
-                (final JavaMethod method) ->
-                    method.getModifiers().contains(JavaModifier.STATIC)
-                        &&
-                        !new IsMainMethod(method).value()
-                        &&
-                        !new IsAllowedStaticMethod(method).value()
-            )
-            .forEach(
-                (final JavaMethod method) ->
-                    events.add(
-                        SimpleConditionEvent.violated(
-                            method,
-                            new NoStaticMethodsMessage(clazz, method).toString()
-                        )
+        clazz.getMethods().stream().filter(
+            (final JavaMethod method) ->
+                method.getModifiers().contains(JavaModifier.STATIC)
+                    &&
+                    !new IsMainMethod(method).value()
+                    &&
+                    !new IsAllowedStaticMethod(method).value()
+        ).forEach(
+            (final JavaMethod method) ->
+                events.add(
+                    SimpleConditionEvent.violated(
+                        method,
+                        new NoStaticMethodsMessage(clazz, method).toString()
                     )
-            );
+                )
+        );
     }
 }

@@ -25,7 +25,6 @@ package com.github.roroche.eorules.examples.invalid;
 
 /**
  * This class is not abstract nor final, so it should be invalid.
- *
  * @since 0.0.1
  */
 @SuppressWarnings("allfinal")

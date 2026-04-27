@@ -27,7 +27,6 @@ import com.tngtech.archunit.lang.syntax.ArchRuleDefinition;
 
 /**
  * {@link com.tngtech.archunit.lang.ArchRule} to assert that fields are final.
- *
  * @since 0.0.1
  */
 public final class FieldsShouldBeFinalRule extends ArchRuleEnvelope {
@@ -36,8 +35,7 @@ public final class FieldsShouldBeFinalRule extends ArchRuleEnvelope {
         super(
             ArchRuleDefinition.fields()
                 .should()
-                .beFinal()
-                .because(
+                .beFinal().because(
                     "https://www.yegor256.com/2014/11/20/seven-virtues-of-good-object.html#4-he-is-immutable"
                 )
         );

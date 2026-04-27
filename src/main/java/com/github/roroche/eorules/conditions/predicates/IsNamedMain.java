@@ -28,10 +28,10 @@ import org.cactoos.Scalar;
 
 /**
  * Check if the {@link JavaMethod} is named "main".
- *
  * @since 0.0.1
  */
 public final class IsNamedMain implements Scalar<Boolean> {
+
     /**
      * The {@link JavaMethod} to test.
      */
@@ -39,8 +39,7 @@ public final class IsNamedMain implements Scalar<Boolean> {
 
     /**
      * Ctor.
-     *
-     * @param method The {@link JavaMethod} to test.
+     * @param method The {@link JavaMethod} to test
      */
     public IsNamedMain(final JavaMethod method) {
         this.method = method;

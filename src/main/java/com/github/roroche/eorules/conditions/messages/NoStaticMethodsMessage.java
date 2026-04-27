@@ -30,11 +30,15 @@ import org.cactoos.text.TextEnvelope;
 
 /**
  * Error message for {@link com.tngtech.archunit.lang.ArchRule} when classes have static methods.
- *
  * @since 0.0.1
  */
 public final class NoStaticMethodsMessage extends TextEnvelope {
 
+    /**
+     * Ctor.
+     * @param clazz The class that has the static method
+     * @param method The static method
+     */
     public NoStaticMethodsMessage(final JavaClass clazz, final JavaMethod method) {
         super(
             new FormattedText(

@@ -29,7 +29,6 @@ import org.cactoos.Scalar;
 
 /**
  * Check if a method is declared in an interface.
- *
  * @since 0.0.1
  */
 public final class IsDeclaredInInterfaces implements Scalar<Boolean> {
@@ -44,6 +43,11 @@ public final class IsDeclaredInInterfaces implements Scalar<Boolean> {
      */
     private final Set<JavaMethod> methods;
 
+    /**
+     * Ctor.
+     * @param method The implemented method
+     * @param methods The methods declared in interfaces
+     */
     public IsDeclaredInInterfaces(
         final JavaMethod method,
         final Set<JavaMethod> methods

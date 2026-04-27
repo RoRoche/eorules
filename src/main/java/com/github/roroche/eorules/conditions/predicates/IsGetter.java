@@ -30,7 +30,6 @@ import org.cactoos.scalar.Unchecked;
 
 /**
  * Check if a method is a getter.
- *
  * @since 0.0.1
  */
 public final class IsGetter implements Scalar<Boolean> {
@@ -40,6 +39,10 @@ public final class IsGetter implements Scalar<Boolean> {
      */
     private final JavaMethod method;
 
+    /**
+     * Ctor.
+     * @param method The {@link JavaMethod} to test
+     */
     public IsGetter(final JavaMethod method) {
         this.method = method;
     }

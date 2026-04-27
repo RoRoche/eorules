@@ -29,7 +29,6 @@ import com.tngtech.archunit.lang.EvaluationResult;
 
 /**
  * Wrapper for {@link ArchRule}.
- *
  * @since 0.0.1
  */
 @ExcludeFromArchUnit
@@ -59,7 +58,6 @@ public abstract class ArchRuleEnvelope implements ArchRule {
         return this.delegate.allowEmptyShould(allow);
     }
 
-    @SuppressWarnings("PMD.ShortMethodName")
     @Override
     public final ArchRule as(final String description) {
         return this.delegate.as(description);

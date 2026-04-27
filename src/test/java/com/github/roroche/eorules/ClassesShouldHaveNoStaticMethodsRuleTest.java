@@ -33,11 +33,11 @@ import org.junit.jupiter.api.Test;
 
 /**
  * Test class for {@link ClassesShouldHaveNoStaticMethodsRule}.
- *
  * @since 0.0.1
  */
 @SuppressWarnings("allpublic")
 final class ClassesShouldHaveNoStaticMethodsRuleTest {
+
     @Test
     void isOk() {
         MatcherAssert.assertThat(

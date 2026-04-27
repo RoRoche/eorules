@@ -35,7 +35,6 @@ import com.tngtech.archunit.lang.SimpleConditionEvent;
 
 /**
  * {@link ArchCondition} to assert a {@link JavaClass} has no getters or setters.
- *
  * @since 0.0.1
  */
 @ExcludeFromArchUnit
@@ -47,21 +46,17 @@ public final class NotHaveGettersOrSetters extends ArchCondition<JavaClass> {
 
     @Override
     public void check(final JavaClass clazz, final ConditionEvents events) {
-        clazz
-            .getMethods()
-            .stream()
-            .filter(
-                (final JavaMethod method) ->
-                    new IsGetter(method).value() || new IsSetter(method).value()
-            )
-            .forEach(
-                (final JavaMethod method) ->
-                    events.add(
-                        SimpleConditionEvent.violated(
-                            method,
-                            new NotHaveGettersOrSettersMessage(clazz, method).toString()
-                        )
+        clazz.getMethods().stream().filter(
+            (final JavaMethod method) ->
+                new IsGetter(method).value() || new IsSetter(method).value()
+        ).forEach(
+            (final JavaMethod method) ->
+                events.add(
+                    SimpleConditionEvent.violated(
+                        method,
+                        new NotHaveGettersOrSettersMessage(clazz, method).toString()
                     )
-            );
+                )
+        );
     }
 }

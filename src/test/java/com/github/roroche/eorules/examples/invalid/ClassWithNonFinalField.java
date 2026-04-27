@@ -25,7 +25,6 @@ package com.github.roroche.eorules.examples.invalid;
 
 /**
  * Class with non final field.
- *
  * @since 0.0.1
  */
 @SuppressWarnings("allfinal")

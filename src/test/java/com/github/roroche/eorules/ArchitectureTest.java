@@ -30,7 +30,6 @@ import org.junit.jupiter.api.Test;
 
 /**
  * Test class for the architecture of the library.
- *
  * @since 0.0.1
  */
 @SuppressWarnings({
@@ -43,37 +42,37 @@ final class ArchitectureTest {
     /**
      * The classes to be checked.
      */
-    private final JavaClasses classes = new ClassFileImporter()
+    private static final JavaClasses CLASSES = new ClassFileImporter()
         .withImportOption(ImportOption.Predefined.DO_NOT_INCLUDE_TESTS)
         .importPackages("com.github.roroche.eorules");
 
     @Test
     void checksClassesAreAbstractOrFinal() {
-        new ClassesAreAbstractOrFinalRule().check(this.classes);
+        new ClassesAreAbstractOrFinalRule().check(ArchitectureTest.CLASSES);
     }
 
     @Test
     void checksThereAreNoStaticMethods() {
-        new ClassesShouldHaveNoStaticMethodsRule().check(this.classes);
+        new ClassesShouldHaveNoStaticMethodsRule().check(ArchitectureTest.CLASSES);
     }
 
     @Test
     void checksClassesDoNotHaveGettersOrSetters() {
-        new ClassesShouldNotHaveGettersOrSettersRule().check(this.classes);
+        new ClassesShouldNotHaveGettersOrSettersRule().check(ArchitectureTest.CLASSES);
     }
 
     @Test
     void checksClassesDoNotHavePrivateMethods() {
-        new ClassesShouldNotHavePrivateMethodsRule().check(this.classes);
+        new ClassesShouldNotHavePrivateMethodsRule().check(ArchitectureTest.CLASSES);
     }
 
     @Test
     void checksFieldsAreFinal() {
-        new FieldsShouldBeFinalRule().check(this.classes);
+        new FieldsShouldBeFinalRule().check(ArchitectureTest.CLASSES);
     }
 
     @Test
     void checksPublicMethodsAreDeclaredInInterfaces() {
-        new PublicMethodsDeclaredInInterfacesRule().check(this.classes);
+        new PublicMethodsDeclaredInInterfacesRule().check(ArchitectureTest.CLASSES);
     }
 }
