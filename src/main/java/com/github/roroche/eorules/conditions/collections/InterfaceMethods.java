@@ -30,11 +30,14 @@ import org.cactoos.set.SetEnvelope;
 
 /**
  * Builds a {@link java.util.Set} of all interface methods.
- *
  * @since 0.0.1
  */
 public final class InterfaceMethods extends SetEnvelope<JavaMethod> {
 
+    /**
+     * Ctor.
+     * @param clazz The class to retrieve the methods from
+     */
     public InterfaceMethods(final JavaClass clazz) {
         super(
             new RecursiveInterfaces(clazz)

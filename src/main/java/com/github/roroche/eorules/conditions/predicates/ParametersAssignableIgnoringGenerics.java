@@ -30,7 +30,6 @@ import org.cactoos.Scalar;
 /**
  * Compare parameters ignoring generics, and check that
  * each implementation type is the same or a subtype of the interface type.
- *
  * @since 0.0.1
  */
 public final class ParametersAssignableIgnoringGenerics implements Scalar<Boolean> {

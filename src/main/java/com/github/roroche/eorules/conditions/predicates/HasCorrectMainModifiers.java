@@ -29,7 +29,6 @@ import org.cactoos.Scalar;
 
 /**
  * Check if the {@link JavaMethod} has the correct modifiers for a main method.
- *
  * @since 0.0.1
  */
 public final class HasCorrectMainModifiers implements Scalar<Boolean> {
@@ -41,8 +40,7 @@ public final class HasCorrectMainModifiers implements Scalar<Boolean> {
 
     /**
      * Ctor.
-     *
-     * @param method The {@link JavaMethod} to test.
+     * @param method The {@link JavaMethod} to test
      */
     public HasCorrectMainModifiers(final JavaMethod method) {
         this.method = method;

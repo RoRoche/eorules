@@ -28,7 +28,6 @@ import org.cactoos.Scalar;
 
 /**
  * Compare the number of parameters.
- *
  * @since 0.0.1
  */
 public final class HaveSameParameterCount implements Scalar<Boolean> {
@@ -43,6 +42,11 @@ public final class HaveSameParameterCount implements Scalar<Boolean> {
      */
     private final JavaMethod second;
 
+    /**
+     * Ctor.
+     * @param first The first method
+     * @param second The second method
+     */
     public HaveSameParameterCount(final JavaMethod first, final JavaMethod second) {
         this.first = first;
         this.second = second;

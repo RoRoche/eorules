@@ -31,11 +31,15 @@ import org.cactoos.text.TextEnvelope;
 /**
  * Error message for {@link com.tngtech.archunit.lang.ArchRule} when classes
  * have public methods that are not declared in a interface.
- *
  * @since 0.0.1
  */
 public final class PublicMethodsDeclaredInInterfacesMessage extends TextEnvelope {
 
+    /**
+     * Ctor.
+     * @param clazz The class that has the public method
+     * @param method The public method that is not declared in an interface
+     */
     public PublicMethodsDeclaredInInterfacesMessage(
         final JavaClass clazz,
         final JavaMethod method

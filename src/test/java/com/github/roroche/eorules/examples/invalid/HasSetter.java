@@ -25,7 +25,6 @@ package com.github.roroche.eorules.examples.invalid;
 
 /**
  * This class has a setter, so it should be invalid.
- *
  * @since 0.0.1
  */
 @SuppressWarnings({"allfinal", "setterfree"})
@@ -38,8 +37,7 @@ public final class HasSetter {
 
     /**
      * Set the name of the object.
-     *
-     * @param value The name to set.
+     * @param value The name to set
      */
     public void setName(final String value) {
         this.name = value;

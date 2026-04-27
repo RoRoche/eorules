@@ -30,11 +30,15 @@ import org.cactoos.text.TextEnvelope;
 
 /**
  * Error message for {@link com.tngtech.archunit.lang.ArchRule} when classes have private methods.
- *
  * @since 0.0.1
  */
 public final class NotHavePrivateMethodsMessage extends TextEnvelope {
 
+    /**
+     * Ctor.
+     * @param clazz The class that has the private method
+     * @param method The private method
+     */
     public NotHavePrivateMethodsMessage(final JavaClass clazz, final JavaMethod method) {
         super(
             new FormattedText(

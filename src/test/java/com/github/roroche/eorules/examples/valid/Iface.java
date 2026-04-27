@@ -25,11 +25,11 @@ package com.github.roroche.eorules.examples.valid;
 
 /**
  * An interface with a method.
- *
  * @since 0.0.1
  */
 @FunctionalInterface
 public interface Iface {
+
     /**
      * An abstract method, to make the class abstract.
      */

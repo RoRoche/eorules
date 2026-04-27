@@ -27,10 +27,10 @@ import java.util.Objects;
 
 /**
  * Simple java object.
- *
  * @since 0.0.2
  */
 public final class Person {
+
     /**
      * The first name.
      */
@@ -48,10 +48,9 @@ public final class Person {
 
     /**
      * Primary ctor.
-     *
-     * @param firstname The first name.
-     * @param lastname The last name.
-     * @param age The age.
+     * @param firstname The first name
+     * @param lastname The last name
+     * @param age The age
      */
     public Person(final String firstname, final String lastname, final int age) {
         this.firstname = firstname;

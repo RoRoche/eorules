@@ -29,7 +29,6 @@ import org.hamcrest.TypeSafeMatcher;
 
 /**
  * Matcher for {@link EvaluationResult} with a violation containing a specific string.
- *
  * @since 0.0.1
  */
 public final class HasViolationContaining extends TypeSafeMatcher<EvaluationResult> {
@@ -41,7 +40,6 @@ public final class HasViolationContaining extends TypeSafeMatcher<EvaluationResu
 
     /**
      * Constructs a new matcher with the expected string.
-     *
      * @param expected The string that should be contained in the violation report
      */
     public HasViolationContaining(final String expected) {

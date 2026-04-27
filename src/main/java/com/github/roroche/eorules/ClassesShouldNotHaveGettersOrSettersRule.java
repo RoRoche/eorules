@@ -28,7 +28,6 @@ import com.tngtech.archunit.lang.syntax.ArchRuleDefinition;
 
 /**
  * {@link com.tngtech.archunit.lang.ArchRule} to assert that classes have no getters and setters.
- *
  * @since 0.0.1
  */
 public final class ClassesShouldNotHaveGettersOrSettersRule extends ArchRuleEnvelope {

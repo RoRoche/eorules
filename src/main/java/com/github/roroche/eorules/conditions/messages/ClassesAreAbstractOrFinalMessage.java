@@ -30,11 +30,16 @@ import org.cactoos.text.TextEnvelope;
 /**
  * Error message for {@link com.tngtech.archunit.lang.ArchRule} when classes
  * are not abstract or final.
- *
  * @since 0.0.1
  */
 public final class ClassesAreAbstractOrFinalMessage extends TextEnvelope {
 
+    /**
+     * Ctor.
+     * @param clazz The class that is not abstract or final
+     * @param abstraction Whether the class is abstract
+     * @param finalization Whether the class is final
+     */
     public ClassesAreAbstractOrFinalMessage(
         final JavaClass clazz,
         final boolean abstraction,

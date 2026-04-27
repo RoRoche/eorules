@@ -31,29 +31,27 @@ import org.cactoos.set.SetEnvelope;
 
 /**
  * Iterate to retrieve all the interfaces.
- *
  * @since 1.0.O
  */
 public final class RecursiveInterfaces extends SetEnvelope<JavaClass> {
 
+    /**
+     * Ctor.
+     * @param clazz The class to retrieve the interfaces from
+     */
     public RecursiveInterfaces(final JavaClass clazz) {
         super(
             Stream.concat(
-                clazz.getInterfaces()
-                    .stream()
-                    .map(JavaType::toErasure)
-                    .flatMap(
-                        (final JavaClass iface) -> Stream.concat(
-                            Stream.of(iface),
-                            new RecursiveInterfaces(iface).stream()
-                        )
-                    ),
-                clazz.getSuperclass()
-                    .map(JavaType::toErasure)
-                    .map(
-                        (final JavaClass superclass) ->
-                            new RecursiveInterfaces(superclass).stream()
-                    ).orElseGet(Stream::empty)
+                clazz.getInterfaces().stream().map(JavaType::toErasure).flatMap(
+                    (final JavaClass iface) -> Stream.concat(
+                        Stream.of(iface),
+                        new RecursiveInterfaces(iface).stream()
+                    )
+                ),
+                clazz.getSuperclass().map(JavaType::toErasure).map(
+                    (final JavaClass superclass) ->
+                        new RecursiveInterfaces(superclass).stream()
+                ).orElseGet(Stream::empty)
             ).collect(Collectors.toSet())
         );
     }

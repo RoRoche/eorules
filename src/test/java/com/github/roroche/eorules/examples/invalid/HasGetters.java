@@ -25,7 +25,6 @@ package com.github.roroche.eorules.examples.invalid;
 
 /**
  * Class with getters and setters.
- *
  * @since 0.0.1
  */
 public final class HasGetters {
@@ -42,8 +41,7 @@ public final class HasGetters {
 
     /**
      * Get the description of the object.
-     *
-     * @return The description of the object.
+     * @return The description of the object
      */
     public String getDescription() {
         return this.description;
@@ -51,8 +49,7 @@ public final class HasGetters {
 
     /**
      * Get whether the object is invalid.
-     *
-     * @return Whether the object is invalid.
+     * @return Whether the object is invalid
      */
     public boolean isInvalid() {
         return this.invalid;

@@ -28,7 +28,6 @@ import java.lang.annotation.RetentionPolicy;
 
 /**
  * Annotation to exclude classes from ArchUnit rules.
- *
  * @since 0.0.1
  */
 @Retention(RetentionPolicy.RUNTIME)

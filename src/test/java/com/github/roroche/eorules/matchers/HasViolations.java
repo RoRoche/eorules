@@ -29,10 +29,10 @@ import org.hamcrest.TypeSafeMatcher;
 
 /**
  * Matcher for {@link EvaluationResult} with violations.
- *
  * @since 0.0.1
  */
 public final class HasViolations extends TypeSafeMatcher<EvaluationResult> {
+
     @Override
     public boolean matchesSafely(final EvaluationResult item) {
         return item.hasViolation();
