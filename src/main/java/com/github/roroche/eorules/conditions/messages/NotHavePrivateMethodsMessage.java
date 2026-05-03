@@ -38,6 +38,8 @@ public final class NotHavePrivateMethodsMessage extends TextEnvelope {
      * Ctor.
      * @param clazz The class that has the private method
      * @param method The private method
+     */
+    /*
      * @checkstyle ConstructorsCodeFreeCheck (10 lines)
      */
     public NotHavePrivateMethodsMessage(final JavaClass clazz, final JavaMethod method) {

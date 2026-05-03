@@ -41,6 +41,8 @@ final class ArchitectureTest {
 
     /**
      * The classes to be checked.
+     */
+    /*
      * @checkstyle ProhibitFieldsInTestClassesCheck (4 lines)
      */
     private final JavaClasses classes = new ClassFileImporter()
