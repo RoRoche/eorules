@@ -41,38 +41,39 @@ final class ArchitectureTest {
 
     /**
      * The classes to be checked.
+     * @checkstyle ProhibitFieldsInTestClassesCheck (4 lines)
      */
-    private static final JavaClasses CLASSES = new ClassFileImporter()
+    private final JavaClasses classes = new ClassFileImporter()
         .withImportOption(ImportOption.Predefined.DO_NOT_INCLUDE_TESTS)
         .importPackages("com.github.roroche.eorules");
 
     @Test
     void checksClassesAreAbstractOrFinal() {
-        new ClassesAreAbstractOrFinalRule().check(ArchitectureTest.CLASSES);
+        new ClassesAreAbstractOrFinalRule().check(this.classes);
     }
 
     @Test
     void checksThereAreNoStaticMethods() {
-        new ClassesShouldHaveNoStaticMethodsRule().check(ArchitectureTest.CLASSES);
+        new ClassesShouldHaveNoStaticMethodsRule().check(this.classes);
     }
 
     @Test
     void checksClassesDoNotHaveGettersOrSetters() {
-        new ClassesShouldNotHaveGettersOrSettersRule().check(ArchitectureTest.CLASSES);
+        new ClassesShouldNotHaveGettersOrSettersRule().check(this.classes);
     }
 
     @Test
     void checksClassesDoNotHavePrivateMethods() {
-        new ClassesShouldNotHavePrivateMethodsRule().check(ArchitectureTest.CLASSES);
+        new ClassesShouldNotHavePrivateMethodsRule().check(this.classes);
     }
 
     @Test
     void checksFieldsAreFinal() {
-        new FieldsShouldBeFinalRule().check(ArchitectureTest.CLASSES);
+        new FieldsShouldBeFinalRule().check(this.classes);
     }
 
     @Test
     void checksPublicMethodsAreDeclaredInInterfaces() {
-        new PublicMethodsDeclaredInInterfacesRule().check(ArchitectureTest.CLASSES);
+        new PublicMethodsDeclaredInInterfacesRule().check(this.classes);
     }
 }

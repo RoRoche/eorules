@@ -32,6 +32,10 @@ import com.tngtech.archunit.lang.syntax.ArchRuleDefinition;
  */
 public final class ClassesShouldNotHaveGettersOrSettersRule extends ArchRuleEnvelope {
 
+    /**
+     * Ctor.
+     * @checkstyle ConstructorsCodeFreeCheck (9 lines)
+     */
     public ClassesShouldNotHaveGettersOrSettersRule() {
         super(
             ArchRuleDefinition.classes()

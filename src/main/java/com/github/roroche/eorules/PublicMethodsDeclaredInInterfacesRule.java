@@ -33,6 +33,10 @@ import com.tngtech.archunit.lang.syntax.ArchRuleDefinition;
  */
 public final class PublicMethodsDeclaredInInterfacesRule extends ArchRuleEnvelope {
 
+    /**
+     * Ctor.
+     * @checkstyle ConstructorsCodeFreeCheck (12 lines)
+     */
     public PublicMethodsDeclaredInInterfacesRule() {
         super(
             ArchRuleDefinition.classes()

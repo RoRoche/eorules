@@ -39,6 +39,7 @@ public final class PublicMethodsDeclaredInInterfacesMessage extends TextEnvelope
      * Ctor.
      * @param clazz The class that has the public method
      * @param method The public method that is not declared in an interface
+     * @checkstyle ConstructorsCodeFreeCheck (14 lines)
      */
     public PublicMethodsDeclaredInInterfacesMessage(
         final JavaClass clazz,

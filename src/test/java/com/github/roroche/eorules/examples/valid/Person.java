@@ -58,6 +58,7 @@ public final class Person {
         this.age = age;
     }
 
+    @SuppressWarnings("OperatorPrecedence")
     @Override
     public boolean equals(final Object other) {
         return this == other

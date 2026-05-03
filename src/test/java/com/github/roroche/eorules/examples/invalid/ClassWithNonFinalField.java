@@ -33,6 +33,6 @@ public final class ClassWithNonFinalField {
     /**
      * Non final field.
      */
-    @SuppressWarnings("PMD.UnusedPrivateField")
+    @SuppressWarnings({"PMD.UnusedPrivateField", "UnusedVariable"})
     private String invalid;
 }

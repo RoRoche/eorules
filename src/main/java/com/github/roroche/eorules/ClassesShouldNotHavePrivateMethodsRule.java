@@ -32,6 +32,10 @@ import com.tngtech.archunit.lang.syntax.ArchRuleDefinition;
  */
 public final class ClassesShouldNotHavePrivateMethodsRule extends ArchRuleEnvelope {
 
+    /**
+     * Ctor.
+     * @checkstyle ConstructorsCodeFreeCheck (9 lines)
+     */
     public ClassesShouldNotHavePrivateMethodsRule() {
         super(
             ArchRuleDefinition.classes()
