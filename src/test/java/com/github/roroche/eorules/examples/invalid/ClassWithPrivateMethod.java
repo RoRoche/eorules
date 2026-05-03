@@ -34,6 +34,7 @@ public final class ClassWithPrivateMethod {
     /**
      * This method is private, which is not allowed by
      * {@link com.github.roroche.eorules.ClassesShouldNotHavePrivateMethodsRule}.
+     * @checkstyle NonStaticMethodCheck (5 lines)
      */
     @SuppressWarnings("PMD.UnusedPrivateMethod")
     private void unusedPrivateMethod() {

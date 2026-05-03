@@ -31,8 +31,9 @@ public final class FinalClass implements Iface {
 
     /**
      * A final field, to make the class final.
+     * @checkstyle ConstantUsageCheck (3 lines)
      */
-    @SuppressWarnings("PMD.UnusedPrivateField")
+    @SuppressWarnings({"PMD.UnusedPrivateField", "UnusedVariable"})
     private final String description = "This class is final, so it should be valid.";
 
     @Override

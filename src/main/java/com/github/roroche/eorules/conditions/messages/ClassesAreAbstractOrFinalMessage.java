@@ -39,6 +39,7 @@ public final class ClassesAreAbstractOrFinalMessage extends TextEnvelope {
      * @param clazz The class that is not abstract or final
      * @param abstraction Whether the class is abstract
      * @param finalization Whether the class is final
+     * @checkstyle ConstructorsCodeFreeCheck (15 lines)
      */
     public ClassesAreAbstractOrFinalMessage(
         final JavaClass clazz,

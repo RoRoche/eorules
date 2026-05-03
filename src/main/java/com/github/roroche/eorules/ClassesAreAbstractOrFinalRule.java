@@ -32,6 +32,10 @@ import com.tngtech.archunit.lang.syntax.ArchRuleDefinition;
  */
 public final class ClassesAreAbstractOrFinalRule extends ArchRuleEnvelope {
 
+    /**
+     * Ctor.
+     * @checkstyle ConstructorsCodeFreeCheck (15 lines)
+     */
     public ClassesAreAbstractOrFinalRule() {
         super(
             ArchRuleDefinition.classes()
