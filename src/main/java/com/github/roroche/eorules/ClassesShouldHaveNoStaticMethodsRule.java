@@ -34,6 +34,8 @@ public final class ClassesShouldHaveNoStaticMethodsRule extends ArchRuleEnvelope
 
     /**
      * Ctor.
+     */
+    /*
      * @checkstyle ConstructorsCodeFreeCheck (9 lines)
      */
     public ClassesShouldHaveNoStaticMethodsRule() {

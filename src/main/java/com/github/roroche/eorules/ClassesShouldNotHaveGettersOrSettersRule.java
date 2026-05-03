@@ -34,6 +34,8 @@ public final class ClassesShouldNotHaveGettersOrSettersRule extends ArchRuleEnve
 
     /**
      * Ctor.
+     */
+    /*
      * @checkstyle ConstructorsCodeFreeCheck (9 lines)
      */
     public ClassesShouldNotHaveGettersOrSettersRule() {

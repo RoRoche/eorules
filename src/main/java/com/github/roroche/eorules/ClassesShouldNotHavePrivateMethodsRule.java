@@ -34,6 +34,8 @@ public final class ClassesShouldNotHavePrivateMethodsRule extends ArchRuleEnvelo
 
     /**
      * Ctor.
+     */
+    /*
      * @checkstyle ConstructorsCodeFreeCheck (9 lines)
      */
     public ClassesShouldNotHavePrivateMethodsRule() {

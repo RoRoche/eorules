@@ -39,6 +39,8 @@ public final class NotHaveGettersOrSettersMessage extends TextEnvelope {
      * Ctor.
      * @param clazz The class that has the getter/setter method
      * @param method The getter/setter method
+     */
+    /*
      * @checkstyle ConstructorsCodeFreeCheck (13 lines)
      */
     public NotHaveGettersOrSettersMessage(
