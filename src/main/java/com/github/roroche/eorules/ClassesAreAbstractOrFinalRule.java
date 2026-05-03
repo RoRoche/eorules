@@ -34,6 +34,8 @@ public final class ClassesAreAbstractOrFinalRule extends ArchRuleEnvelope {
 
     /**
      * Ctor.
+     */
+    /*
      * @checkstyle ConstructorsCodeFreeCheck (15 lines)
      */
     public ClassesAreAbstractOrFinalRule() {
