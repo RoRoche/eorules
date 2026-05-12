@@ -77,7 +77,7 @@ To keep the repository clean, readable, and easy to maintain, all branches **mus
 Branch names must match the following regular expression:
 
 ```bash
-^(main){1}$|^(feature|fix|hotfix|release|doc)\/\d+\/[a-z-]+$
+^(main){1}$|^(feature|fix|hotfix|release|doc)\/\d+\/?[a-z0-9-]+$
 ```
 
 ### Explanation
