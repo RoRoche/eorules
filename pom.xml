@@ -267,7 +267,6 @@
             <param>HTML</param>
           </outputFormats>
           <timestampedReports>false</timestampedReports>
-          <junit5Plugin>true</junit5Plugin>
           <verbose>true</verbose>
         </configuration>
         <dependencies>
