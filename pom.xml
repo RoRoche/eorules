@@ -215,25 +215,6 @@
         </configuration>
       </plugin>
       <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>exec-maven-plugin</artifactId>
-        <version>${exec-maven-plugin.version}</version>
-        <executions>
-          <execution>
-            <id>yamllint</id>
-            <goals>
-              <goal>exec</goal>
-            </goals>
-            <configuration>
-              <executable>yamllint</executable>
-              <arguments>
-                <argument>.</argument>
-              </arguments>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
         <groupId>com.github.volodya-lombrozo</groupId>
         <artifactId>jtcop-maven-plugin</artifactId>
         <version>${jtcop.version}</version>
