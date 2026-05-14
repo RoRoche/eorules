@@ -28,6 +28,9 @@ jobs:
       - name: Install markdownlint
         run: npm ci
 
+      - name: Validate branch name
+        run: npx validate-branch-name
+
       - name: Run markdownlint
         run: npx markdownlint "**/*.md"
 
