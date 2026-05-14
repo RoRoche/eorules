@@ -38,6 +38,8 @@ Set of custom ArchUnit rules to ensure [Elegant Objects](https://www.elegantobje
 [![Maven Central](https://img.shields.io/maven-central/v/com.github.roroche/eorules.svg?label=Maven%20Central)](https://search.maven.org/artifact/com.github.roroche/eorules)
 [![Javadoc](https://javadoc.io/badge2/com.github.roroche/eorules/javadoc.svg)](https://javadoc.io/doc/com.github.roroche/eorules)
 
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/RoRoche/eorules/blob/main/LICENSE)
+
 ## ✨ Features
 
 - Check that [classes are abstract or final](https://www.yegor256.com/2014/11/20/seven-virtues-of-good-object.html#7-his-class-is-either-final-or-abstract)
