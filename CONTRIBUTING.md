@@ -35,12 +35,19 @@ Required for build tooling:
 npm install
 ```
 
-3. Python & yamllint
+3. Python
 
-For YAML linting:
+You also need Python for YAML linting and Makefile linting.
+Please ensure you have UV installed:
 
 ```bash
-pip install yamllint
+uv --version
+```
+
+And sync UV to start the virtual environment:
+
+```bash
+uv sync
 ```
 
 ## Development Workflow
