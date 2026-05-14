@@ -8,36 +8,8 @@ on:
       - main
 
 jobs:
-  detect-changes:
-    runs-on: ubuntu-latest
-
-    outputs:
-      yaml_changed: ${{ steps.filter.outputs.yaml }}
-      makefile_changed: ${{ steps.filter.outputs.makefile }}
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Detect changed files
-        id: filter
-        uses: dorny/paths-filter@v3
-        with:
-          filters: |
-            yaml:
-              - '**/*.yaml'
-              - '**/*.yml'
-
-            makefile:
-              - 'Makefile'
-              - '**/Makefile'
-              - '*.mk'
-              - '**/*.mk'
-
   yamllint:
-    needs: detect-changes
-    if: needs.detect-changes.outputs.yaml_changed == 'true'
-
+    name: Lint YAML Files
     runs-on: ubuntu-latest
 
     steps:
@@ -54,9 +26,7 @@ jobs:
         run: uv run yamllint .
 
   mbake:
-    needs: detect-changes
-    if: needs.detect-changes.outputs.makefile_changed == 'true'
-
+    name: Validate Makefiles
     runs-on: ubuntu-latest
 
     steps:
