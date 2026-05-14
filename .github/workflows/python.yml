@@ -48,7 +48,7 @@ jobs:
         uses: astral-sh/setup-uv@v5
 
       - name: Sync Python dependencies
-        run: uv sync
+        run: uv sync --frozen
 
       - name: Run yamllint
         run: uv run yamllint .
@@ -67,7 +67,7 @@ jobs:
         uses: astral-sh/setup-uv@v5
 
       - name: Sync Python dependencies
-        run: uv sync
+        run: uv sync --frozen
 
       - name: Run mbake format check
         run: uv run mbake format --check Makefile
