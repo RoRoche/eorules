@@ -9,6 +9,9 @@ lint: ## Check code formatting
 	@mvn youshallnotpass:youshallnotpass
 	@mvn jtcop:check
 	@mvn exec:exec -Dexec.executable=yamllint -Dexec.args="."
+	@uv run yamllint .
+	@uv run mbake format --check Makefile
+	@uv run mbake validate Makefile
 	@npx markdownlint "**/*.md"
 	@npx textlint "**/*.md"
 
