@@ -5,7 +5,7 @@ Set of custom ArchUnit rules to ensure [Elegant Objects](https://www.elegantobje
 `eorules` helps you design and craft code that respect strong object-oriented programming paradigm.
 
 [![Build Status](https://github.com/RoRoche/eorules/actions/workflows/build-java.yml/badge.svg)](https://github.com/RoRoche/eorules/actions)
-[![Python](https://github.com/RoRoche/eorules/actions/workflows/python.yml/badge.svg)](https://github.com/RoRoche/eorules/actions/workflows/python.yml)
+[![Python CI](https://github.com/RoRoche/eorules/actions/workflows/python.yml/badge.svg)](https://github.com/RoRoche/eorules/actions/workflows/python.yml)
 ![Nodes.js CI](https://github.com/RoRoche/eorules/actions/workflows/build-npm.yml/badge.svg)
 
 ![EO principles respected here](https://www.elegantobjects.org/badge.svg)
