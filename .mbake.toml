@@ -1,0 +1,7 @@
+line-length = 120
+
+[format]
+wrap-text = true
+
+[lint]
+enabled = true
