@@ -1,0 +1,76 @@
+---
+name: Python CI (UV)
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  detect-changes:
+    runs-on: ubuntu-latest
+
+    outputs:
+      yaml_changed: ${{ steps.filter.outputs.yaml }}
+      makefile_changed: ${{ steps.filter.outputs.makefile }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Detect changed files
+        id: filter
+        uses: dorny/paths-filter@v3
+        with:
+          filters: |
+            yaml:
+              - '**/*.yaml'
+              - '**/*.yml'
+
+            makefile:
+              - 'Makefile'
+              - '**/Makefile'
+              - '*.mk'
+              - '**/*.mk'
+
+  yamllint:
+    needs: detect-changes
+    if: needs.detect-changes.outputs.yaml_changed == 'true'
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Sync Python dependencies
+        run: uv sync
+
+      - name: Run yamllint
+        run: uv run yamllint .
+
+  mbake:
+    needs: detect-changes
+    if: needs.detect-changes.outputs.makefile_changed == 'true'
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Sync Python dependencies
+        run: uv sync
+
+      - name: Run mbake format check
+        run: uv run mbake format --check Makefile
+
+      - name: Run mbake validate
+        run: uv run mbake validate Makefile
