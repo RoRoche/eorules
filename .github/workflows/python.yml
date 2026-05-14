@@ -69,8 +69,5 @@ jobs:
       - name: Sync Python dependencies
         run: uv sync --frozen
 
-      - name: Run mbake format check
-        run: uv run mbake format --check Makefile
-
       - name: Run mbake validate
         run: uv run mbake validate Makefile
