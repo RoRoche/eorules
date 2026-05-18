@@ -34,6 +34,6 @@
         "validate-branch-name": "^1.3.2"
     },
     "validate-branch-name": {
-        "pattern": "^(main){1}$|^(feature|fix|hotfix|release|doc)\\/\\d+\\/?[a-z0-9-]+$"
+        "pattern": "^(main)$|^(dependabot\\/.*)$|^(feature|fix|hotfix|release|doc)\\/\\d+\\/?[a-z0-9-]+$"
     }
 }
