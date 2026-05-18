@@ -63,8 +63,7 @@ git checkout -b feature/issue-number/your-feature-name
 4. Lint your files:
 
 ```bash
-yamllint .
-mvn clean compile
+make lint
 ```
 
 5. Run tests:
