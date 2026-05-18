@@ -84,7 +84,7 @@ To keep the repository clean, readable, and easy to maintain, all branches **mus
 Branch names must match the following regular expression:
 
 ```bash
-^(main){1}$|^(feature|fix|hotfix|release|doc)\/\d+\/?[a-z0-9-]+$
+^(main)$|^(dependabot\/.*)$|^(feature|fix|hotfix|release|doc)\/\d+\/?[a-z0-9-]+$
 ```
 
 ### Explanation
@@ -93,6 +93,8 @@ This pattern enforces:
 
 * A **single protected branch**:
   * `main` → the primary branch of the repository
+
+* Dependabot branches for automated dependency updates
 
 * Or a **typed branch** with the following structure:
 
@@ -134,6 +136,7 @@ feature/42/add-login-page
 fix/128/null-pointer-error
 hotfix/12/urgent-crash-fix
 doc/77/improve-installation-guide
+dependabot/npm_and_yarn/lodash-4.17.21
 ```
 
 ### Invalid Examples
