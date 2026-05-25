@@ -36,7 +36,7 @@
     <sortpom.version>4.0.0</sortpom.version>
     <license-maven-plugin.version>5.0.0</license-maven-plugin.version>
     <qulice.version>0.27.6</qulice.version>
-    <junit.version>6.0.3</junit.version>
+    <junit.version>6.1.0</junit.version>
     <hamcrest.version>3.0</hamcrest.version>
     <jacoco.version>0.8.14</jacoco.version>
     <youshallnotpass.version>0.6.0</youshallnotpass.version>
