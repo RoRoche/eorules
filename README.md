@@ -122,6 +122,16 @@ It contains everything you need to know about:
 
 Thank you for helping improve `eorules` 🚀
 
+## ⭐ Star History
+
+<a href="https://www.star-history.com/?repos=RoRoche%2Feorules&type=date&legend=top-left">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=RoRoche/eorules&type=date&theme=dark&legend=top-left" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=RoRoche/eorules&type=date&legend=top-left" />
+   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=RoRoche/eorules&type=date&legend=top-left" />
+ </picture>
+</a>
+
 ## 📄 License
 
 Distributed under the MIT License. See [LICENSE](LICENSE) for more information.
