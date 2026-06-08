@@ -38,7 +38,7 @@
     <qulice.version>0.27.6</qulice.version>
     <junit.version>6.1.0</junit.version>
     <hamcrest.version>3.0</hamcrest.version>
-    <jacoco.version>0.8.14</jacoco.version>
+    <jacoco.version>0.8.15</jacoco.version>
     <youshallnotpass.version>0.6.0</youshallnotpass.version>
     <jtcop.version>1.4.3</jtcop.version>
     <pitest.version>1.25.3</pitest.version>
