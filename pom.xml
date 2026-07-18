@@ -43,6 +43,7 @@
     <jtcop.version>1.4.3</jtcop.version>
     <pitest.version>1.25.7</pitest.version>
     <pitest.junit5.plugin.version>1.2.3</pitest.junit5.plugin.version>
+    <pit-dashboard-reporter.version>0.3.18</pit-dashboard-reporter.version>
     <exec-maven-plugin.version>3.6.3</exec-maven-plugin.version>
     <maven.source.plugin.version>3.4.0</maven.source.plugin.version>
     <maven.javadoc.plugin.version>3.12.0</maven.javadoc.plugin.version>
@@ -245,7 +246,8 @@
             <mutator>DEFAULTS</mutator>
           </mutators>
           <outputFormats>
-            <param>HTML</param>
+            <format>HTML</format>
+            <format>stryker-dashboard</format>
           </outputFormats>
           <timestampedReports>false</timestampedReports>
           <verbose>true</verbose>
@@ -255,6 +257,11 @@
             <groupId>org.pitest</groupId>
             <artifactId>pitest-junit5-plugin</artifactId>
             <version>${pitest.junit5.plugin.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>it.mulders.stryker</groupId>
+            <artifactId>pit-dashboard-reporter</artifactId>
+            <version>${pit-dashboard-reporter.version}</version>
           </dependency>
         </dependencies>
       </plugin>
