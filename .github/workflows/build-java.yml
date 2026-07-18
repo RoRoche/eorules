@@ -56,7 +56,9 @@ jobs:
         run: mvn jtcop:check
 
       - name: Run PIT mutation testing
-        run: mvn org.pitest:pitest-maven:mutationCoverage
+        run: mvn test-compile org.pitest:pitest-maven:mutationCoverage
+        env:
+          STRYKER_DASHBOARD_API_KEY: ${{ secrets.STRYKER_DASHBOARD_TOKEN }}
 
       - name: Upload PIT HTML report as artifact
         uses: actions/upload-artifact@v7
