@@ -15,7 +15,6 @@ Set of custom ArchUnit rules to ensure [Elegant Objects](https://www.elegantobje
 [![PDD status](https://www.0pdd.com/svg?name=RoRoche/eorules)](https://www.0pdd.com/p?name=RoRoche/eorules)
 
 [![codecov](https://codecov.io/gh/RoRoche/eorules/branch/main/graph/badge.svg)](https://codecov.io/gh/RoRoche/eorules)
-[![Mutation testing badge](https://img.shields.io/endpoint?style=flat&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2FRoRoche%2Feorules%2Fmain)](https://dashboard.stryker-mutator.io/reports/github.com/RoRoche/eorules/main)
 
 [![Hits-of-Code](https://hitsofcode.com/github/RoRoche/eorules?branch=main)](https://hitsofcode.com/github/RoRoche/eorules/view?branch=main)
 
@@ -122,6 +121,16 @@ It contains everything you need to know about:
 - Quality requirements
 
 Thank you for helping improve `eorules` 🚀
+
+## ⭐ Star History
+
+<a href="https://www.star-history.com/?repos=RoRoche%2Feorules&type=date&legend=top-left">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=RoRoche/eorules&type=date&theme=dark&legend=top-left&sealed_token=1N8n5BXlycLg0DgHCLWWoAwlxSys0fJZklpPdzyQuHUP2Jo6qJZErK-PO0e9DacgkbhTwID06hJOjOhBrkeGqMIBW6XuQMRRst3QukAk4fQ0ygxN5KMRaE_DssekodTD1SFtN9y8JISeP6IZNoPIF6qcZc3kMgjcaAxpgo-PBxjS0uEGgZ9eP_sAbC5p" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=RoRoche/eorules&type=date&legend=top-left&sealed_token=1N8n5BXlycLg0DgHCLWWoAwlxSys0fJZklpPdzyQuHUP2Jo6qJZErK-PO0e9DacgkbhTwID06hJOjOhBrkeGqMIBW6XuQMRRst3QukAk4fQ0ygxN5KMRaE_DssekodTD1SFtN9y8JISeP6IZNoPIF6qcZc3kMgjcaAxpgo-PBxjS0uEGgZ9eP_sAbC5p" />
+   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=RoRoche/eorules&type=date&legend=top-left&sealed_token=1N8n5BXlycLg0DgHCLWWoAwlxSys0fJZklpPdzyQuHUP2Jo6qJZErK-PO0e9DacgkbhTwID06hJOjOhBrkeGqMIBW6XuQMRRst3QukAk4fQ0ygxN5KMRaE_DssekodTD1SFtN9y8JISeP6IZNoPIF6qcZc3kMgjcaAxpgo-PBxjS0uEGgZ9eP_sAbC5p" />
+ </picture>
+</a>
 
 ## 📄 License
 
