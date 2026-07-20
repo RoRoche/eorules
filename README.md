@@ -126,9 +126,9 @@ Thank you for helping improve `eorules` 🚀
 
 <a href="https://www.star-history.com/?repos=RoRoche%2Feorules&type=date&legend=top-left">
  <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=RoRoche/eorules&type=date&theme=dark&legend=top-left&sealed_token=1N8n5BXlycLg0DgHCLWWoAwlxSys0fJZklpPdzyQuHUP2Jo6qJZErK-PO0e9DacgkbhTwID06hJOjOhBrkeGqMIBW6XuQMRRst3QukAk4fQ0ygxN5KMRaE_DssekodTD1SFtN9y8JISeP6IZNoPIF6qcZc3kMgjcaAxpgo-PBxjS0uEGgZ9eP_sAbC5p" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=RoRoche/eorules&type=date&legend=top-left&sealed_token=1N8n5BXlycLg0DgHCLWWoAwlxSys0fJZklpPdzyQuHUP2Jo6qJZErK-PO0e9DacgkbhTwID06hJOjOhBrkeGqMIBW6XuQMRRst3QukAk4fQ0ygxN5KMRaE_DssekodTD1SFtN9y8JISeP6IZNoPIF6qcZc3kMgjcaAxpgo-PBxjS0uEGgZ9eP_sAbC5p" />
-   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=RoRoche/eorules&type=date&legend=top-left&sealed_token=1N8n5BXlycLg0DgHCLWWoAwlxSys0fJZklpPdzyQuHUP2Jo6qJZErK-PO0e9DacgkbhTwID06hJOjOhBrkeGqMIBW6XuQMRRst3QukAk4fQ0ygxN5KMRaE_DssekodTD1SFtN9y8JISeP6IZNoPIF6qcZc3kMgjcaAxpgo-PBxjS0uEGgZ9eP_sAbC5p" />
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=RoRoche/eorules&type=date&theme=dark&legend=top-left&sealed_token=vKMj3BQLkDtEcevejGz9e43WiXFZqYIEyd1Sz-ScfSvPXiyQBpT-2su1bueWC6PENkANyTJa3Ge2nmxD1SWALxmamQyMS77tTG8DOur2DXmSdf2LUWH2Ew" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=RoRoche/eorules&type=date&legend=top-left&sealed_token=vKMj3BQLkDtEcevejGz9e43WiXFZqYIEyd1Sz-ScfSvPXiyQBpT-2su1bueWC6PENkANyTJa3Ge2nmxD1SWALxmamQyMS77tTG8DOur2DXmSdf2LUWH2Ew" />
+   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=RoRoche/eorules&type=date&legend=top-left&sealed_token=vKMj3BQLkDtEcevejGz9e43WiXFZqYIEyd1Sz-ScfSvPXiyQBpT-2su1bueWC6PENkANyTJa3Ge2nmxD1SWALxmamQyMS77tTG8DOur2DXmSdf2LUWH2Ew" />
  </picture>
 </a>
 
