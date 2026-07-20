@@ -56,11 +56,13 @@ jobs:
         run: mvn jtcop:check
 
       - name: Run PIT mutation testing
+        if: github.actor != 'dependabot[bot]'
         run: mvn test-compile org.pitest:pitest-maven:mutationCoverage
         env:
           STRYKER_DASHBOARD_API_KEY: ${{ secrets.STRYKER_DASHBOARD_TOKEN }}
 
       - name: Upload PIT HTML report as artifact
+        if: github.actor != 'dependabot[bot]'
         uses: actions/upload-artifact@v7
         with:
           name: pit-html-report
