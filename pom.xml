@@ -247,7 +247,6 @@
           </mutators>
           <outputFormats>
             <format>HTML</format>
-            <format>stryker-dashboard</format>
           </outputFormats>
           <timestampedReports>false</timestampedReports>
           <verbose>true</verbose>
@@ -302,6 +301,23 @@
     </plugins>
   </build>
   <profiles>
+    <profile>
+      <id>ci</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.pitest</groupId>
+            <artifactId>pitest-maven</artifactId>
+            <configuration>
+              <outputFormats>
+                <format>HTML</format>
+                <format>stryker-dashboard</format>
+              </outputFormats>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
     <profile>
       <id>ossrh</id>
       <activation></activation>
