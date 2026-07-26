@@ -23,7 +23,15 @@
  */
 package com.github.roroche.eorules;
 
+import com.github.roroche.eorules.examples.invalid.ClassWithStaticMethod;
+import com.github.roroche.eorules.examples.invalid.HasGetters;
+import com.github.roroche.eorules.examples.invalid.HasSetter;
+import com.github.roroche.eorules.examples.valid.BaseOperation;
+import com.github.roroche.eorules.examples.valid.ChildOperation;
+import com.github.roroche.eorules.examples.valid.IntegerOperation;
+import com.github.roroche.eorules.examples.valid.ParentOperation;
 import com.github.roroche.eorules.matchers.HasViolationContaining;
+import com.github.roroche.eorules.matchers.HasViolationCount;
 import com.github.roroche.eorules.matchers.HasViolations;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
 import org.hamcrest.MatcherAssert;
@@ -46,7 +54,10 @@ final class PublicMethodsDeclaredInInterfacesRuleTest {
                 new ClassFileImporter()
                     .importPackages("com.github.roroche.eorules.examples.valid")
             ),
-            new IsNot<>(new HasViolations())
+            new AllOf<>(
+                new IsNot<>(new HasViolations()),
+                new HasViolationCount(0)
+            )
         );
     }
 
@@ -55,16 +66,36 @@ final class PublicMethodsDeclaredInInterfacesRuleTest {
         MatcherAssert.assertThat(
             "Classes with public method not declared in interface violate the rule with message",
             new PublicMethodsDeclaredInInterfacesRule().evaluate(
-                new ClassFileImporter()
-                    .importPackages("com.github.roroche.eorules.examples.invalid")
+                new ClassFileImporter().importClasses(
+                    ClassWithStaticMethod.class,
+                    HasGetters.class,
+                    HasSetter.class
+                )
             ),
             new AllOf<>(
                 new HasViolations(),
+                new HasViolationCount(4),
                 new HasViolationContaining("getDescription"),
                 new HasViolationContaining("getStaticDescription"),
                 new HasViolationContaining("isInvalid"),
                 new HasViolationContaining("setName")
             )
+        );
+    }
+
+    @Test
+    void acceptsMethodDeclaredByInterfaceInheritedThroughSuperclass() {
+        MatcherAssert.assertThat(
+            "An inherited interface declaration should be recognised",
+            new PublicMethodsDeclaredInInterfacesRule().evaluate(
+                new ClassFileImporter().importClasses(
+                    ParentOperation.class,
+                    ChildOperation.class,
+                    BaseOperation.class,
+                    IntegerOperation.class
+                )
+            ),
+            new HasViolationCount(0)
         );
     }
 }

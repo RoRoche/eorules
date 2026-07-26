@@ -23,7 +23,9 @@
  */
 package com.github.roroche.eorules;
 
+import com.github.roroche.eorules.examples.invalid.ClassWithNonFinalField;
 import com.github.roroche.eorules.matchers.HasViolationContaining;
+import com.github.roroche.eorules.matchers.HasViolationCount;
 import com.github.roroche.eorules.matchers.HasViolations;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
 import org.hamcrest.MatcherAssert;
@@ -46,7 +48,10 @@ final class FieldsShouldBeFinalRuleTest {
                 new ClassFileImporter()
                     .importPackages("com.github.roroche.eorules.examples.valid")
             ),
-            new IsNot<>(new HasViolations())
+            new AllOf<>(
+                new IsNot<>(new HasViolations()),
+                new HasViolationCount(0)
+            )
         );
     }
 
@@ -55,11 +60,13 @@ final class FieldsShouldBeFinalRuleTest {
         MatcherAssert.assertThat(
             "Classes with non-final fields violate the rule with message",
             new FieldsShouldBeFinalRule().evaluate(
-                new ClassFileImporter()
-                    .importPackages("com.github.roroche.eorules.examples.invalid")
+                new ClassFileImporter().importClasses(
+                    ClassWithNonFinalField.class
+                )
             ),
             new AllOf<>(
                 new HasViolations(),
+                new HasViolationCount(1),
                 new HasViolationContaining("ClassWithNonFinalField.invalid")
             )
         );

@@ -23,7 +23,9 @@
  */
 package com.github.roroche.eorules;
 
+import com.github.roroche.eorules.examples.invalid.ClassWithPrivateMethod;
 import com.github.roroche.eorules.matchers.HasViolationContaining;
+import com.github.roroche.eorules.matchers.HasViolationCount;
 import com.github.roroche.eorules.matchers.HasViolations;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
 import org.hamcrest.MatcherAssert;
@@ -46,7 +48,10 @@ final class ClassesShouldNotHavePrivateMethodsRuleTest {
                 new ClassFileImporter()
                     .importPackages("com.github.roroche.eorules.examples.valid")
             ),
-            new IsNot<>(new HasViolations())
+            new AllOf<>(
+                new IsNot<>(new HasViolations()),
+                new HasViolationCount(0)
+            )
         );
     }
 
@@ -55,11 +60,13 @@ final class ClassesShouldNotHavePrivateMethodsRuleTest {
         MatcherAssert.assertThat(
             "Classes with private method violate the rule with message",
             new ClassesShouldNotHavePrivateMethodsRule().evaluate(
-                new ClassFileImporter()
-                    .importPackages("com.github.roroche.eorules.examples.invalid")
+                new ClassFileImporter().importClasses(
+                    ClassWithPrivateMethod.class
+                )
             ),
             new AllOf<>(
                 new HasViolations(),
+                new HasViolationCount(1),
                 new HasViolationContaining("unusedPrivateMethod")
             )
         );

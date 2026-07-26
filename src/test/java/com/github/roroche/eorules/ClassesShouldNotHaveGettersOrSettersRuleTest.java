@@ -23,7 +23,10 @@
  */
 package com.github.roroche.eorules;
 
+import com.github.roroche.eorules.examples.invalid.HasGetters;
+import com.github.roroche.eorules.examples.invalid.HasSetter;
 import com.github.roroche.eorules.matchers.HasViolationContaining;
+import com.github.roroche.eorules.matchers.HasViolationCount;
 import com.github.roroche.eorules.matchers.HasViolations;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
 import org.hamcrest.MatcherAssert;
@@ -46,22 +49,43 @@ final class ClassesShouldNotHaveGettersOrSettersRuleTest {
                 new ClassFileImporter()
                     .importPackages("com.github.roroche.eorules.examples.valid")
             ),
-            new IsNot<>(new HasViolations())
+            new AllOf<>(
+                new IsNot<>(new HasViolations()),
+                new HasViolationCount(0)
+            )
         );
     }
 
     @Test
-    void isNotOk() {
+    void isNotOkOnGetters() {
         MatcherAssert.assertThat(
             "Classes with getters or setters violate the rule with message",
             new ClassesShouldNotHaveGettersOrSettersRule().evaluate(
-                new ClassFileImporter()
-                    .importPackages("com.github.roroche.eorules.examples.invalid")
+                new ClassFileImporter().importClasses(
+                    HasGetters.class
+                )
             ),
             new AllOf<>(
                 new HasViolations(),
+                new HasViolationCount(2),
                 new HasViolationContaining("getDescription"),
-                new HasViolationContaining("isInvalid"),
+                new HasViolationContaining("isInvalid")
+            )
+        );
+    }
+
+    @Test
+    void isNotOkOnSetters() {
+        MatcherAssert.assertThat(
+            "Classes with getters or setters violate the rule with message",
+            new ClassesShouldNotHaveGettersOrSettersRule().evaluate(
+                new ClassFileImporter().importClasses(
+                    HasSetter.class
+                )
+            ),
+            new AllOf<>(
+                new HasViolations(),
+                new HasViolationCount(1),
                 new HasViolationContaining("setName")
             )
         );

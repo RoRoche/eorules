@@ -23,12 +23,15 @@
  */
 package com.github.roroche.eorules;
 
+import com.github.roroche.eorules.examples.invalid.ClassThatIsNotAbstractNorFinal;
 import com.github.roroche.eorules.matchers.HasViolationContaining;
+import com.github.roroche.eorules.matchers.HasViolationCount;
 import com.github.roroche.eorules.matchers.HasViolations;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.core.AllOf;
 import org.hamcrest.core.IsNot;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -46,7 +49,10 @@ final class ClassesAreAbstractOrFinalRuleTest {
                 new ClassFileImporter()
                     .importPackages("com.github.roroche.eorules.examples.valid")
             ),
-            new IsNot<>(new HasViolations())
+            new AllOf<>(
+                new IsNot<>(new HasViolations()),
+                new HasViolationCount(0)
+            )
         );
     }
 
@@ -55,15 +61,30 @@ final class ClassesAreAbstractOrFinalRuleTest {
         MatcherAssert.assertThat(
             "Classes not abstract nor final violate the rule with message",
             new ClassesAreAbstractOrFinalRule().evaluate(
-                new ClassFileImporter()
-                    .importPackages("com.github.roroche.eorules.examples.invalid")
+                new ClassFileImporter().importClasses(
+                    ClassThatIsNotAbstractNorFinal.class
+                )
             ),
             new AllOf<>(
                 new HasViolations(),
+                new HasViolationCount(1),
                 new HasViolationContaining(
                     "ClassThatIsNotAbstractNorFinal should be either final or abstract (currently: abstract=false, final=false)"
                 )
             )
+        );
+    }
+
+    @Test
+    void throwsAssertionErrorOnViolation() {
+        Assertions.assertThrows(
+            AssertionError.class,
+            () -> new ClassesAreAbstractOrFinalRule().check(
+                new ClassFileImporter().importClasses(
+                    ClassThatIsNotAbstractNorFinal.class
+                )
+            ),
+            "ClassThatIsNotAbstractNorFinal should throw an AssertionError"
         );
     }
 }
