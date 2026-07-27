@@ -41,7 +41,7 @@
     <jacoco.version>0.8.15</jacoco.version>
     <youshallnotpass.version>0.6.0</youshallnotpass.version>
     <jtcop.version>1.4.3</jtcop.version>
-    <pitest.version>1.25.7</pitest.version>
+    <pitest.version>1.25.8</pitest.version>
     <pitest.junit5.plugin.version>1.2.3</pitest.junit5.plugin.version>
     <pit-dashboard-reporter.version>0.3.18</pit-dashboard-reporter.version>
     <exec-maven-plugin.version>3.6.3</exec-maven-plugin.version>
