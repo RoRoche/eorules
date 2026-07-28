@@ -48,6 +48,8 @@ public final class NotHavePrivateMethods extends ArchCondition<JavaClass> {
         clazz.getMethods().stream().filter(
             (final JavaMethod method) ->
                 method.getModifiers().contains(JavaModifier.PRIVATE)
+                    &&
+                    !method.reflect().isSynthetic()
         ).forEach(
             (final JavaMethod method) ->
                 events.add(
