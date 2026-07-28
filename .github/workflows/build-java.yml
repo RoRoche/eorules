@@ -2,6 +2,7 @@
 name: Java 21 CI (Maven)
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
@@ -11,7 +12,7 @@ on:
 
 permissions:
   contents: read
-  id-token: write   # mandatory for OIDC Codecov
+  id-token: write
 
 jobs:
   build:
@@ -21,6 +22,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
 
       - name: Set up JDK 21
         uses: actions/setup-java@v5
@@ -35,6 +38,15 @@ jobs:
       - name: Build with Maven
         run: mvn -B -ntp clean verify
 
+      - name: Verify JaCoCo XML report
+        shell: bash
+        run: |
+          test -s target/site/jacoco/jacoco.xml
+          echo "JaCoCo report generated for commit ${GITHUB_SHA}"
+          echo "GitHub ref: ${GITHUB_REF}"
+          echo "GitHub ref name: ${GITHUB_REF_NAME}"
+          ls -lh target/site/jacoco/jacoco.xml
+
       - name: Upload JaCoCo HTML report as artifact
         uses: actions/upload-artifact@v7
         with:
@@ -45,8 +57,11 @@ jobs:
         uses: codecov/codecov-action@v7
         with:
           files: target/site/jacoco/jacoco.xml
+          commit_sha: ${{ github.sha }}
+          branch: ${{ github.head_ref || github.ref_name }}
           use_oidc: true
           fail_ci_if_error: true
+          disable_search: true
           verbose: true
 
       - name: You shall not pass
