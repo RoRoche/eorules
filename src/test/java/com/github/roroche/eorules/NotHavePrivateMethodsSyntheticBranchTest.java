@@ -27,6 +27,7 @@ import com.github.roroche.eorules.examples.valid.SyntheticPrivateMethodExample;
 import com.github.roroche.eorules.matchers.HasViolationCount;
 import com.github.roroche.eorules.matchers.HasViolations;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
+import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.Arrays;
 import org.hamcrest.MatcherAssert;
@@ -49,7 +50,7 @@ final class NotHavePrivateMethodsSyntheticBranchTest {
             Arrays.stream(
                 SyntheticPrivateMethodExample.class.getDeclaredMethods()
             ).anyMatch(
-                method -> Modifier.isPrivate(method.getModifiers())
+                (final Method method) -> Modifier.isPrivate(method.getModifiers())
                     && method.isSynthetic()
             ),
             new IsEqual<>(true)

@@ -23,6 +23,7 @@
  */
 package com.github.roroche.eorules;
 
+import com.github.roroche.eorules.conditions.HaveOnlyPublicMethodsDeclaredInInterfaces;
 import com.github.roroche.eorules.examples.invalid.ClassWithStaticMethod;
 import com.github.roroche.eorules.examples.invalid.HasGetters;
 import com.github.roroche.eorules.examples.invalid.HasSetter;
@@ -36,6 +37,7 @@ import com.github.roroche.eorules.matchers.HasViolationContaining;
 import com.github.roroche.eorules.matchers.HasViolationCount;
 import com.github.roroche.eorules.matchers.HasViolations;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
+import com.tngtech.archunit.lang.syntax.ArchRuleDefinition;
 import java.util.Arrays;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.core.AllOf;
@@ -94,6 +96,32 @@ final class PublicMethodsDeclaredInInterfacesRuleTest {
             Arrays.stream(StringValue.class.getDeclaredMethods())
                 .anyMatch(java.lang.reflect.Method::isSynthetic),
             new IsEqual<>(true)
+        );
+    }
+
+    @Test
+    void ignoresInterfaces() {
+        MatcherAssert.assertThat(
+            "The fixture must be an interface",
+            new ClassFileImporter().importClasses(
+                GenericValue.class
+            ).get(GenericValue.class).isInterface(),
+            new IsEqual<>(true)
+        );
+    }
+
+    @Test
+    void ignoresInterfacesAsConcreteClass() {
+        MatcherAssert.assertThat(
+            "An interface must not be checked as a concrete class",
+            ArchRuleDefinition.classes().should(
+                new HaveOnlyPublicMethodsDeclaredInInterfaces()
+            ).evaluate(
+                new ClassFileImporter().importClasses(
+                    GenericValue.class
+                )
+            ),
+            new HasViolationCount(0)
         );
     }
 
