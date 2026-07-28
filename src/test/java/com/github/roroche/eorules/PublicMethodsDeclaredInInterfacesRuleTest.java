@@ -28,14 +28,18 @@ import com.github.roroche.eorules.examples.invalid.HasGetters;
 import com.github.roroche.eorules.examples.invalid.HasSetter;
 import com.github.roroche.eorules.examples.valid.BaseOperation;
 import com.github.roroche.eorules.examples.valid.ChildOperation;
+import com.github.roroche.eorules.examples.valid.GenericValue;
 import com.github.roroche.eorules.examples.valid.IntegerOperation;
 import com.github.roroche.eorules.examples.valid.ParentOperation;
+import com.github.roroche.eorules.examples.valid.StringValue;
 import com.github.roroche.eorules.matchers.HasViolationContaining;
 import com.github.roroche.eorules.matchers.HasViolationCount;
 import com.github.roroche.eorules.matchers.HasViolations;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
+import java.util.Arrays;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.core.AllOf;
+import org.hamcrest.core.IsEqual;
 import org.hamcrest.core.IsNot;
 import org.junit.jupiter.api.Test;
 
@@ -80,6 +84,30 @@ final class PublicMethodsDeclaredInInterfacesRuleTest {
                 new HasViolationContaining("isInvalid"),
                 new HasViolationContaining("setName")
             )
+        );
+    }
+
+    @Test
+    void exposesSyntheticBridgeMethodInFixture() {
+        MatcherAssert.assertThat(
+            "The fixture must expose a synthetic bridge method",
+            Arrays.stream(StringValue.class.getDeclaredMethods())
+                .anyMatch(java.lang.reflect.Method::isSynthetic),
+            new IsEqual<>(true)
+        );
+    }
+
+    @Test
+    void acceptsSyntheticBridgeMethodDeclaredInInterface() {
+        MatcherAssert.assertThat(
+            "A public synthetic bridge method declared by an interface must not violate the rule",
+            new PublicMethodsDeclaredInInterfacesRule().evaluate(
+                new ClassFileImporter().importClasses(
+                    GenericValue.class,
+                    StringValue.class
+                )
+            ),
+            new HasViolationCount(0)
         );
     }
 
