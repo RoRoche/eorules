@@ -48,4 +48,49 @@ final class IsGetterTest {
             Matchers.is(true)
         );
     }
+
+    @Test
+    void rejectsObjectGetClassMethod() {
+        MatcherAssert.assertThat(
+            "Object.getClass must not be treated as a getter",
+            new IsGetter(
+                PredicateTestSupport.method(
+                    PredicateTestSupport.classes(Object.class),
+                    Object.class,
+                    "getClass"
+                )
+            ).value(),
+            Matchers.is(false)
+        );
+    }
+
+    @Test
+    void rejectsGetterWithParameter() {
+        MatcherAssert.assertThat(
+            "A get-method with a parameter must not be treated as a getter",
+            new IsGetter(
+                PredicateTestSupport.method(
+                    PredicateTestSupport.classes(PredicateFixtures.Accessors.class),
+                    PredicateFixtures.Accessors.class,
+                    "getNamed"
+                )
+            ).value(),
+            Matchers.is(false)
+        );
+    }
+
+    @Test
+    void rejectsVoidGetter() {
+        MatcherAssert.assertThat(
+            "A void get-method must not be treated as a getter",
+            new IsGetter(
+                PredicateTestSupport.method(
+                    PredicateTestSupport.classes(PredicateFixtures.Accessors.class),
+                    PredicateFixtures.Accessors.class,
+                    "getNothing"
+                )
+            ).value(),
+            Matchers.is(false)
+        );
+    }
 }

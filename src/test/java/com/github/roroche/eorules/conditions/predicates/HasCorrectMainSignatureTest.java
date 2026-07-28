@@ -65,4 +65,19 @@ final class HasCorrectMainSignatureTest {
             Matchers.is(false)
         );
     }
+
+    @Test
+    void rejectsMainWithoutParameter() {
+        MatcherAssert.assertThat(
+            "A main method without a parameter must not have a valid signature",
+            new HasCorrectMainSignature(
+                PredicateTestSupport.method(
+                    PredicateTestSupport.classes(PredicateFixtures.MainMethods.class),
+                    PredicateFixtures.MainMethods.class,
+                    "emptyMain"
+                )
+            ).value(),
+            Matchers.is(false)
+        );
+    }
 }

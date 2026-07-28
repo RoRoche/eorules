@@ -65,4 +65,19 @@ final class HasCorrectMainModifiersTest {
             Matchers.is(false)
         );
     }
+
+    @Test
+    void rejectsNonPublicStaticMain() {
+        MatcherAssert.assertThat(
+            "A non-public static method must not have valid main modifiers",
+            new HasCorrectMainModifiers(
+                PredicateTestSupport.method(
+                    PredicateTestSupport.classes(PredicateFixtures.MainMethods.class),
+                    PredicateFixtures.MainMethods.class,
+                    "hiddenMain"
+                )
+            ).value(),
+            Matchers.is(false)
+        );
+    }
 }

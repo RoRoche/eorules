@@ -127,4 +127,30 @@ final class IsDeclaredInInterfacesTest {
             Matchers.is(true)
         );
     }
+
+    @Test
+    void rejectsMethodWithDifferentName() {
+        final JavaClasses classes = PredicateTestSupport.classes(
+            PredicateFixtures.Contract.class,
+            PredicateFixtures.StaticMethods.class
+        );
+        MatcherAssert.assertThat(
+            "A method with a different name is not declared by the interface",
+            new IsDeclaredInInterfaces(
+                PredicateTestSupport.method(
+                    classes,
+                    PredicateFixtures.StaticMethods.class,
+                    "ordinary"
+                ),
+                Set.of(
+                    PredicateTestSupport.method(
+                        classes,
+                        PredicateFixtures.Contract.class,
+                        IsDeclaredInInterfacesTest.RUN
+                    )
+                )
+            ).value(),
+            Matchers.is(false)
+        );
+    }
 }

@@ -79,4 +79,19 @@ final class IsIsTest {
             Matchers.is(true)
         );
     }
+
+    @Test
+    void rejectsBooleanGetterWithParameter() throws Exception {
+        MatcherAssert.assertThat(
+            "An is-method with a parameter must not be treated as a getter",
+            new IsIs(
+                PredicateTestSupport.method(
+                    PredicateTestSupport.classes(PredicateFixtures.Accessors.class),
+                    PredicateFixtures.Accessors.class,
+                    "isReadyWith"
+                )
+            ).value(),
+            Matchers.is(false)
+        );
+    }
 }

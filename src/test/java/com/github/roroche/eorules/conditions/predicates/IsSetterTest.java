@@ -64,4 +64,19 @@ final class IsSetterTest {
             Matchers.is(false)
         );
     }
+
+    @Test
+    void rejectsSetterWithoutParameter() {
+        MatcherAssert.assertThat(
+            "A set-method without a parameter must not be treated as a setter",
+            new IsSetter(
+                PredicateTestSupport.method(
+                    PredicateTestSupport.classes(PredicateFixtures.Accessors.class),
+                    PredicateFixtures.Accessors.class,
+                    "setNothing"
+                )
+            ).value(),
+            Matchers.is(false)
+        );
+    }
 }

@@ -71,4 +71,37 @@ final class ClassesShouldHaveNoStaticMethodsRuleTest {
             )
         );
     }
+
+    @Test
+    void acceptsGeneratedStaticMethod() {
+        MatcherAssert.assertThat(
+            "Generated static methods do not violate the rule",
+            new ClassesShouldHaveNoStaticMethodsRule().evaluate(
+                new ClassFileImporter().importClasses(GeneratedStaticMethod.class)
+            ),
+            new HasViolationCount(0)
+        );
+    }
+
+    /**
+     * Fixture exposing an allowed generated static method.
+     * @since 0.0.3
+     */
+    @SuppressWarnings({
+        "PMD.ProhibitPublicStaticMethods",
+        "PMD.AvoidDollarSigns",
+        "PMD.MethodNamingConventions",
+        "staticfree"
+    })
+    static final class GeneratedStaticMethod {
+
+        private GeneratedStaticMethod() {
+        }
+
+        // @checkstyle MethodNameCheck (5 lines)
+        @SuppressWarnings("PMD.PublicMemberInNonPublicType")
+        public static void $generated() {
+            // Intentionally empty.
+        }
+    }
 }

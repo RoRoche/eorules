@@ -181,6 +181,14 @@ final class PredicateFixtures {
     @SuppressWarnings({"PMD.PublicMemberInNonPublicType", "PMD.ProhibitPublicStaticMethods"})
     static final class MainMethods {
 
+        /*
+         * @checkstyle NonStaticMethodCheck (5 lines)
+         */
+        @SuppressWarnings("PMD.UseVarargs")
+        public void instanceMain(final String[] args) {
+            // Intentionally empty.
+        }
+
         public static void main(final String[] args) {
             // Intentionally empty.
         }
@@ -189,11 +197,12 @@ final class PredicateFixtures {
             // Intentionally empty.
         }
 
-        /*
-         * @checkstyle NonStaticMethodCheck (5 lines)
-         */
+        public static void emptyMain() {
+            // Intentionally empty.
+        }
+
         @SuppressWarnings("PMD.UseVarargs")
-        public void instanceMain(final String[] args) {
+        static void hiddenMain(final String[] args) {
             // Intentionally empty.
         }
     }
@@ -210,6 +219,34 @@ final class PredicateFixtures {
          */
         public boolean isReady() {
             return true;
+        }
+
+        /*
+         * @checkstyle NonStaticMethodCheck (4 lines)
+         */
+        public boolean isReadyWith(final String value) {
+            return !value.isEmpty();
+        }
+
+        /*
+         * @checkstyle NonStaticMethodCheck (4 lines)
+         */
+        public String getNamed(final String name) {
+            return name;
+        }
+
+        /*
+         * @checkstyle NonStaticMethodCheck (4 lines)
+         */
+        public void getNothing() {
+            // Intentionally empty.
+        }
+
+        /*
+         * @checkstyle NonStaticMethodCheck (4 lines)
+         */
+        public void setNothing() {
+            // Intentionally empty.
         }
 
         /*
