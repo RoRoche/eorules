@@ -175,6 +175,29 @@ final class PredicateFixtures {
     }
 
     /**
+     * Generic setter contract used to generate a synthetic bridge method.
+     * @param <T> Value type
+     * @since 0.0.3
+     */
+    @FunctionalInterface
+    interface GenericSetter<T> {
+
+        void setValue(T value);
+    }
+
+    /**
+     * String setter implementation.
+     * @since 0.0.3
+     */
+    static final class StringSetter implements GenericSetter<String> {
+
+        @Override
+        public void setValue(final String value) {
+            // Intentionally empty.
+        }
+    }
+
+    /**
      * Candidate {@code main} methods with varying signatures and modifiers.
      * @since 0.0.3
      */

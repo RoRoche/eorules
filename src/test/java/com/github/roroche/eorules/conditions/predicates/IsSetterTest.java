@@ -79,4 +79,25 @@ final class IsSetterTest {
             Matchers.is(false)
         );
     }
+
+    @Test
+    void rejectsSyntheticSetter() {
+        MatcherAssert.assertThat(
+            "A synthetic mutator must not be treated as a setter",
+            new IsSetter(
+                PredicateTestSupport.synthetic(
+                    PredicateTestSupport.method(
+                        PredicateTestSupport.classes(
+                            PredicateFixtures.Accessors.class
+                        ),
+                        PredicateFixtures.Accessors.class,
+                        "setName"
+                    ),
+                    PredicateFixtures.StringSetter.class,
+                    "setValue"
+                )
+            ).value(),
+            Matchers.is(false)
+        );
+    }
 }

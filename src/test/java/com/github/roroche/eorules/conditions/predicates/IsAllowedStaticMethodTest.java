@@ -65,4 +65,25 @@ final class IsAllowedStaticMethodTest {
             Matchers.is(true)
         );
     }
+
+    @Test
+    void acceptsSyntheticMethod() {
+        MatcherAssert.assertThat(
+            "A synthetic static method must be treated as compiler generated",
+            new IsAllowedStaticMethod(
+                PredicateTestSupport.synthetic(
+                    PredicateTestSupport.method(
+                        PredicateTestSupport.classes(
+                            PredicateFixtures.StaticMethods.class
+                        ),
+                        PredicateFixtures.StaticMethods.class,
+                        "ordinary"
+                    ),
+                    PredicateFixtures.StaticMethods.class,
+                    "lambda$action$0"
+                )
+            ).value(),
+            Matchers.is(true)
+        );
+    }
 }

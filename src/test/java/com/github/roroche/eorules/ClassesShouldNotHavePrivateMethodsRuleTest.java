@@ -24,6 +24,7 @@
 package com.github.roroche.eorules;
 
 import com.github.roroche.eorules.examples.invalid.ClassWithPrivateMethod;
+import com.github.roroche.eorules.examples.synthetic.ClassWithPrivateSyntheticMethod;
 import com.github.roroche.eorules.matchers.HasViolationContaining;
 import com.github.roroche.eorules.matchers.HasViolationCount;
 import com.github.roroche.eorules.matchers.HasViolations;
@@ -47,6 +48,22 @@ final class ClassesShouldNotHavePrivateMethodsRuleTest {
             new ClassesShouldNotHavePrivateMethodsRule().evaluate(
                 new ClassFileImporter()
                     .importPackages("com.github.roroche.eorules.examples.valid")
+            ),
+            new AllOf<>(
+                new IsNot<>(new HasViolations()),
+                new HasViolationCount(0)
+            )
+        );
+    }
+
+    @Test
+    void ignoresSyntheticPrivateMethod() {
+        MatcherAssert.assertThat(
+            "A private synthetic method must not violate the rule",
+            new ClassesShouldNotHavePrivateMethodsRule().evaluate(
+                new ClassFileImporter().importClasses(
+                    ClassWithPrivateSyntheticMethod.class
+                )
             ),
             new AllOf<>(
                 new IsNot<>(new HasViolations()),

@@ -93,4 +93,25 @@ final class IsGetterTest {
             Matchers.is(false)
         );
     }
+
+    @Test
+    void rejectsSyntheticGetter() {
+        MatcherAssert.assertThat(
+            "A synthetic accessor must not be treated as a getter",
+            new IsGetter(
+                PredicateTestSupport.synthetic(
+                    PredicateTestSupport.method(
+                        PredicateTestSupport.classes(
+                            PredicateFixtures.StringGetter.class
+                        ),
+                        PredicateFixtures.StringGetter.class,
+                        "getValue"
+                    ),
+                    PredicateFixtures.StringGetter.class,
+                    "getValue"
+                )
+            ).value(),
+            Matchers.is(false)
+        );
+    }
 }

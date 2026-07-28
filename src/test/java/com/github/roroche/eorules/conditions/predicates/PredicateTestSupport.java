@@ -26,6 +26,9 @@ package com.github.roroche.eorules.conditions.predicates;
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.domain.JavaMethod;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
+import java.lang.reflect.Method;
+import java.util.Arrays;
+import org.mockito.Mockito;
 
 /**
  * Shared helpers used by the predicate mutation tests to import fixture
@@ -51,11 +54,53 @@ final class PredicateTestSupport {
     }
 
     /**
-     * Resolves a single method by name on an imported class.
+     * Makes a regular ArchUnit method report a synthetic reflected method.
+     * @param method Regular ArchUnit method
+     * @param owner Class declaring a synthetic method
+     * @param name Synthetic method name
+     * @return The same method metadata with synthetic reflection
+     */
+    static JavaMethod synthetic(
+        final JavaMethod method,
+        final Class<?> owner,
+        final String name
+    ) {
+        final JavaMethod synthetic = Mockito.mock(JavaMethod.class);
+        Mockito.doReturn(
+            method.getName()
+        ).when(
+            synthetic
+        ).getName();
+        Mockito.doReturn(
+            method.getRawParameterTypes()
+        ).when(
+            synthetic
+        ).getRawParameterTypes();
+        Mockito.doReturn(
+            method.getRawReturnType()
+        ).when(
+            synthetic
+        ).getRawReturnType();
+        Mockito.doReturn(
+            Arrays.stream(
+                owner.getDeclaredMethods()
+            ).filter(
+                Method::isSynthetic
+            ).filter(
+                candidate -> candidate.getName().equals(name)
+            ).findFirst().orElseThrow()
+        ).when(
+            synthetic
+        ).reflect();
+        return synthetic;
+    }
+
+    /**
+     * Resolves a regular method by name on an imported class.
      * @param classes Imported classes
      * @param owner Class declaring the method
      * @param name Method name
-     * @return The matching method
+     * @return The matching regular method
      */
     static JavaMethod method(
         final JavaClasses classes,
