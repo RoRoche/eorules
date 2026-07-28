@@ -24,7 +24,7 @@
 package com.github.roroche.eorules.conditions.predicates;
 
 import org.hamcrest.MatcherAssert;
-import org.hamcrest.Matchers;
+import org.hamcrest.core.IsEqual;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -47,7 +47,7 @@ final class HasCorrectMainSignatureTest {
                     "main"
                 )
             ).value(),
-            Matchers.is(true)
+            new IsEqual<>(true)
         );
     }
 
@@ -62,7 +62,7 @@ final class HasCorrectMainSignatureTest {
                     "wrongMain"
                 )
             ).value(),
-            Matchers.is(false)
+            new IsEqual<>(false)
         );
     }
 
@@ -77,7 +77,7 @@ final class HasCorrectMainSignatureTest {
                     "emptyMain"
                 )
             ).value(),
-            Matchers.is(false)
+            new IsEqual<>(false)
         );
     }
 }

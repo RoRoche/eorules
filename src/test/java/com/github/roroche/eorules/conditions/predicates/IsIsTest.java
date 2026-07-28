@@ -24,7 +24,7 @@
 package com.github.roroche.eorules.conditions.predicates;
 
 import org.hamcrest.MatcherAssert;
-import org.hamcrest.Matchers;
+import org.hamcrest.core.IsEqual;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -46,7 +46,7 @@ final class IsIsTest {
                     "isReady"
                 )
             ).value(),
-            Matchers.is(true)
+            new IsEqual<>(true)
         );
     }
 
@@ -61,7 +61,7 @@ final class IsIsTest {
                     "isName"
                 )
             ).value(),
-            Matchers.is(false)
+            new IsEqual<>(false)
         );
     }
 
@@ -76,7 +76,7 @@ final class IsIsTest {
                     "isEnabled"
                 )
             ).value(),
-            Matchers.is(true)
+            new IsEqual<>(true)
         );
     }
 
@@ -91,7 +91,7 @@ final class IsIsTest {
                     "isReadyWith"
                 )
             ).value(),
-            Matchers.is(false)
+            new IsEqual<>(false)
         );
     }
 }

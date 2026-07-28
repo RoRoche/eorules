@@ -26,6 +26,7 @@ package com.github.roroche.eorules;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
+import org.hamcrest.core.IsEqual;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -78,7 +79,7 @@ final class ArchRuleEnvelopeTest {
             new FieldsShouldBeFinalRule().allowEmptyShould(true).evaluate(
                 new ClassFileImporter().importClasses()
             ).hasViolation(),
-            Matchers.is(false)
+            new IsEqual<>(false)
         );
     }
 }
