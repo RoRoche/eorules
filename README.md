@@ -14,7 +14,7 @@ Set of custom ArchUnit rules to ensure [Elegant Objects](https://www.elegantobje
 
 [![PDD status](https://www.0pdd.com/svg?name=RoRoche/eorules)](https://www.0pdd.com/p?name=RoRoche/eorules)
 
-[![codecov](https://codecov.io/gh/RoRoche/eorules/branch/main/graph/badge.svg)](https://codecov.io/gh/RoRoche/eorules)
+[![codecov](https://codecov.io/github/RoRoche/eorules/graph/badge.svg?branch=main)](https://app.codecov.io/github/RoRoche/eorules)
 [![Mutation testing badge](https://img.shields.io/endpoint?style=flat&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2FRoRoche%2Feorules%2Fmain)](https://dashboard.stryker-mutator.io/reports/github.com/RoRoche/eorules/main)
 
 [![Hits-of-Code](https://hitsofcode.com/github/RoRoche/eorules?branch=main)](https://hitsofcode.com/github/RoRoche/eorules/view?branch=main)

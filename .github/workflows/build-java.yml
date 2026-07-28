@@ -54,11 +54,12 @@ jobs:
           path: target/site/jacoco
 
       - name: Upload coverage to Codecov
+        if: ${{ !github.event.repository.private }}
         uses: codecov/codecov-action@v7
         with:
           files: target/site/jacoco/jacoco.xml
-          commit_sha: ${{ github.sha }}
-          branch: ${{ github.head_ref || github.ref_name }}
+          override_commit: ${{ github.sha }}
+          override_branch: ${{ github.event_name == 'pull_request' && github.head_ref || github.ref_name }}
           use_oidc: true
           fail_ci_if_error: true
           disable_search: true
