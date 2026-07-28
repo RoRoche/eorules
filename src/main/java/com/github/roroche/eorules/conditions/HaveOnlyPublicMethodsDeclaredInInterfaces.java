@@ -50,26 +50,28 @@ public final class HaveOnlyPublicMethodsDeclaredInInterfaces extends ArchConditi
 
     @Override
     public void check(final JavaClass clazz, final ConditionEvents events) {
-        clazz.getMethods().stream().filter(
-            (final JavaMethod method) ->
-                method.getModifiers().contains(JavaModifier.PUBLIC)
-        ).filter(
-            (final JavaMethod method) ->
-                !new IsObjectMethod(method).value() && !new IsMainMethod(method).value()
-        ).filter(
-            (final JavaMethod method) ->
-                !new IsDeclaredInInterfaces(method, new InterfaceMethods(clazz)).value()
-        ).forEach(
-            (final JavaMethod method) ->
-                events.add(
-                    SimpleConditionEvent.violated(
-                        method,
-                        new PublicMethodsDeclaredInInterfacesMessage(
-                            clazz,
-                            method
-                        ).toString()
+        if (!clazz.isInterface()) {
+            clazz.getMethods().stream().filter(
+                (final JavaMethod method) ->
+                    method.getModifiers().contains(JavaModifier.PUBLIC)
+            ).filter(
+                (final JavaMethod method) ->
+                    !new IsObjectMethod(method).value() && !new IsMainMethod(method).value()
+            ).filter(
+                (final JavaMethod method) ->
+                    !new IsDeclaredInInterfaces(method, new InterfaceMethods(clazz)).value()
+            ).forEach(
+                (final JavaMethod method) ->
+                    events.add(
+                        SimpleConditionEvent.violated(
+                            method,
+                            new PublicMethodsDeclaredInInterfacesMessage(
+                                clazz,
+                                method
+                            ).toString()
+                        )
                     )
-                )
-        );
+            );
+        }
     }
 }

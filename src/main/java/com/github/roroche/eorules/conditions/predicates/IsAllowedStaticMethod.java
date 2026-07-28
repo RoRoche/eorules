@@ -47,6 +47,6 @@ public final class IsAllowedStaticMethod implements Scalar<Boolean> {
 
     @Override
     public Boolean value() {
-        return this.method.getName().startsWith("$");
+        return this.method.getName().startsWith("$") || this.method.reflect().isSynthetic();
     }
 }
