@@ -64,6 +64,7 @@ final class PredicateTestSupport {
     ) {
         return classes.get(owner).getMethods().stream()
             .filter(method -> method.getName().equals(name))
+            .filter(method -> !method.reflect().isSynthetic())
             .findFirst()
             .orElseThrow();
     }

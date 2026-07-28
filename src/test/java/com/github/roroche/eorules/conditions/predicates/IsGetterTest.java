@@ -28,52 +28,21 @@ import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
 
 /**
- * Mutation test for {@link IsIs}, verifying boolean branches that are
- * difficult to distinguish through package-wide architecture tests.
+ * Test on {@link IsGetter}.
  * @since 0.0.3
  */
 @SuppressWarnings({"allpublic", "JTCOP.RuleAssertionMessage", "allfinal"})
-final class IsIsTest {
+final class IsGetterTest {
 
     @Test
-    void distinguishesBooleanGetterFromNonBooleanIsMethodIsOk() throws Exception {
+    void acceptsRegularGetter() {
         MatcherAssert.assertThat(
-            "A no-argument boolean is-method is a getter",
-            new IsIs(
+            "A regular no-argument accessor must be treated as a getter",
+            new IsGetter(
                 PredicateTestSupport.method(
-                    PredicateTestSupport.classes(PredicateFixtures.Accessors.class),
-                    PredicateFixtures.Accessors.class,
-                    "isReady"
-                )
-            ).value(),
-            Matchers.is(true)
-        );
-    }
-
-    @Test
-    void distinguishesBooleanGetterFromNonBooleanIsMethodIsNotOK() throws Exception {
-        MatcherAssert.assertThat(
-            "A String-returning is-method is not a getter",
-            new IsIs(
-                PredicateTestSupport.method(
-                    PredicateTestSupport.classes(PredicateFixtures.Accessors.class),
-                    PredicateFixtures.Accessors.class,
-                    "isName"
-                )
-            ).value(),
-            Matchers.is(false)
-        );
-    }
-
-    @Test
-    void acceptsBoxedBooleanGetter() throws Exception {
-        MatcherAssert.assertThat(
-            "A no-argument boxed Boolean is-method is a getter",
-            new IsIs(
-                PredicateTestSupport.method(
-                    PredicateTestSupport.classes(PredicateFixtures.Accessors.class),
-                    PredicateFixtures.Accessors.class,
-                    "isEnabled"
+                    PredicateTestSupport.classes(PredicateFixtures.StringGetter.class),
+                    PredicateFixtures.StringGetter.class,
+                    "getValue"
                 )
             ).value(),
             Matchers.is(true)

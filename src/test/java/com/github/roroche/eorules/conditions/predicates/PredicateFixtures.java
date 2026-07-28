@@ -152,6 +152,29 @@ final class PredicateFixtures {
     }
 
     /**
+     * Generic getter contract used by regular getter tests.
+     * @param <T> Value type
+     * @since 0.0.3
+     */
+    @FunctionalInterface
+    interface GenericGetter<T> {
+
+        T getValue();
+    }
+
+    /**
+     * String getter implementation.
+     * @since 0.0.3
+     */
+    static final class StringGetter implements GenericGetter<String> {
+
+        @Override
+        public String getValue() {
+            return "value";
+        }
+    }
+
+    /**
      * Candidate {@code main} methods with varying signatures and modifiers.
      * @since 0.0.3
      */
@@ -194,6 +217,13 @@ final class PredicateFixtures {
          */
         public String isName() {
             return "name";
+        }
+
+        /*
+         * @checkstyle NonStaticMethodCheck (4 lines)
+         */
+        public Boolean isEnabled() {
+            return Boolean.TRUE;
         }
 
         /*

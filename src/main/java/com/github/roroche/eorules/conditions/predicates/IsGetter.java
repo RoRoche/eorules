@@ -49,19 +49,13 @@ public final class IsGetter implements Scalar<Boolean> {
 
     @Override
     public Boolean value() {
-        final boolean result;
-        if (this.method.reflect().isSynthetic()) {
-            result = false;
-        } else {
-            result = Stream.of(
-                new IsGet(this.method),
-                new IsIs(this.method)
-            ).map(
-                Unchecked::new
-            ).anyMatch(
-                Unchecked::value
-            );
-        }
-        return result;
+        return Stream.of(
+            new IsGet(this.method),
+            new IsIs(this.method)
+        ).map(
+            Unchecked::new
+        ).anyMatch(
+            Unchecked::value
+        );
     }
 }

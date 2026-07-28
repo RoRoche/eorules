@@ -47,17 +47,8 @@ public final class IsSetter implements Scalar<Boolean> {
 
     @Override
     public Boolean value() {
-        final boolean setter;
-        if (this.method.reflect().isSynthetic()) {
-            setter = false;
-        } else {
-            setter =
-                this.method.getName().startsWith("set")
-                    &&
-                    this.method.getRawParameterTypes().size() == 1
-                    &&
-                    this.method.getRawReturnType().isEquivalentTo(void.class);
-        }
-        return setter;
+        return this.method.getName().startsWith("set")
+            && this.method.getRawParameterTypes().size() == 1
+            && this.method.getRawReturnType().isEquivalentTo(void.class);
     }
 }
