@@ -43,8 +43,7 @@ import org.mockito.Mockito;
 @SuppressWarnings({
     "allpublic",
     "allfinal",
-    "JTCOP.RuleTestCaseContainsMockery",
-    "PMD.UnitTestContainsTooManyAsserts"
+    "JTCOP.RuleTestCaseContainsMockery"
 })
 final class NotHavePrivateMethodsTest {
 

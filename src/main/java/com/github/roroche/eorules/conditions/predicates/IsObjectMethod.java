@@ -48,6 +48,6 @@ public final class IsObjectMethod implements Scalar<Boolean> {
     @Override
     public Boolean value() {
         final String name = this.method.getName();
-        return name.equals("toString") || name.equals("equals") || name.equals("hashCode");
+        return "toString".equals(name) || "equals".equals(name) || "hashCode".equals(name);
     }
 }

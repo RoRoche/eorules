@@ -49,7 +49,7 @@ public final class IsGet implements Scalar<Boolean> {
     public Boolean value() throws Exception {
         return this.method.getName().startsWith("get")
             &&
-            !this.method.getName().equals("getClass")
+            !"getClass".equals(this.method.getName())
             &&
             this.method.getRawParameterTypes().isEmpty()
             &&

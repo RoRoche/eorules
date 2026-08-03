@@ -141,7 +141,8 @@ final class PredicateFixtures {
         }
 
         @SuppressWarnings({"PMD.MethodNamingConventions", "PMD.AvoidDollarSigns"})
-        // @checkstyle MethodNameCheck (4 lines)
+        // @checkstyle MethodNameCheck (5 lines)
+        // @checkstyle IllegalIdentifierNameCheck (5 lines)
         public static void $generated() {
             // Intentionally empty.
         }
@@ -259,8 +260,9 @@ final class PredicateFixtures {
         }
 
         /*
-         * @checkstyle NonStaticMethodCheck (4 lines)
+         * @checkstyle NonStaticMethodCheck (5 lines)
          */
+        @SuppressWarnings("PMD.LinguisticNaming")
         public void getNothing() {
             // Intentionally empty.
         }
@@ -273,8 +275,9 @@ final class PredicateFixtures {
         }
 
         /*
-         * @checkstyle NonStaticMethodCheck (4 lines)
+         * @checkstyle NonStaticMethodCheck (5 lines)
          */
+        @SuppressWarnings("PMD.LinguisticNaming")
         public String isName() {
             return "name";
         }

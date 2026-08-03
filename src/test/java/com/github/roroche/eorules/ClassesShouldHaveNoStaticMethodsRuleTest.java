@@ -98,7 +98,8 @@ final class ClassesShouldHaveNoStaticMethodsRuleTest {
         private GeneratedStaticMethod() {
         }
 
-        // @checkstyle MethodNameCheck (5 lines)
+        // @checkstyle MethodNameCheck (6 lines)
+        // @checkstyle IllegalIdentifierNameCheck (6 lines)
         @SuppressWarnings("PMD.PublicMemberInNonPublicType")
         public static void $generated() {
             // Intentionally empty.

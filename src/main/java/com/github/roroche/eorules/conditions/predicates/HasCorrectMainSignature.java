@@ -48,7 +48,6 @@ public final class HasCorrectMainSignature implements Scalar<Boolean> {
     @Override
     public Boolean value() {
         return this.method.getRawParameterTypes().size() == 1
-            && this.method.getRawParameterTypes().get(0).getName()
-            .equals("[Ljava.lang.String;");
+            && "[Ljava.lang.String;".equals(this.method.getRawParameterTypes().get(0).getName());
     }
 }

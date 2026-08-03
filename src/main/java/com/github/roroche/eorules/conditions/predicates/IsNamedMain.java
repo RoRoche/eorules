@@ -47,6 +47,6 @@ public final class IsNamedMain implements Scalar<Boolean> {
 
     @Override
     public Boolean value() {
-        return this.method.getName().equals("main");
+        return "main".equals(this.method.getName());
     }
 }
