@@ -36,9 +36,6 @@ public final class PublicMethodsDeclaredInInterfacesRule extends ArchRuleEnvelop
     /**
      * Ctor.
      */
-    /*
-     * @checkstyle ConstructorsCodeFreeCheck (12 lines)
-     */
     public PublicMethodsDeclaredInInterfacesRule() {
         super(
             ArchRuleDefinition.classes()

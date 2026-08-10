@@ -40,9 +40,6 @@ public final class NotHaveGettersOrSettersMessage extends TextEnvelope {
      * @param clazz The class that has the getter/setter method
      * @param method The getter/setter method
      */
-    /*
-     * @checkstyle ConstructorsCodeFreeCheck (13 lines)
-     */
     public NotHaveGettersOrSettersMessage(
         final JavaClass clazz,
         final JavaMethod method

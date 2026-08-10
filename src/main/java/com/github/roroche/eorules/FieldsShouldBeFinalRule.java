@@ -34,9 +34,6 @@ public final class FieldsShouldBeFinalRule extends ArchRuleEnvelope {
     /**
      * Ctor.
      */
-    /*
-     * @checkstyle ConstructorsCodeFreeCheck (10 lines)
-     */
     public FieldsShouldBeFinalRule() {
         super(
             ArchRuleDefinition.fields()

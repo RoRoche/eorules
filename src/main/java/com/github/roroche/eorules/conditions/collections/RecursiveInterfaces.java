@@ -39,9 +39,6 @@ public final class RecursiveInterfaces extends SetEnvelope<JavaClass> {
      * Ctor.
      * @param clazz The class to retrieve the interfaces from
      */
-    /*
-     * @checkstyle ConstructorsCodeFreeCheck (17 lines)
-     */
     public RecursiveInterfaces(final JavaClass clazz) {
         super(
             Stream.concat(

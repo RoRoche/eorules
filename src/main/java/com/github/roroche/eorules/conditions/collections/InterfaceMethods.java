@@ -38,9 +38,6 @@ public final class InterfaceMethods extends SetEnvelope<JavaMethod> {
      * Ctor.
      * @param clazz The class to retrieve the methods from
      */
-    /*
-     * @checkstyle ConstructorsCodeFreeCheck (9 lines)
-     */
     public InterfaceMethods(final JavaClass clazz) {
         super(
             new RecursiveInterfaces(clazz)

@@ -39,9 +39,6 @@ public final class NoStaticMethodsMessage extends TextEnvelope {
      * @param clazz The class that has the static method
      * @param method The static method
      */
-    /*
-     * @checkstyle ConstructorsCodeFreeCheck (10 lines)
-     */
     public NoStaticMethodsMessage(final JavaClass clazz, final JavaMethod method) {
         super(
             new FormattedText(
