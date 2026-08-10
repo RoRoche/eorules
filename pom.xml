@@ -40,7 +40,7 @@
     <hamcrest.version>3.0</hamcrest.version>
     <jacoco.version>0.8.15</jacoco.version>
     <youshallnotpass.version>0.6.0</youshallnotpass.version>
-    <jtcop.version>1.4.3</jtcop.version>
+    <jtcop.version>1.4.4</jtcop.version>
     <pitest.version>1.25.9</pitest.version>
     <pitest.junit5.plugin.version>1.2.3</pitest.junit5.plugin.version>
     <pit-dashboard-reporter.version>0.3.18</pit-dashboard-reporter.version>
