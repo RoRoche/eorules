@@ -27,6 +27,8 @@ import com.tngtech.archunit.core.importer.ClassFileImporter;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
 import org.hamcrest.core.IsEqual;
+import org.hamcrest.core.IsNot;
+import org.hamcrest.core.IsNull;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -41,7 +43,7 @@ final class ArchRuleEnvelopeTest {
         MatcherAssert.assertThat(
             "The decorated rule returned by because must not be null",
             new FieldsShouldBeFinalRule().because("fields must stay immutable"),
-            Matchers.notNullValue()
+            new IsNot<>(new IsNull<>())
         );
     }
 
@@ -50,7 +52,7 @@ final class ArchRuleEnvelopeTest {
         MatcherAssert.assertThat(
             "The decorated rule returned by allowEmptyShould must not be null",
             new FieldsShouldBeFinalRule().allowEmptyShould(true),
-            Matchers.notNullValue()
+            new IsNot<>(new IsNull<>())
         );
     }
 
@@ -59,7 +61,7 @@ final class ArchRuleEnvelopeTest {
         MatcherAssert.assertThat(
             "The decorated rule returned by as must not be null",
             new FieldsShouldBeFinalRule().as("all fields remain final"),
-            Matchers.notNullValue()
+            new IsNot<>(new IsNull<>())
         );
     }
 
@@ -68,7 +70,7 @@ final class ArchRuleEnvelopeTest {
         MatcherAssert.assertThat(
             "The wrapped rule description must not be empty",
             new FieldsShouldBeFinalRule().getDescription(),
-            Matchers.not(Matchers.emptyString())
+            new IsNot<>(Matchers.emptyString())
         );
     }
 
