@@ -39,6 +39,9 @@ import com.tngtech.archunit.lang.SimpleConditionEvent;
 @ExcludeFromArchUnit
 public final class NotHavePrivateMethods extends ArchCondition<JavaClass> {
 
+    /**
+     * Ctor.
+     */
     public NotHavePrivateMethods() {
         super("not have private methods");
     }

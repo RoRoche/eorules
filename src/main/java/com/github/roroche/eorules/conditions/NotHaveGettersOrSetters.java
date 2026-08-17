@@ -40,6 +40,9 @@ import com.tngtech.archunit.lang.SimpleConditionEvent;
 @ExcludeFromArchUnit
 public final class NotHaveGettersOrSetters extends ArchCondition<JavaClass> {
 
+    /**
+     * Ctor.
+     */
     public NotHaveGettersOrSetters() {
         super("not have getter or setter methods");
     }

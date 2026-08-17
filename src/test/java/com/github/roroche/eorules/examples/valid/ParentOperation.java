@@ -30,5 +30,9 @@ package com.github.roroche.eorules.examples.valid;
 @FunctionalInterface
 public interface ParentOperation {
 
+    /**
+     * Executes the operation.
+     * @param value Value to execute the operation with
+     */
     void execute(Number value);
 }

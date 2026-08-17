@@ -38,6 +38,9 @@ import com.tngtech.archunit.lang.SimpleConditionEvent;
 @ExcludeFromArchUnit
 public final class BeAbstractOrFinal extends ArchCondition<JavaClass> {
 
+    /**
+     * Ctor.
+     */
     public BeAbstractOrFinal() {
         super("be final or abstract");
     }

@@ -44,6 +44,9 @@ import com.tngtech.archunit.lang.SimpleConditionEvent;
 @ExcludeFromArchUnit
 public final class HaveOnlyPublicMethodsDeclaredInInterfaces extends ArchCondition<JavaClass> {
 
+    /**
+     * Ctor.
+     */
     public HaveOnlyPublicMethodsDeclaredInInterfaces() {
         super("have only public methods declared in implemented interfaces");
     }

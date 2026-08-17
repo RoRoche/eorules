@@ -44,6 +44,11 @@ public final class ParametersAssignableIgnoringGenerics implements Scalar<Boolea
      */
     private final JavaMethod implemented;
 
+    /**
+     * Ctor.
+     * @param declared The interface method
+     * @param implemented The implemented method
+     */
     public ParametersAssignableIgnoringGenerics(
         final JavaMethod declared,
         final JavaMethod implemented

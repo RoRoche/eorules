@@ -41,6 +41,9 @@ import com.tngtech.archunit.lang.SimpleConditionEvent;
 @ExcludeFromArchUnit
 public final class HaveNoStaticMethods extends ArchCondition<JavaClass> {
 
+    /**
+     * Ctor.
+     */
     public HaveNoStaticMethods() {
         super("not have static methods");
     }

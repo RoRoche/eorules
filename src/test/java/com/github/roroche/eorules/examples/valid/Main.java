@@ -33,6 +33,10 @@ public final class Main {
     private Main() {
     }
 
+    /**
+     * Main method.
+     * @param args Arguments
+     */
     public static void main(final String[] args) {
         // does nothing
     }

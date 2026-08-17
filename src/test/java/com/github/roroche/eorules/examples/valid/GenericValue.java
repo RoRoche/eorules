@@ -31,5 +31,9 @@ package com.github.roroche.eorules.examples.valid;
 @FunctionalInterface
 public interface GenericValue<T> {
 
+    /**
+     * Returns the value.
+     * @return Value
+     */
     T value();
 }
