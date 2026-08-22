@@ -1,6 +1,37 @@
 # Default target
 default: help
 
+fast: ## Run unit tests for fast feedback
+	@mvn clean test
+
+check: ## Run the complete Maven verification lifecycle
+	@mvn clean verify
+
+mutation: ## Run unit tests and mutation testing
+	@mvn clean test org.pitest:pitest-maven:mutationCoverage
+
+watch: ## Run unit tests whenever Java sources change
+	@watchexec --restart \
+		--watch src/main \
+		--watch src/test \
+		--exts java \
+		-- make fast
+
+watch-check: ## Run Maven verification whenever sources or pom.xml change
+	@watchexec --restart \
+		--watch src/main \
+		--watch src/test \
+		--watch pom.xml \
+		--exts java,xml \
+		-- make check
+
+watch-mutation: ## Run mutation testing whenever Java sources change
+	@watchexec --restart \
+		--watch src/main \
+		--watch src/test \
+		--exts java \
+		-- make mutation
+
 lint: ## Check code formatting
 	@npx validate-branch-name
 	@mvn sortpom:verify
@@ -26,4 +57,4 @@ help: ## Show this help message
 		| awk 'BEGIN {FS = "##"}; {printf "  \033[1;32m%-15s\033[0m %s\n", $$1, $$2}'
 	@echo ""
 
-.PHONY: lint lint-fix help default
+.PHONY: check default fast help lint lint-fix mutation watch watch-check watch-mutation
