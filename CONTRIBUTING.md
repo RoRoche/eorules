@@ -74,6 +74,36 @@ mvn test
 
 6. Push your branch to your fork and open a Pull Request referencing the related issue.
 
+### Continuous Feedback During Development
+
+During development, you can use [watchexec](https://watchexec.github.io/) with the Makefile to automatically run checks whenever production or test code changes.
+
+Install `watchexec` first. On macOS, for example:
+
+```bash
+brew install watchexec
+```
+
+Then choose the feedback loop that best fits your current work:
+
+```bash
+make watch
+```
+
+This runs the unit tests whenever Java files under `src/main` or `src/test` change. For the complete Maven verification lifecycle, including changes to `pom.xml`, use:
+
+```bash
+make watch-check
+```
+
+When working specifically on mutation coverage, use:
+
+```bash
+make watch-mutation
+```
+
+`watchexec` restarts the current command when it detects another relevant change, so the feedback always reflects the latest source code. You can also use the same Makefile targets on Linux or WSL2 after installing `watchexec`.
+
 ## Branch Naming Convention
 
 To keep the repository clean, readable, and easy to maintain, all branches **must follow a strict naming convention**.
