@@ -43,7 +43,7 @@
     <jtcop.version>1.4.4</jtcop.version>
     <pitest.version>1.25.9</pitest.version>
     <pitest.junit5.plugin.version>1.2.3</pitest.junit5.plugin.version>
-    <pit-dashboard-reporter.version>0.3.18</pit-dashboard-reporter.version>
+    <pit-dashboard-reporter.version>0.3.19</pit-dashboard-reporter.version>
     <exec-maven-plugin.version>3.6.3</exec-maven-plugin.version>
     <maven.source.plugin.version>3.4.0</maven.source.plugin.version>
     <mockito.version>5.23.0</mockito.version>
