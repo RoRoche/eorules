@@ -55,14 +55,14 @@ final class IsSameOrSubtypeTest {
     @Test
     void acceptsImplementedInterface() {
         final JavaClasses classes = PredicateTestSupport.classes(
-            PredicateFixtures.Marker.class,
-            PredicateFixtures.Marked.class
+            Marker.class,
+            Marked.class
         );
         MatcherAssert.assertThat(
             "Implemented interfaces must be detected",
             new IsSameOrSubtype(
-                classes.get(PredicateFixtures.Marked.class),
-                classes.get(PredicateFixtures.Marker.class)
+                classes.get(Marked.class),
+                classes.get(Marker.class)
             ).value(),
             new IsEqual<>(true)
         );

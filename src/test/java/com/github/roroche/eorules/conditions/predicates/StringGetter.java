@@ -21,21 +21,16 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.github.roroche.eorules.examples.invalid;
+package com.github.roroche.eorules.conditions.predicates;
 
 /**
- * Class with private method, which is not allowed by
- * {@link com.github.roroche.eorules.ClassesShouldNotHavePrivateMethodsRule}.
- * @since 0.0.1
+ * String getter implementation.
+ * @since 0.0.3
  */
-@SuppressWarnings("allpublic")
-public final class ClassWithPrivateMethod {
+final class StringGetter implements GenericGetter<String> {
 
-    /*
-     * @checkstyle NonStaticMethodCheck (5 lines)
-     */
-    @SuppressWarnings("PMD.UnusedPrivateMethod")
-    private void unusedPrivateMethod() {
-        // This method is intentionally left blank
+    @Override
+    public String getValue() {
+        return "value";
     }
 }

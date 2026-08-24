@@ -21,21 +21,19 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.github.roroche.eorules.examples.invalid;
+package com.github.roroche.eorules.conditions.predicates;
 
 /**
- * Class with private method, which is not allowed by
- * {@link com.github.roroche.eorules.ClassesShouldNotHavePrivateMethodsRule}.
- * @since 0.0.1
+ * Declares a same-named method with a different arity.
+ * @since 0.0.3
  */
-@SuppressWarnings("allpublic")
-public final class ClassWithPrivateMethod {
+@SuppressWarnings("PMD.PublicMemberInNonPublicType")
+final class WrongArity {
 
     /*
-     * @checkstyle NonStaticMethodCheck (5 lines)
+     * @checkstyle NonStaticMethodCheck (4 lines)
      */
-    @SuppressWarnings("PMD.UnusedPrivateMethod")
-    private void unusedPrivateMethod() {
-        // This method is intentionally left blank
+    public void run(final Number first, final Number second) {
+        // Intentionally empty.
     }
 }

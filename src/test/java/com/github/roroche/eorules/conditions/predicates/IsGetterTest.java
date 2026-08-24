@@ -40,8 +40,8 @@ final class IsGetterTest {
             "A regular no-argument accessor must be treated as a getter",
             new IsGetter(
                 PredicateTestSupport.method(
-                    PredicateTestSupport.classes(PredicateFixtures.StringGetter.class),
-                    PredicateFixtures.StringGetter.class,
+                    PredicateTestSupport.classes(StringGetter.class),
+                    StringGetter.class,
                     "getValue"
                 )
             ).value(),
@@ -70,8 +70,8 @@ final class IsGetterTest {
             "A get-method with a parameter must not be treated as a getter",
             new IsGetter(
                 PredicateTestSupport.method(
-                    PredicateTestSupport.classes(PredicateFixtures.Accessors.class),
-                    PredicateFixtures.Accessors.class,
+                    PredicateTestSupport.classes(Accessors.class),
+                    Accessors.class,
                     "getNamed"
                 )
             ).value(),
@@ -85,8 +85,8 @@ final class IsGetterTest {
             "A void get-method must not be treated as a getter",
             new IsGetter(
                 PredicateTestSupport.method(
-                    PredicateTestSupport.classes(PredicateFixtures.Accessors.class),
-                    PredicateFixtures.Accessors.class,
+                    PredicateTestSupport.classes(Accessors.class),
+                    Accessors.class,
                     "getNothing"
                 )
             ).value(),
@@ -102,12 +102,12 @@ final class IsGetterTest {
                 PredicateTestSupport.synthetic(
                     PredicateTestSupport.method(
                         PredicateTestSupport.classes(
-                            PredicateFixtures.StringGetter.class
+                            StringGetter.class
                         ),
-                        PredicateFixtures.StringGetter.class,
+                        StringGetter.class,
                         "getValue"
                     ),
-                    PredicateFixtures.StringGetter.class,
+                    StringGetter.class,
                     "getValue"
                 )
             ).value(),

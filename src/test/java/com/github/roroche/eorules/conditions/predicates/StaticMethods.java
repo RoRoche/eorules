@@ -21,21 +21,37 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.github.roroche.eorules.examples.invalid;
+package com.github.roroche.eorules.conditions.predicates;
 
 /**
- * Class with private method, which is not allowed by
- * {@link com.github.roroche.eorules.ClassesShouldNotHavePrivateMethodsRule}.
- * @since 0.0.1
+ * Static methods, some of which are compiler-generated-looking.
+ * @since 0.0.3
  */
-@SuppressWarnings("allpublic")
-public final class ClassWithPrivateMethod {
+@SuppressWarnings({
+    "PMD.PublicMemberInNonPublicType",
+    "PMD.ProhibitPublicStaticMethods",
+    "staticfree"
+})
+final class StaticMethods {
 
-    /*
-     * @checkstyle NonStaticMethodCheck (5 lines)
-     */
-    @SuppressWarnings("PMD.UnusedPrivateMethod")
-    private void unusedPrivateMethod() {
-        // This method is intentionally left blank
+    private StaticMethods() {
+        // Intentionally empty.
+    }
+
+    public static void ordinary() {
+        // Intentionally empty.
+    }
+
+    @SuppressWarnings({"PMD.MethodNamingConventions", "PMD.AvoidDollarSigns"})
+    // @checkstyle MethodNameCheck (5 lines)
+    // @checkstyle IllegalIdentifierNameCheck (5 lines)
+    public static void $generated() {
+        // Intentionally empty.
+    }
+
+    public static Runnable action() {
+        return () -> {
+            // Intentionally empty.
+        };
     }
 }

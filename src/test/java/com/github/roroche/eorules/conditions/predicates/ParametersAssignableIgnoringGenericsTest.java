@@ -52,20 +52,20 @@ final class ParametersAssignableIgnoringGenericsTest {
     @Test
     void rejectsMethodsWithUnrelatedParameterTypes() {
         final JavaClasses classes = PredicateTestSupport.classes(
-            PredicateFixtures.Contract.class,
-            PredicateFixtures.WrongType.class
+            Contract.class,
+            WrongType.class
         );
         MatcherAssert.assertThat(
             "Unrelated parameter types must not be assignable",
             new ParametersAssignableIgnoringGenerics(
                 PredicateTestSupport.method(
                     classes,
-                    PredicateFixtures.Contract.class,
+                    Contract.class,
                     ParametersAssignableIgnoringGenericsTest.RUN
                 ),
                 PredicateTestSupport.method(
                     classes,
-                    PredicateFixtures.WrongType.class,
+                    WrongType.class,
                     ParametersAssignableIgnoringGenericsTest.RUN
                 )
             ).value(),
@@ -76,20 +76,20 @@ final class ParametersAssignableIgnoringGenericsTest {
     @Test
     void acceptsSubtypeParameter() {
         final JavaClasses classes = PredicateTestSupport.classes(
-            PredicateFixtures.Contract.class,
-            PredicateFixtures.NarrowType.class
+            Contract.class,
+            NarrowType.class
         );
         MatcherAssert.assertThat(
             "A subtype must be accepted by the current rule semantics",
             new ParametersAssignableIgnoringGenerics(
                 PredicateTestSupport.method(
                     classes,
-                    PredicateFixtures.Contract.class,
+                    Contract.class,
                     ParametersAssignableIgnoringGenericsTest.RUN
                 ),
                 PredicateTestSupport.method(
                     classes,
-                    PredicateFixtures.NarrowType.class,
+                    NarrowType.class,
                     ParametersAssignableIgnoringGenericsTest.RUN
                 )
             ).value(),

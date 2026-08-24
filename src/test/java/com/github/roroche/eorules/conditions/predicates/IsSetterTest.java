@@ -41,8 +41,8 @@ final class IsSetterTest {
             "A one-argument void set-method is a setter",
             new IsSetter(
                 PredicateTestSupport.method(
-                    PredicateTestSupport.classes(PredicateFixtures.Accessors.class),
-                    PredicateFixtures.Accessors.class,
+                    PredicateTestSupport.classes(Accessors.class),
+                    Accessors.class,
                     "setName"
                 )
             ).value(),
@@ -56,8 +56,8 @@ final class IsSetterTest {
             "A fluent set-method is not a setter",
             new IsSetter(
                 PredicateTestSupport.method(
-                    PredicateTestSupport.classes(PredicateFixtures.Accessors.class),
-                    PredicateFixtures.Accessors.class,
+                    PredicateTestSupport.classes(Accessors.class),
+                    Accessors.class,
                     "setFluently"
                 )
             ).value(),
@@ -71,8 +71,8 @@ final class IsSetterTest {
             "A set-method without a parameter must not be treated as a setter",
             new IsSetter(
                 PredicateTestSupport.method(
-                    PredicateTestSupport.classes(PredicateFixtures.Accessors.class),
-                    PredicateFixtures.Accessors.class,
+                    PredicateTestSupport.classes(Accessors.class),
+                    Accessors.class,
                     "setNothing"
                 )
             ).value(),
@@ -88,12 +88,12 @@ final class IsSetterTest {
                 PredicateTestSupport.synthetic(
                     PredicateTestSupport.method(
                         PredicateTestSupport.classes(
-                            PredicateFixtures.Accessors.class
+                            Accessors.class
                         ),
-                        PredicateFixtures.Accessors.class,
+                        Accessors.class,
                         "setName"
                     ),
-                    PredicateFixtures.StringSetter.class,
+                    StringSetter.class,
                     "setValue"
                 )
             ).value(),

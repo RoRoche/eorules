@@ -42,8 +42,8 @@ final class IsAllowedStaticMethodTest {
             "An ordinary static method must not be treated as compiler generated",
             new IsAllowedStaticMethod(
                 PredicateTestSupport.method(
-                    PredicateTestSupport.classes(PredicateFixtures.StaticMethods.class),
-                    PredicateFixtures.StaticMethods.class,
+                    PredicateTestSupport.classes(StaticMethods.class),
+                    StaticMethods.class,
                     "ordinary"
                 )
             ).value(),
@@ -57,8 +57,8 @@ final class IsAllowedStaticMethodTest {
             "A dollar-prefixed method must be treated as compiler generated",
             new IsAllowedStaticMethod(
                 PredicateTestSupport.method(
-                    PredicateTestSupport.classes(PredicateFixtures.StaticMethods.class),
-                    PredicateFixtures.StaticMethods.class,
+                    PredicateTestSupport.classes(StaticMethods.class),
+                    StaticMethods.class,
                     "$generated"
                 )
             ).value(),
@@ -74,12 +74,12 @@ final class IsAllowedStaticMethodTest {
                 PredicateTestSupport.synthetic(
                     PredicateTestSupport.method(
                         PredicateTestSupport.classes(
-                            PredicateFixtures.StaticMethods.class
+                            StaticMethods.class
                         ),
-                        PredicateFixtures.StaticMethods.class,
+                        StaticMethods.class,
                         "ordinary"
                     ),
-                    PredicateFixtures.StaticMethods.class,
+                    StaticMethods.class,
                     "lambda$action$0"
                 )
             ).value(),

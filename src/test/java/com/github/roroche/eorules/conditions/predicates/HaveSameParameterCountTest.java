@@ -52,20 +52,20 @@ final class HaveSameParameterCountTest {
     @Test
     void rejectsMethodsWithDifferentParameterCounts() {
         final JavaClasses classes = PredicateTestSupport.classes(
-            PredicateFixtures.Contract.class,
-            PredicateFixtures.WrongArity.class
+            Contract.class,
+            WrongArity.class
         );
         MatcherAssert.assertThat(
             "Methods with different arities must not match",
             new HaveSameParameterCount(
                 PredicateTestSupport.method(
                     classes,
-                    PredicateFixtures.Contract.class,
+                    Contract.class,
                     HaveSameParameterCountTest.RUN
                 ),
                 PredicateTestSupport.method(
                     classes,
-                    PredicateFixtures.WrongArity.class,
+                    WrongArity.class,
                     HaveSameParameterCountTest.RUN
                 )
             ).value(),

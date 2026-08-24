@@ -42,8 +42,8 @@ final class HasCorrectMainSignatureTest {
             "String array is the expected main parameter",
             new HasCorrectMainSignature(
                 PredicateTestSupport.method(
-                    PredicateTestSupport.classes(PredicateFixtures.MainMethods.class),
-                    PredicateFixtures.MainMethods.class,
+                    PredicateTestSupport.classes(MainMethods.class),
+                    MainMethods.class,
                     "main"
                 )
             ).value(),
@@ -57,8 +57,8 @@ final class HasCorrectMainSignatureTest {
             "A String parameter must not be accepted as a main signature",
             new HasCorrectMainSignature(
                 PredicateTestSupport.method(
-                    PredicateTestSupport.classes(PredicateFixtures.MainMethods.class),
-                    PredicateFixtures.MainMethods.class,
+                    PredicateTestSupport.classes(MainMethods.class),
+                    MainMethods.class,
                     "wrongMain"
                 )
             ).value(),
@@ -72,8 +72,8 @@ final class HasCorrectMainSignatureTest {
             "A main method without a parameter must not have a valid signature",
             new HasCorrectMainSignature(
                 PredicateTestSupport.method(
-                    PredicateTestSupport.classes(PredicateFixtures.MainMethods.class),
-                    PredicateFixtures.MainMethods.class,
+                    PredicateTestSupport.classes(MainMethods.class),
+                    MainMethods.class,
                     "emptyMain"
                 )
             ).value(),

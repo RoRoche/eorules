@@ -53,21 +53,21 @@ final class IsDeclaredInInterfacesTest {
     @Test
     void rejectsMethodWithSameNameButDifferentArity() {
         final JavaClasses classes = PredicateTestSupport.classes(
-            PredicateFixtures.Contract.class,
-            PredicateFixtures.WrongArity.class
+            Contract.class,
+            WrongArity.class
         );
         MatcherAssert.assertThat(
             "A same-named method with a different arity is not declared by the interface",
             new IsDeclaredInInterfaces(
                 PredicateTestSupport.method(
                     classes,
-                    PredicateFixtures.WrongArity.class,
+                    WrongArity.class,
                     IsDeclaredInInterfacesTest.RUN
                 ),
                 Set.of(
                     PredicateTestSupport.method(
                         classes,
-                        PredicateFixtures.Contract.class,
+                        Contract.class,
                         IsDeclaredInInterfacesTest.RUN
                     )
                 )
@@ -79,21 +79,21 @@ final class IsDeclaredInInterfacesTest {
     @Test
     void rejectsMethodWithSameNameAndUnrelatedType() {
         final JavaClasses classes = PredicateTestSupport.classes(
-            PredicateFixtures.Contract.class,
-            PredicateFixtures.WrongType.class
+            Contract.class,
+            WrongType.class
         );
         MatcherAssert.assertThat(
             "A same-named method with an unrelated parameter type is not declared",
             new IsDeclaredInInterfaces(
                 PredicateTestSupport.method(
                     classes,
-                    PredicateFixtures.WrongType.class,
+                    WrongType.class,
                     IsDeclaredInInterfacesTest.RUN
                 ),
                 Set.of(
                     PredicateTestSupport.method(
                         classes,
-                        PredicateFixtures.Contract.class,
+                        Contract.class,
                         IsDeclaredInInterfacesTest.RUN
                     )
                 )
@@ -105,21 +105,21 @@ final class IsDeclaredInInterfacesTest {
     @Test
     void acceptsExactInterfaceMethod() {
         final JavaClasses classes = PredicateTestSupport.classes(
-            PredicateFixtures.Contract.class,
-            PredicateFixtures.ExactType.class
+            Contract.class,
+            ExactType.class
         );
         MatcherAssert.assertThat(
             "An exact implementation must be declared by its interface",
             new IsDeclaredInInterfaces(
                 PredicateTestSupport.method(
                     classes,
-                    PredicateFixtures.ExactType.class,
+                    ExactType.class,
                     IsDeclaredInInterfacesTest.RUN
                 ),
                 Set.of(
                     PredicateTestSupport.method(
                         classes,
-                        PredicateFixtures.Contract.class,
+                        Contract.class,
                         IsDeclaredInInterfacesTest.RUN
                     )
                 )
@@ -131,21 +131,21 @@ final class IsDeclaredInInterfacesTest {
     @Test
     void rejectsMethodWithDifferentName() {
         final JavaClasses classes = PredicateTestSupport.classes(
-            PredicateFixtures.Contract.class,
-            PredicateFixtures.StaticMethods.class
+            Contract.class,
+            StaticMethods.class
         );
         MatcherAssert.assertThat(
             "A method with a different name is not declared by the interface",
             new IsDeclaredInInterfaces(
                 PredicateTestSupport.method(
                     classes,
-                    PredicateFixtures.StaticMethods.class,
+                    StaticMethods.class,
                     "ordinary"
                 ),
                 Set.of(
                     PredicateTestSupport.method(
                         classes,
-                        PredicateFixtures.Contract.class,
+                        Contract.class,
                         IsDeclaredInInterfacesTest.RUN
                     )
                 )

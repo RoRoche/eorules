@@ -41,8 +41,8 @@ final class IsIsTest {
             "A no-argument boolean is-method is a getter",
             new IsIs(
                 PredicateTestSupport.method(
-                    PredicateTestSupport.classes(PredicateFixtures.Accessors.class),
-                    PredicateFixtures.Accessors.class,
+                    PredicateTestSupport.classes(Accessors.class),
+                    Accessors.class,
                     "isReady"
                 )
             ).value(),
@@ -56,8 +56,8 @@ final class IsIsTest {
             "A String-returning is-method is not a getter",
             new IsIs(
                 PredicateTestSupport.method(
-                    PredicateTestSupport.classes(PredicateFixtures.Accessors.class),
-                    PredicateFixtures.Accessors.class,
+                    PredicateTestSupport.classes(Accessors.class),
+                    Accessors.class,
                     "isName"
                 )
             ).value(),
@@ -71,8 +71,8 @@ final class IsIsTest {
             "A no-argument boxed Boolean is-method is a getter",
             new IsIs(
                 PredicateTestSupport.method(
-                    PredicateTestSupport.classes(PredicateFixtures.Accessors.class),
-                    PredicateFixtures.Accessors.class,
+                    PredicateTestSupport.classes(Accessors.class),
+                    Accessors.class,
                     "isEnabled"
                 )
             ).value(),
@@ -86,8 +86,8 @@ final class IsIsTest {
             "An is-method with a parameter must not be treated as a getter",
             new IsIs(
                 PredicateTestSupport.method(
-                    PredicateTestSupport.classes(PredicateFixtures.Accessors.class),
-                    PredicateFixtures.Accessors.class,
+                    PredicateTestSupport.classes(Accessors.class),
+                    Accessors.class,
                     "isReadyWith"
                 )
             ).value(),

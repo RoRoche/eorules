@@ -42,8 +42,8 @@ final class HasCorrectMainModifiersTest {
             "A public static main method has the expected modifiers",
             new HasCorrectMainModifiers(
                 PredicateTestSupport.method(
-                    PredicateTestSupport.classes(PredicateFixtures.MainMethods.class),
-                    PredicateFixtures.MainMethods.class,
+                    PredicateTestSupport.classes(MainMethods.class),
+                    MainMethods.class,
                     "main"
                 )
             ).value(),
@@ -57,8 +57,8 @@ final class HasCorrectMainModifiersTest {
             "An instance method must not have valid main modifiers",
             new HasCorrectMainModifiers(
                 PredicateTestSupport.method(
-                    PredicateTestSupport.classes(PredicateFixtures.MainMethods.class),
-                    PredicateFixtures.MainMethods.class,
+                    PredicateTestSupport.classes(MainMethods.class),
+                    MainMethods.class,
                     "instanceMain"
                 )
             ).value(),
@@ -72,8 +72,8 @@ final class HasCorrectMainModifiersTest {
             "A non-public static method must not have valid main modifiers",
             new HasCorrectMainModifiers(
                 PredicateTestSupport.method(
-                    PredicateTestSupport.classes(PredicateFixtures.MainMethods.class),
-                    PredicateFixtures.MainMethods.class,
+                    PredicateTestSupport.classes(MainMethods.class),
+                    MainMethods.class,
                     "hiddenMain"
                 )
             ).value(),

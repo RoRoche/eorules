@@ -41,8 +41,8 @@ final class IsNamedMainTest {
             "The main method must be recognised by name",
             new IsNamedMain(
                 PredicateTestSupport.method(
-                    PredicateTestSupport.classes(PredicateFixtures.MainMethods.class),
-                    PredicateFixtures.MainMethods.class,
+                    PredicateTestSupport.classes(MainMethods.class),
+                    MainMethods.class,
                     "main"
                 )
             ).value(),
@@ -56,8 +56,8 @@ final class IsNamedMainTest {
             "Another method name must not be recognised as main",
             new IsNamedMain(
                 PredicateTestSupport.method(
-                    PredicateTestSupport.classes(PredicateFixtures.MainMethods.class),
-                    PredicateFixtures.MainMethods.class,
+                    PredicateTestSupport.classes(MainMethods.class),
+                    MainMethods.class,
                     "wrongMain"
                 )
             ).value(),
