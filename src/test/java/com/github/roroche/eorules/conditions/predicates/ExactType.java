@@ -27,12 +27,9 @@ package com.github.roroche.eorules.conditions.predicates;
  * Implements {@link Contract} with the exact same parameter type.
  * @since 0.0.3
  */
-final class ExactType {
+final class ExactType implements Contract {
 
-    /*
-     * @checkstyle NonStaticMethodCheck (5 lines)
-     */
-    @SuppressWarnings("PMD.PublicMemberInNonPublicType")
+    @Override
     public void run(final Number value) {
         // Intentionally empty.
     }

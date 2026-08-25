@@ -27,12 +27,13 @@ package com.github.roroche.eorules.conditions.predicates;
  * Implements {@link Contract} with a narrower parameter type.
  * @since 0.0.3
  */
-final class NarrowType {
+abstract class NarrowType implements Contract {
 
-    /*
-     * @checkstyle NonStaticMethodCheck (5 lines)
-     */
-    @SuppressWarnings("PMD.PublicMemberInNonPublicType")
+    // @checkstyle NonStaticMethodCheck (7 lines)
+    @SuppressWarnings({
+        "PMD.PublicMemberInNonPublicType",
+        "PMD.EmptyMethodInAbstractClassShouldBeAbstract"
+    })
     public void run(final Integer value) {
         // Intentionally empty.
     }

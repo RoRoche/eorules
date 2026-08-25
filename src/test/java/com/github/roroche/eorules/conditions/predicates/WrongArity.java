@@ -28,11 +28,12 @@ package com.github.roroche.eorules.conditions.predicates;
  * @since 0.0.3
  */
 @SuppressWarnings("PMD.PublicMemberInNonPublicType")
-final class WrongArity {
+abstract class WrongArity implements Contract {
 
     /*
-     * @checkstyle NonStaticMethodCheck (4 lines)
+     * @checkstyle NonStaticMethodCheck (5 lines)
      */
+    @SuppressWarnings("PMD.EmptyMethodInAbstractClassShouldBeAbstract")
     public void run(final Number first, final Number second) {
         // Intentionally empty.
     }
