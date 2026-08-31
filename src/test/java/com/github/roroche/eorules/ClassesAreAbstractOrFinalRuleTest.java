@@ -27,6 +27,7 @@ import com.github.roroche.eorules.examples.invalid.ClassThatIsNotAbstractNorFina
 import com.github.roroche.eorules.matchers.HasViolationContaining;
 import com.github.roroche.eorules.matchers.HasViolationCount;
 import com.github.roroche.eorules.matchers.HasViolations;
+import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.core.AllOf;
@@ -77,13 +78,13 @@ final class ClassesAreAbstractOrFinalRuleTest {
 
     @Test
     void throwsAssertionErrorOnViolation() {
+        final ClassesAreAbstractOrFinalRule rule = new ClassesAreAbstractOrFinalRule();
+        final JavaClasses classes = new ClassFileImporter().importClasses(
+            ClassThatIsNotAbstractNorFinal.class
+        );
         Assertions.assertThrows(
             AssertionError.class,
-            () -> new ClassesAreAbstractOrFinalRule().check(
-                new ClassFileImporter().importClasses(
-                    ClassThatIsNotAbstractNorFinal.class
-                )
-            ),
+            () -> rule.check(classes),
             "ClassThatIsNotAbstractNorFinal should throw an AssertionError"
         );
     }
