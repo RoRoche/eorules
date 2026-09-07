@@ -32,7 +32,7 @@
     <java.version>21</java.version>
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>
-    <maven.compiler.plugin.version>3.15.0</maven.compiler.plugin.version>
+    <maven.compiler.plugin.version>3.16.0</maven.compiler.plugin.version>
     <sortpom.version>4.0.0</sortpom.version>
     <license-maven-plugin.version>5.1.2</license-maven-plugin.version>
     <qulice.version>0.32.0</qulice.version>
