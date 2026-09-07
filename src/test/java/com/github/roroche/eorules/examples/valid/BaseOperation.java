@@ -27,6 +27,12 @@ package com.github.roroche.eorules.examples.valid;
  * Abstract class.
  * @since 0.0.2
  */
-@SuppressWarnings("PMD.AbstractClassWithoutAnyMethod")
 public abstract class BaseOperation implements ChildOperation {
+
+    /**
+     * Constructor.
+     */
+    public BaseOperation() {
+        // Empty constructor
+    }
 }

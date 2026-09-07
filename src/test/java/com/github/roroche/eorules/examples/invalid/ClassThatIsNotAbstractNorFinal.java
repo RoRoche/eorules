@@ -29,4 +29,11 @@ package com.github.roroche.eorules.examples.invalid;
  */
 @SuppressWarnings("allfinal")
 public class ClassThatIsNotAbstractNorFinal {
+
+    /**
+     * Empty constructor.
+     */
+    public ClassThatIsNotAbstractNorFinal() {
+        // empty constructor
+    }
 }

@@ -27,6 +27,7 @@ package com.github.roroche.eorules.examples.valid;
  * This class is final, so it should be valid.
  * @since 0.0.1
  */
+@SuppressWarnings("PMD.ConstructorShouldDoInitialization")
 public final class FinalClass implements Iface {
 
     /**
@@ -35,6 +36,13 @@ public final class FinalClass implements Iface {
      */
     @SuppressWarnings({"PMD.UnusedPrivateField", "UnusedVariable"})
     private final String description = "This class is final, so it should be valid.";
+
+    /**
+     * Constructor.
+     */
+    public FinalClass() {
+        // Empty constructor
+    }
 
     @Override
     public void theMethod() {

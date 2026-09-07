@@ -31,6 +31,13 @@ package com.github.roroche.eorules.examples.invalid;
 @SuppressWarnings("allpublic")
 public final class ClassWithPrivateMethod {
 
+    /**
+     * Empty constructor.
+     */
+    public ClassWithPrivateMethod() {
+        // empty constructor
+    }
+
     /*
      * @checkstyle NonStaticMethodCheck (5 lines)
      */

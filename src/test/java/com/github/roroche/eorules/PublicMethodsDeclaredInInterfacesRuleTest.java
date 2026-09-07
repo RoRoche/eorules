@@ -38,6 +38,7 @@ import com.github.roroche.eorules.matchers.HasViolationCount;
 import com.github.roroche.eorules.matchers.HasViolations;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
 import com.tngtech.archunit.lang.syntax.ArchRuleDefinition;
+import java.lang.reflect.Method;
 import java.util.Arrays;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.core.AllOf;
@@ -94,7 +95,7 @@ final class PublicMethodsDeclaredInInterfacesRuleTest {
         MatcherAssert.assertThat(
             "The fixture must expose a synthetic bridge method",
             Arrays.stream(StringValue.class.getDeclaredMethods())
-                .anyMatch(java.lang.reflect.Method::isSynthetic),
+                .anyMatch(Method::isSynthetic),
             new IsEqual<>(true)
         );
     }

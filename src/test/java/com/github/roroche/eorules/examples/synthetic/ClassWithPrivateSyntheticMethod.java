@@ -30,6 +30,13 @@ package com.github.roroche.eorules.examples.synthetic;
 public final class ClassWithPrivateSyntheticMethod {
 
     /**
+     * Empty constructor.
+     */
+    public ClassWithPrivateSyntheticMethod() {
+        // empty constructor
+    }
+
+    /**
      * Creates an empty action.
      * @return Empty action
      */

@@ -30,6 +30,13 @@ package com.github.roroche.eorules.examples.valid;
 public abstract class AbstractClass {
 
     /**
+     * Constructor.
+     */
+    public AbstractClass() {
+        // Empty constructor
+    }
+
+    /**
      * An abstract method, to make the class abstract.
      */
     @SuppressWarnings("allpublic")

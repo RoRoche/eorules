@@ -36,6 +36,13 @@ public final class HasSetter {
     private String name;
 
     /**
+     * Constructor.
+     */
+    public HasSetter() {
+        // Empty constructor
+    }
+
+    /**
      * Set the name of the object.
      * @param value The name to set
      */

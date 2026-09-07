@@ -33,6 +33,13 @@ import org.hamcrest.TypeSafeMatcher;
  */
 public final class HasViolations extends TypeSafeMatcher<EvaluationResult> {
 
+    /**
+     * Constructor.
+     */
+    public HasViolations() {
+        super();
+    }
+
     @Override
     public boolean matchesSafely(final EvaluationResult item) {
         return item.hasViolation();

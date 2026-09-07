@@ -29,6 +29,13 @@ package com.github.roroche.eorules.examples.valid;
  */
 public final class IntegerOperation extends BaseOperation {
 
+    /**
+     * Constructor.
+     */
+    public IntegerOperation() {
+        // Empty constructor
+    }
+
     @Override
     public void execute(final Number value) {
         // Valid.

@@ -32,6 +32,13 @@ import java.util.function.Supplier;
 @SuppressWarnings("allpublic")
 public final class SyntheticPrivateMethodExample implements SyntheticPrivateMethod {
 
+    /**
+     * Constructor.
+     */
+    public SyntheticPrivateMethodExample() {
+        // Empty constructor
+    }
+
     @SuppressWarnings("PMD.UnnecessaryLocalRule")
     @Override
     public String execute() {

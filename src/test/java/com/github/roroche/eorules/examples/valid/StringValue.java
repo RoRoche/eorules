@@ -29,6 +29,13 @@ package com.github.roroche.eorules.examples.valid;
  */
 public final class StringValue implements GenericValue<String> {
 
+    /**
+     * Constructor.
+     */
+    public StringValue() {
+        // Empty constructor
+    }
+
     @Override
     public String value() {
         return "value";

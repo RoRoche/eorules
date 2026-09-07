@@ -35,4 +35,11 @@ public final class ClassWithNonFinalField {
      */
     @SuppressWarnings({"PMD.UnusedPrivateField", "UnusedVariable"})
     private String invalid;
+
+    /**
+     * Empty constructor.
+     */
+    public ClassWithNonFinalField() {
+        // empty constructor
+    }
 }
