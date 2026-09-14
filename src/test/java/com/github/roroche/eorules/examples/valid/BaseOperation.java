@@ -25,6 +25,7 @@ package com.github.roroche.eorules.examples.valid;
 
 /**
  * Abstract class.
+ *
  * @since 0.0.2
  */
 public abstract class BaseOperation implements ChildOperation {

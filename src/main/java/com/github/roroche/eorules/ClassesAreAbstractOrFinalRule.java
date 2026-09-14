@@ -28,6 +28,7 @@ import com.tngtech.archunit.lang.syntax.ArchRuleDefinition;
 
 /**
  * {@link com.tngtech.archunit.lang.ArchRule} to assert that classes are abstract of final.
+ *
  * @since 0.0.1
  */
 public final class ClassesAreAbstractOrFinalRule extends ArchRuleEnvelope {

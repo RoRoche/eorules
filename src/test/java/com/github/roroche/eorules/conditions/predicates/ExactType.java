@@ -25,6 +25,7 @@ package com.github.roroche.eorules.conditions.predicates;
 
 /**
  * Implements {@link Contract} with the exact same parameter type.
+ *
  * @since 0.0.3
  */
 final class ExactType implements Contract {

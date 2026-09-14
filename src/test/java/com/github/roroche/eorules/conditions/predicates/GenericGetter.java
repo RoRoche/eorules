@@ -25,6 +25,7 @@ package com.github.roroche.eorules.conditions.predicates;
 
 /**
  * Generic getter contract used by regular getter tests.
+ *
  * @param <T> Value type
  * @since 0.0.3
  */

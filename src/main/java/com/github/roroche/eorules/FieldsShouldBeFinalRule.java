@@ -27,6 +27,7 @@ import com.tngtech.archunit.lang.syntax.ArchRuleDefinition;
 
 /**
  * {@link com.tngtech.archunit.lang.ArchRule} to assert that fields are final.
+ *
  * @since 0.0.1
  */
 public final class FieldsShouldBeFinalRule extends ArchRuleEnvelope {

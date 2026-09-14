@@ -25,6 +25,7 @@ package com.github.roroche.eorules.examples.synthetic;
 
 /**
  * Class whose lambda produces a private synthetic method.
+ *
  * @since 0.0.3
  */
 public final class ClassWithPrivateSyntheticMethod {
@@ -38,6 +39,7 @@ public final class ClassWithPrivateSyntheticMethod {
 
     /**
      * Creates an empty action.
+     *
      * @return Empty action
      */
     /*

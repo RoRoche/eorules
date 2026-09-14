@@ -32,6 +32,7 @@ import org.junit.jupiter.api.Test;
  * Mutation test for {@link HaveSameParameterCount}, verifying a boolean
  * branch that is difficult to distinguish through package-wide architecture
  * tests.
+ *
  * @since 0.0.3
  */
 @SuppressWarnings({
@@ -45,6 +46,7 @@ final class HaveSameParameterCountTest {
 
     /**
      * Constant for run method name.
+     *
      * @since 0.0.3
      */
     private static final String RUN = "run";

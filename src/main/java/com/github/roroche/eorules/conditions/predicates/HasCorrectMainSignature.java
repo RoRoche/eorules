@@ -28,6 +28,7 @@ import org.cactoos.Scalar;
 
 /**
  * Check if the {@link JavaMethod} has the correct signature for a main method.
+ *
  * @since 0.0.1
  */
 public final class HasCorrectMainSignature implements Scalar<Boolean> {
@@ -39,6 +40,7 @@ public final class HasCorrectMainSignature implements Scalar<Boolean> {
 
     /**
      * Ctor.
+     *
      * @param method The {@link JavaMethod} to test
      */
     public HasCorrectMainSignature(final JavaMethod method) {

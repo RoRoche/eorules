@@ -37,6 +37,7 @@ import org.junit.jupiter.api.Test;
 
 /**
  * Test on {@link ClassesAreAbstractOrFinalRule}.
+ *
  * @since 0.0.1
  */
 @SuppressWarnings("allpublic")

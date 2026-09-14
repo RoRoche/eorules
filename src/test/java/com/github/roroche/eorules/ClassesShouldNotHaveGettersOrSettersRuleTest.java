@@ -36,6 +36,7 @@ import org.junit.jupiter.api.Test;
 
 /**
  * Test on {@link ClassesShouldNotHaveGettersOrSettersRule}.
+ *
  * @since 0.0.1
  */
 @SuppressWarnings("allpublic")

@@ -25,6 +25,7 @@ package com.github.roroche.eorules.examples.valid;
 
 /**
  * Generic value contract used to generate a bridge method.
+ *
  * @param <T> Value type
  * @since 0.0.3
  */
@@ -33,6 +34,7 @@ public interface GenericValue<T> {
 
     /**
      * Returns the value.
+     *
      * @return Value
      */
     T value();

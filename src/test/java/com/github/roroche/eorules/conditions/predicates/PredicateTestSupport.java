@@ -33,6 +33,7 @@ import org.mockito.Mockito;
 /**
  * Shared helpers used by the predicate mutation tests to import fixture
  * classes with ArchUnit and to resolve a single method by name.
+ *
  * @since 0.0.3
  */
 @SuppressWarnings({"allpublic", "staticfree", "allfinal"})
@@ -46,6 +47,7 @@ final class PredicateTestSupport {
 
     /**
      * Imports the given classes with ArchUnit.
+     *
      * @param types Classes to import
      * @return The imported classes
      */
@@ -55,6 +57,7 @@ final class PredicateTestSupport {
 
     /**
      * Makes a regular ArchUnit method report a synthetic reflected method.
+     *
      * @param method Regular ArchUnit method
      * @param owner Class declaring a synthetic method
      * @param name Synthetic method name
@@ -97,6 +100,7 @@ final class PredicateTestSupport {
 
     /**
      * Resolves a regular method by name on an imported class.
+     *
      * @param classes Imported classes
      * @param owner Class declaring the method
      * @param name Method name

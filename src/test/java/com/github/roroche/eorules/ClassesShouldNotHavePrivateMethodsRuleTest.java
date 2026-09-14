@@ -36,6 +36,7 @@ import org.junit.jupiter.api.Test;
 
 /**
  * Test class for {@link ClassesShouldNotHavePrivateMethodsRule}.
+ *
  * @since 0.0.1
  */
 @SuppressWarnings("allpublic")

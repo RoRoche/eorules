@@ -29,6 +29,7 @@ import com.tngtech.archunit.lang.syntax.ArchRuleDefinition;
 /**
  * {@link com.tngtech.archunit.lang.ArchRule} to assert that classes declare methods
  * that are defined in interface.
+ *
  * @since 0.0.1
  */
 public final class PublicMethodsDeclaredInInterfacesRule extends ArchRuleEnvelope {

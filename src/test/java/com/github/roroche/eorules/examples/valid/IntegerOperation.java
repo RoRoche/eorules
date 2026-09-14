@@ -25,6 +25,7 @@ package com.github.roroche.eorules.examples.valid;
 
 /**
  * Valid class.
+ *
  * @since 0.0.2
  */
 public final class IntegerOperation extends BaseOperation {

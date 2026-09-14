@@ -28,6 +28,7 @@ import org.cactoos.Scalar;
 
 /**
  * Check if a method start with "get" and is a getter.
+ *
  * @since 0.0.1
  */
 public final class IsGet implements Scalar<Boolean> {
@@ -39,6 +40,7 @@ public final class IsGet implements Scalar<Boolean> {
 
     /**
      * Ctor.
+     *
      * @param method The {@link JavaMethod} to test
      */
     public IsGet(final JavaMethod method) {

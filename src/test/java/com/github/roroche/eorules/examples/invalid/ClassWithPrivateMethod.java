@@ -26,6 +26,7 @@ package com.github.roroche.eorules.examples.invalid;
 /**
  * Class with private method, which is not allowed by
  * {@link com.github.roroche.eorules.ClassesShouldNotHavePrivateMethodsRule}.
+ *
  * @since 0.0.1
  */
 @SuppressWarnings("allpublic")

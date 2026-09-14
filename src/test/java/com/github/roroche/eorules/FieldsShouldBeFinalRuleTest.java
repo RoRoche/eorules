@@ -35,6 +35,7 @@ import org.junit.jupiter.api.Test;
 
 /**
  * Test for {@link FieldsShouldBeFinalRule}.
+ *
  * @since 0.0.1
  */
 @SuppressWarnings("allpublic")

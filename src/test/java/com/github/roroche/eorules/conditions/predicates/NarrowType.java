@@ -25,6 +25,7 @@ package com.github.roroche.eorules.conditions.predicates;
 
 /**
  * Implements {@link Contract} with a narrower parameter type.
+ *
  * @since 0.0.3
  */
 abstract class NarrowType implements Contract {

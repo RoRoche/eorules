@@ -25,6 +25,7 @@ package com.github.roroche.eorules.conditions.predicates;
 
 /**
  * Declares a same-named method with a different arity.
+ *
  * @since 0.0.3
  */
 @SuppressWarnings("PMD.PublicMemberInNonPublicType")

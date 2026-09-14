@@ -25,6 +25,7 @@ package com.github.roroche.eorules.examples.valid;
 
 /**
  * Valid interface.
+ *
  * @since 0.0.2
  */
 public interface ChildOperation extends ParentOperation {

@@ -25,6 +25,7 @@ package com.github.roroche.eorules.conditions.predicates;
 
 /**
  * Declares a same-named method with an unrelated parameter type.
+ *
  * @since 0.0.3
  */
 @SuppressWarnings("PMD.PublicMemberInNonPublicType")

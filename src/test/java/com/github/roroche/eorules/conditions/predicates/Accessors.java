@@ -25,6 +25,7 @@ package com.github.roroche.eorules.conditions.predicates;
 
 /**
  * Accessor-like methods, some of which are not real getters or setters.
+ *
  * @since 0.0.3
  */
 @SuppressWarnings("PMD.PublicMemberInNonPublicType")

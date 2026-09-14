@@ -35,6 +35,7 @@ import org.junit.jupiter.api.Test;
 
 /**
  * Test class for {@link ClassesShouldHaveNoStaticMethodsRule}.
+ *
  * @since 0.0.1
  */
 @SuppressWarnings("allpublic")
@@ -85,6 +86,7 @@ final class ClassesShouldHaveNoStaticMethodsRuleTest {
 
     /**
      * Fixture exposing an allowed generated static method.
+     *
      * @since 0.0.3
      */
     @SuppressWarnings({

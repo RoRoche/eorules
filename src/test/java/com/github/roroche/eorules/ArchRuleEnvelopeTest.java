@@ -33,6 +33,7 @@ import org.junit.jupiter.api.Test;
 
 /**
  * Test on {@link ArchRuleEnvelope} delegation methods.
+ *
  * @since 0.0.3
  */
 @SuppressWarnings({"allpublic", "JTCOP.RuleAssertionMessage"})

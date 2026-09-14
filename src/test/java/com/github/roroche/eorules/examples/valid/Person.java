@@ -27,6 +27,7 @@ import java.util.Objects;
 
 /**
  * Simple java object.
+ *
  * @since 0.0.2
  */
 public final class Person {
@@ -48,6 +49,7 @@ public final class Person {
 
     /**
      * Primary ctor.
+     *
      * @param firstname The first name
      * @param lastname The last name
      * @param age The age

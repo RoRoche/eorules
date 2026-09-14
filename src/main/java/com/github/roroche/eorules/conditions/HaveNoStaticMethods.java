@@ -36,6 +36,7 @@ import com.tngtech.archunit.lang.SimpleConditionEvent;
 
 /**
  * {@link ArchCondition} to assert a {@link JavaClass} has no static methods.
+ *
  * @since 0.0.1
  */
 @ExcludeFromArchUnit

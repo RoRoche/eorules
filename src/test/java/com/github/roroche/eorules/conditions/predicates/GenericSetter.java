@@ -25,6 +25,7 @@ package com.github.roroche.eorules.conditions.predicates;
 
 /**
  * Generic setter contract used to generate a synthetic bridge method.
+ *
  * @param <T> Value type
  * @since 0.0.3
  */

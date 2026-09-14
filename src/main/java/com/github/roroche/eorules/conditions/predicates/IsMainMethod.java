@@ -30,6 +30,7 @@ import org.cactoos.scalar.Unchecked;
 
 /**
  * Check if the {@link JavaMethod} is the main method.
+ *
  * @since 0.0.1
  */
 public final class IsMainMethod implements Scalar<Boolean> {
@@ -41,6 +42,7 @@ public final class IsMainMethod implements Scalar<Boolean> {
 
     /**
      * Ctor.
+     *
      * @param method The {@link JavaMethod} to test
      */
     public IsMainMethod(final JavaMethod method) {

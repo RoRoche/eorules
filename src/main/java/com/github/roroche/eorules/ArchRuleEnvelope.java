@@ -29,6 +29,7 @@ import com.tngtech.archunit.lang.EvaluationResult;
 
 /**
  * Wrapper for {@link ArchRule}.
+ *
  * @since 0.0.1
  */
 @ExcludeFromArchUnit

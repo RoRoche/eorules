@@ -25,6 +25,7 @@ package com.github.roroche.eorules.examples.valid;
 
 /**
  * Contract for the synthetic private method example.
+ *
  * @since 0.0.1
  */
 @SuppressWarnings("allpublic")
@@ -33,6 +34,7 @@ public interface SyntheticPrivateMethod {
 
     /**
      * Executes the example.
+     *
      * @return Value produced by the example
      */
     String execute();

@@ -28,6 +28,7 @@ import org.cactoos.Scalar;
 
 /**
  * Check if a {@link JavaMethod} is {@link Object} methods.
+ *
  * @since 0.0.1
  */
 public final class IsObjectMethod implements Scalar<Boolean> {
@@ -39,6 +40,7 @@ public final class IsObjectMethod implements Scalar<Boolean> {
 
     /**
      * Ctor.
+     *
      * @param method The {@link JavaMethod} to test
      */
     public IsObjectMethod(final JavaMethod method) {

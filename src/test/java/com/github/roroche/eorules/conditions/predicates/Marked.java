@@ -25,6 +25,7 @@ package com.github.roroche.eorules.conditions.predicates;
 
 /**
  * Implements {@link Marker}.
+ *
  * @since 0.0.3
  */
 final class Marked implements Marker {

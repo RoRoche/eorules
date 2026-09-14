@@ -30,6 +30,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Mutation test for {@link IsIs}, verifying boolean branches that are
  * difficult to distinguish through package-wide architecture tests.
+ *
  * @since 0.0.3
  */
 @SuppressWarnings({"allpublic", "JTCOP.RuleAssertionMessage", "allfinal"})

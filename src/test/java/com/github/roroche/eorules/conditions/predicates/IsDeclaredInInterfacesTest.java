@@ -33,6 +33,7 @@ import org.junit.jupiter.api.Test;
  * Mutation test for {@link IsDeclaredInInterfaces}, verifying boolean
  * branches that are difficult to distinguish through package-wide
  * architecture tests.
+ *
  * @since 0.0.3
  */
 @SuppressWarnings({
@@ -46,6 +47,7 @@ final class IsDeclaredInInterfacesTest {
 
     /**
      * Constant for run method name.
+     *
      * @since 0.0.3
      */
     private static final String RUN = "run";

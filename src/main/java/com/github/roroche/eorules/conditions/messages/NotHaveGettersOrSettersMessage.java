@@ -31,12 +31,14 @@ import org.cactoos.text.TextEnvelope;
 /**
  * Error message for {@link com.tngtech.archunit.lang.ArchRule} when classes
  * have getters or setters.
+ *
  * @since 0.0.1
  */
 public final class NotHaveGettersOrSettersMessage extends TextEnvelope {
 
     /**
      * Ctor.
+     *
      * @param clazz The class that has the getter/setter method
      * @param method The getter/setter method
      */

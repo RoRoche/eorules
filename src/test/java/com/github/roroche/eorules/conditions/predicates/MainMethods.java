@@ -25,6 +25,7 @@ package com.github.roroche.eorules.conditions.predicates;
 
 /**
  * Candidate {@code main} methods with varying signatures and modifiers.
+ *
  * @since 0.0.3
  */
 @SuppressWarnings({

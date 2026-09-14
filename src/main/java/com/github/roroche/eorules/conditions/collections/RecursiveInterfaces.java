@@ -31,12 +31,14 @@ import org.cactoos.set.SetEnvelope;
 
 /**
  * Iterate to retrieve all the interfaces.
+ *
  * @since 1.0.O
  */
 public final class RecursiveInterfaces extends SetEnvelope<JavaClass> {
 
     /**
      * Ctor.
+     *
      * @param clazz The class to retrieve the interfaces from
      */
     public RecursiveInterfaces(final JavaClass clazz) {

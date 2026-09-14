@@ -28,6 +28,7 @@ import org.cactoos.Scalar;
 
 /**
  * Check if a method is a setter.
+ *
  * @since 0.0.1
  */
 public final class IsSetter implements Scalar<Boolean> {
@@ -39,6 +40,7 @@ public final class IsSetter implements Scalar<Boolean> {
 
     /**
      * Ctor.
+     *
      * @param method The {@link JavaMethod} to test
      */
     public IsSetter(final JavaMethod method) {

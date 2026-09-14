@@ -38,6 +38,7 @@ import org.junit.jupiter.api.Test;
 
 /**
  * Tests the synthetic branch of the private-method condition.
+ *
  * @since 0.0.1
  */
 @SuppressWarnings({"allpublic", "JTCOP.RuleEveryTestHasProductionClass"})

@@ -38,6 +38,7 @@ import org.mockito.Mockito;
 
 /**
  * Tests {@link NotHavePrivateMethods}.
+ *
  * @since 0.0.3
  */
 @SuppressWarnings({

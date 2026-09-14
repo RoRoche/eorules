@@ -25,6 +25,7 @@ package com.github.roroche.eorules.conditions.predicates;
 
 /**
  * Marker interface used to test subtype detection.
+ *
  * @since 0.0.3
  */
 interface Marker {

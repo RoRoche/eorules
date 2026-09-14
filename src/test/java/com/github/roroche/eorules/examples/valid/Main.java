@@ -25,6 +25,7 @@ package com.github.roroche.eorules.examples.valid;
 
 /**
  * Entry point.
+ *
  * @since 0.0.2
  */
 @SuppressWarnings("staticfree")
@@ -35,6 +36,7 @@ public final class Main {
 
     /**
      * Main method.
+     *
      * @param args Arguments
      */
     public static void main(final String[] args) {

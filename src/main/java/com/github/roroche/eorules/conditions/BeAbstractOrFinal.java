@@ -33,6 +33,7 @@ import com.tngtech.archunit.lang.SimpleConditionEvent;
 
 /**
  * {@link ArchCondition} to assert a {@link JavaClass} is abstract or final.
+ *
  * @since 0.0.1
  */
 @ExcludeFromArchUnit

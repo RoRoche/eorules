@@ -29,6 +29,7 @@ import org.hamcrest.TypeSafeDiagnosingMatcher;
 
 /**
  * Matcher to count the number of violations.
+ *
  * @since 0.0.2
  */
 public final class HasViolationCount extends TypeSafeDiagnosingMatcher<EvaluationResult> {
@@ -40,6 +41,7 @@ public final class HasViolationCount extends TypeSafeDiagnosingMatcher<Evaluatio
 
     /**
      * Primary ctor.
+     *
      * @param expected Expected number of violations
      */
     public HasViolationCount(final int expected) {

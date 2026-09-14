@@ -25,6 +25,7 @@ package com.github.roroche.eorules.conditions.predicates;
 
 /**
  * Static methods, some of which are compiler-generated-looking.
+ *
  * @since 0.0.3
  */
 @SuppressWarnings({

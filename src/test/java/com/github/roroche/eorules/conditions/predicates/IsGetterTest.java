@@ -29,6 +29,7 @@ import org.junit.jupiter.api.Test;
 
 /**
  * Test on {@link IsGetter}.
+ *
  * @since 0.0.3
  */
 @SuppressWarnings({"allpublic", "JTCOP.RuleAssertionMessage", "allfinal"})

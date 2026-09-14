@@ -27,6 +27,7 @@ import java.util.function.Supplier;
 
 /**
  * Example whose lambda generates a private synthetic method.
+ *
  * @since 0.0.1
  */
 @SuppressWarnings("allpublic")

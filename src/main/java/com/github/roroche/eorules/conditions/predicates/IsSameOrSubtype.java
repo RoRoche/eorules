@@ -29,6 +29,7 @@ import org.cactoos.Scalar;
 /**
  * Simulate isAssignableFrom for ArchUnit 1.4.x:
  * returns true if implClass == ifaceClass or implClass inherits/implements ifaceClass.
+ *
  * @since 0.0.1
  */
 public final class IsSameOrSubtype implements Scalar<Boolean> {
@@ -45,6 +46,7 @@ public final class IsSameOrSubtype implements Scalar<Boolean> {
 
     /**
      * Ctor.
+     *
      * @param clazz The implemented class
      * @param iface The interface
      */

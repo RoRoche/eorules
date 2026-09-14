@@ -25,6 +25,7 @@ package com.github.roroche.eorules.examples.valid;
 
 /**
  * String value implementation generating a synthetic bridge method.
+ *
  * @since 0.0.3
  */
 public final class StringValue implements GenericValue<String> {

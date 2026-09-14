@@ -25,6 +25,7 @@ package com.github.roroche.eorules.examples.invalid;
 
 /**
  * Class with getters and setters.
+ *
  * @since 0.0.1
  */
 @SuppressWarnings("PMD.ConstructorShouldDoInitialization")
@@ -49,6 +50,7 @@ public final class HasGetters {
 
     /**
      * Get the description of the object.
+     *
      * @return The description of the object
      */
     public String getDescription() {
@@ -57,6 +59,7 @@ public final class HasGetters {
 
     /**
      * Get whether the object is invalid.
+     *
      * @return Whether the object is invalid
      */
     public boolean isInvalid() {

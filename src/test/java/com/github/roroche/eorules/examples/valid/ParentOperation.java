@@ -25,6 +25,7 @@ package com.github.roroche.eorules.examples.valid;
 
 /**
  * Valid interface.
+ *
  * @since 0.0.2
  */
 @FunctionalInterface
@@ -32,6 +33,7 @@ public interface ParentOperation {
 
     /**
      * Executes the operation.
+     *
      * @param value Value to execute the operation with
      */
     void execute(Number value);

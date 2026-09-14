@@ -30,6 +30,7 @@ import org.junit.jupiter.api.Test;
 
 /**
  * Test class for the architecture of the library.
+ *
  * @since 0.0.1
  */
 @SuppressWarnings({
@@ -41,8 +42,7 @@ final class ArchitectureTest {
 
     /**
      * The classes to be checked.
-     */
-    /*
+     *
      * @checkstyle ProhibitFieldsInTestClassesCheck (4 lines)
      */
     private final JavaClasses classes = new ClassFileImporter()

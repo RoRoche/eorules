@@ -25,6 +25,7 @@ package com.github.roroche.eorules.examples.invalid;
 
 /**
  * Class with static method, which is not allowed by the rule.
+ *
  * @since 0.0.1
  */
 public final class ClassWithStaticMethod {
@@ -38,6 +39,7 @@ public final class ClassWithStaticMethod {
 
     /**
      * This method is static, which is not allowed by the rule.
+     *
      * @return A description of the class
      */
     @SuppressWarnings({"PMD.ProhibitPublicStaticMethods", "staticfree"})

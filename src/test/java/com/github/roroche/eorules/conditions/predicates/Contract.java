@@ -25,6 +25,7 @@ package com.github.roroche.eorules.conditions.predicates;
 
 /**
  * Reference contract exposing a single-argument {@code run} method.
+ *
  * @since 0.0.3
  */
 @FunctionalInterface

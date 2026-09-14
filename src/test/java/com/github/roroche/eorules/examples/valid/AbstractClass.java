@@ -25,6 +25,7 @@ package com.github.roroche.eorules.examples.valid;
 
 /**
  * This class is abstract, so it should be valid.
+ *
  * @since 0.0.1
  */
 public abstract class AbstractClass {

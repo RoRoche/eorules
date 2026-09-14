@@ -25,6 +25,7 @@ package com.github.roroche.eorules.conditions.predicates;
 
 /**
  * String setter implementation.
+ *
  * @since 0.0.3
  */
 final class StringSetter implements GenericSetter<String> {
