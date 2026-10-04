@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.github.roroche</groupId>
   <artifactId>eorules-parent</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.2</version>
   <packaging>pom</packaging>
   <name>eorules-parent</name>
   <description>Set of custom ArchUnit rules to ensure Elegant Objects principles respect</description>
