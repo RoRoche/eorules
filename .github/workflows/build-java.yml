@@ -38,26 +38,28 @@ jobs:
       - name: Build with Maven
         run: mvn -B -ntp clean verify
 
-      - name: Verify JaCoCo XML report
+      - name: Verify JaCoCo XML reports
         shell: bash
         run: |
-          test -s target/site/jacoco/jacoco.xml
-          echo "JaCoCo report generated for commit ${GITHUB_SHA}"
+          test -s target/site/eorules-annotations/jacoco/jacoco.xml
+          test -s target/site/eorules/jacoco/jacoco.xml
+          echo "JaCoCo reports generated for commit ${GITHUB_SHA}"
           echo "GitHub ref: ${GITHUB_REF}"
           echo "GitHub ref name: ${GITHUB_REF_NAME}"
-          ls -lh target/site/jacoco/jacoco.xml
+          ls -lh target/site/*/jacoco/jacoco.xml
 
       - name: Upload JaCoCo HTML report as artifact
         uses: actions/upload-artifact@v7
         with:
-          name: jacoco-html-report
-          path: target/site/jacoco
+          name: jacoco-html-reports
+          path: target/site/*/jacoco
+          if-no-files-found: error
 
       - name: Upload coverage to Codecov
         if: ${{ !github.event.repository.private }}
         uses: codecov/codecov-action@v7
         with:
-          files: target/site/jacoco/jacoco.xml
+          files: target/site/eorules/jacoco/jacoco.xml
           override_commit: ${{ github.sha }}
           override_branch: ${{ github.event_name == 'pull_request' && github.head_ref || github.ref_name }}
           use_oidc: true
@@ -82,4 +84,5 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: pit-html-report
-          path: target/pit-reports
+          path: eorules-rules/target/pit-reports
+          if-no-files-found: error

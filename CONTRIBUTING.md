@@ -90,7 +90,12 @@ Then choose the feedback loop that best fits your current work:
 make watch
 ```
 
-This runs the unit tests whenever Java files under `src/main` or `src/test` change. For the complete Maven verification lifecycle, including changes to `pom.xml`, use:
+This runs the unit tests whenever Java files under `eorules-annotations/src` or
+`eorules-rules/src` change. The Makefile stores sentinel files under `target/.make`
+for each module, then refreshes stale checks.
+
+For the complete Maven verification lifecycle, including changes to the root or module
+`pom.xml` files, use:
 
 ```bash
 make watch-check
@@ -101,6 +106,10 @@ When working specifically on mutation coverage, use:
 ```bash
 make watch-mutation
 ```
+
+Mutation coverage runs from the reactor root and targets the executable rules module.
+The annotations module participates in compilation and tests, but PIT skips it because
+annotation bytecode has no mutations to create.
 
 `watchexec` restarts the current command when it detects another relevant change, so the feedback always reflects the latest source code. You can also use the same Makefile targets on Linux or WSL2 after installing `watchexec`.
 

@@ -52,7 +52,20 @@ Set of custom ArchUnit rules to ensure [Elegant Objects](https://www.elegantobje
 
 ## 📥 Installation
 
-Add the dependency to your project:
+`eorules` ships as two Maven artifacts:
+
+- `eorules-annotations`: lightweight annotations for production code. It has no ArchUnit dependency.
+- `eorules`: the ArchUnit rules implementation. Keep it on the test classpath.
+
+Add both dependencies to your project:
+
+```xml
+<dependency>
+    <groupId>com.github.roroche</groupId>
+    <artifactId>eorules-annotations</artifactId>
+    <version>${latest.version}</version>
+</dependency>
+```
 
 ```xml
 <dependency>
@@ -62,6 +75,9 @@ Add the dependency to your project:
     <scope>test</scope>
 </dependency>
 ```
+
+This keeps application code free to use suppression annotations without making the ArchUnit
+implementation a production dependency.
 
 ## 🚀 Usage
 
@@ -104,7 +120,85 @@ class ArchitectureTest {
 }
 ```
 
-To bypass the checks, you can annotate your class with `@ExcludeFromArchUnit`.
+## 🧩 Modules
+
+The Maven reactor contains:
+
+```text
+eorules
+├── eorules-annotations
+└── eorules-rules
+```
+
+The `eorules-rules` module keeps the existing `com.github.roroche:eorules` artifactId for
+backward compatibility. Existing rule classes such as `ClassesAreAbstractOrFinalRule` remain
+in the `com.github.roroche.eorules` package.
+
+## 🔕 Suppression
+
+Use `@SuppressEoRule` to suppress one specific rule on a class or member.
+
+```java
+import com.github.roroche.eorules.SuppressEoRule;
+
+@SuppressEoRule("no-private-methods")
+public final class Example {
+    private void helper() {
+        // Suppressed only for the no-private-methods rule.
+    }
+}
+```
+
+Member-level suppression works where the rule checks a member:
+
+```java
+import com.github.roroche.eorules.SuppressEoRule;
+
+public final class Example {
+    @SuppressEoRule("no-getters-or-setters")
+    public String getName() {
+        return "name";
+    }
+}
+```
+
+Suppress rule keys on the same element:
+
+```java
+import com.github.roroche.eorules.SuppressEoRule;
+
+@SuppressEoRule({
+    "no-static-methods",
+    "public-methods-in-interfaces"
+})
+public final class Example {
+    public static void action() {
+    }
+
+    public void print() {
+    }
+}
+```
+
+A member has suppression when either the member itself or its declaring class declares the matching
+rule key. Each key suppresses its corresponding rule.
+
+Supported suppression keys:
+
+| Key | Rule |
+| --- | --- |
+| `classes-abstract-or-final` | `ClassesAreAbstractOrFinalRule` |
+| `no-static-methods` | `ClassesShouldHaveNoStaticMethodsRule` |
+| `no-getters-or-setters` | `ClassesShouldNotHaveGettersOrSettersRule` |
+| `no-private-methods` | `ClassesShouldNotHavePrivateMethodsRule` |
+| `fields-final` | `FieldsShouldBeFinalRule` |
+| `public-methods-in-interfaces` | `PublicMethodsDeclaredInInterfacesRule` |
+
+The keys are also exposed as constants on `SuppressEoRule`, for example
+`SuppressEoRule.NO_PRIVATES`.
+
+`@ExcludeFromArchUnit` remains available for backward compatibility, but prefer `@SuppressEoRule`.
+One local exception should not disable every eorules check for a class.
 
 ## 🤝 Contributing
 
