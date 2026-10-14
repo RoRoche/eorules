@@ -16,39 +16,66 @@ We love contributions from the community. By participating, you agree to follow 
 
 ## Getting Started
 
-To contribute, you need the following installed locally:
-
-1. Java & Maven
-
-Ensure you have Java 21+ and Maven installed.
+[Mise](https://mise.jdx.dev/) manages the development tools on Linux, macOS and Windows.
+Install Git and [Mise](https://mise.jdx.dev/getting-started.html) first.
 
 ```bash
-java -version
-mvn -version
+# macOS
+brew install mise
 ```
 
-2. Node.js & npm
+```powershell
+# Windows (PowerShell)
+winget install jdx.mise
+```
 
-Required for build tooling:
+On Linux, follow the official [installation instructions](https://mise.jdx.dev/installing-mise.html).
+Then clone your fork and run these commands from the repository root:
 
 ```bash
-npm install
+mise trust
+mise install
+mise run setup
+mise run versions
 ```
 
-3. Python
+Review `mise.toml` before trusting it. It defines exact versions of Temurin Java 21, Maven, Node.js and npm.
+It also pins Python, UV and `watchexec`. npm has its own version pin.
+Mise sets `JAVA_HOME` and selects the tools for each task.
+UV uses the configured Python version without downloading another interpreter.
+`npm ci` and `uv sync --frozen` install dependencies from the committed lockfiles.
+The setup task also installs the Husky Git hooks.
 
-You also need Python for YAML linting and Makefile linting.
-Please ensure you have UV installed:
+Tasks require `mise install` first. Use `mise run` to list the tasks. These tasks work without shell activation or Make,
+including from PowerShell on Windows. Git hooks also require `mise` on `PATH`.
+The existing Makefile remains available on Linux, macOS and WSL2.
+
+To run tools directly, prefix commands with `mise exec --`:
 
 ```bash
-uv --version
+mise exec -- mise run test
+mise exec -- uv run --frozen yamllint .
 ```
 
-And sync UV to start the virtual environment:
+For automatic tool selection in your terminal, follow the
+[shell activation instructions](https://mise.jdx.dev/getting-started.html#activate-mise).
+For example, add `eval "$(mise activate zsh)"` to `~/.zshrc` for Zsh.
+In an IDE, select the JDK directory reported by `mise where java` as the project SDK
+and the Maven directory from `mise where maven` as Maven home.
 
-```bash
-uv sync
-```
+### Updating the environment
+
+Keep shared tool versions in `mise.toml`; avoid separate version files or global installs.
+Use `mise use --pin <tool>@<version>` to update a tool, then run setup and the checks.
+When updating Python, also update `UV_PYTHON` in `mise.toml`.
+Update project dependencies with npm or UV and commit their lockfiles.
+Personal overrides belong in the ignored `mise.local.toml`.
+
+GitHub Actions uses `jdx/mise-action` and the same configuration.
+Each lint or build job installs its required tools.
+The environment workflow installs all tools and locked dependencies on Linux, macOS and Windows.
+Mise manages tool installations; Maven, npm and UV manage project dependencies.
+Git, IDEs and optional Make remain external prerequisites.
 
 ## Development Workflow
 
@@ -63,55 +90,32 @@ git checkout -b feature/issue-number/your-feature-name
 4. Lint your files:
 
 ```bash
-make lint
+mise run lint
 ```
 
 5. Run tests:
 
 ```bash
-mvn test
+mise run test
 ```
 
 6. Push your branch to your fork and open a Pull Request referencing the related issue.
 
 ### Continuous Feedback During Development
 
-During development, you can use [watchexec](https://watchexec.github.io/) with the Makefile to automatically run checks whenever production or test code changes.
-
-Install `watchexec` first. On macOS, for example:
-
-```bash
-brew install watchexec
-```
-
-Then choose the feedback loop that best fits your current work:
+Mise installs [watchexec](https://watchexec.github.io/) for automatic checks after source changes.
+Choose the task that matches your work:
 
 ```bash
-make watch
+mise run watch
+mise run watch-check
+mise run watch-mutation
 ```
 
-This runs the unit tests whenever Java files under `eorules-annotations/src` or
-`eorules-rules/src` change. The Makefile stores sentinel files under `target/.make`
-for each module, then refreshes stale checks.
-
-For the complete Maven verification lifecycle, including changes to the root or module
-`pom.xml` files, use:
-
-```bash
-make watch-check
-```
-
-When working specifically on mutation coverage, use:
-
-```bash
-make watch-mutation
-```
-
-Mutation coverage runs from the reactor root and targets the executable rules module.
-The annotations module participates in compilation and tests, but PIT skips it because
-annotation bytecode has no mutations to create.
-
-`watchexec` restarts the current command when it detects another relevant change, so the feedback always reflects the latest source code. You can also use the same Makefile targets on Linux or WSL2 after installing `watchexec`.
+`watch` runs unit tests after Java changes. `watch-check` runs Maven verification
+and also watches `pom.xml`. `watch-mutation` runs mutation testing.
+`watchexec` restarts the command after another relevant change.
+These commands also work on Windows without Make or WSL2.
 
 ## Branch Naming Convention
 
