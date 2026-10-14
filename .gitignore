@@ -305,3 +305,7 @@ dist
 .venv
 
 # End of https://www.toptal.com/developers/gitignore/api/intellij,maven,java,node
+
+# Personal Mise overrides
+mise.local.toml
+mise.*.local.toml
