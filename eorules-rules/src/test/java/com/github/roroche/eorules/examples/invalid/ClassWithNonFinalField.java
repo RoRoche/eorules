@@ -34,13 +34,17 @@ public final class ClassWithNonFinalField {
     /**
      * Non final field.
      */
-    @SuppressWarnings({"PMD.UnusedPrivateField", "UnusedVariable"})
+    @SuppressWarnings({
+        "PMD.UnusedPrivateField",
+        "PMD.ImmutableField",
+        "UnusedVariable"
+    })
     private String invalid;
 
     /**
-     * Empty constructor.
+     * Default constructor.
      */
     public ClassWithNonFinalField() {
-        // empty constructor
+        this.invalid = "";
     }
 }

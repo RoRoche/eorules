@@ -37,10 +37,10 @@ public final class HasSetter {
     private String name;
 
     /**
-     * Constructor.
+     * Default constructor.
      */
     public HasSetter() {
-        // Empty constructor
+        this.name = "";
     }
 
     /**

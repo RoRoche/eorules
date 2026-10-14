@@ -510,10 +510,10 @@ final class RuleSuppressionTest {
          *
          * @since 0.0.1
          */
-        private String name;
+        @SuppressWarnings("PMD.ImmutableField")
+        private String name = "";
     }
 
-    @SuppressEoRule(SuppressEoRule.FIELDS_FINAL)
     static final class ClassSuppressedNonFinalField {
 
         /**
@@ -521,7 +521,9 @@ final class RuleSuppressionTest {
          *
          * @since 0.0.1
          */
-        private String name;
+        @SuppressWarnings("PMD.ImmutableField")
+        @SuppressEoRule(SuppressEoRule.FIELDS_FINAL)
+        private String name = "";
     }
 
     static final class MemberSuppressedNonFinalField {
@@ -531,8 +533,9 @@ final class RuleSuppressionTest {
          *
          * @since 0.0.1
          */
+        @SuppressWarnings("PMD.ImmutableField")
         @SuppressEoRule(SuppressEoRule.FIELDS_FINAL)
-        private String name;
+        private String name = "";
     }
 
     static final class WronglySuppressedNonFinalField {
@@ -542,8 +545,9 @@ final class RuleSuppressionTest {
          *
          * @since 0.0.1
          */
+        @SuppressWarnings("PMD.ImmutableField")
         @SuppressEoRule(SuppressEoRule.PUBLIC_CONTRACTS)
-        private String name;
+        private String name = "";
     }
 
     static final class MultiplySuppressedNonFinalField {
@@ -553,11 +557,12 @@ final class RuleSuppressionTest {
          *
          * @since 0.0.1
          */
+        @SuppressWarnings("PMD.ImmutableField")
         @SuppressEoRule({
             SuppressEoRule.PUBLIC_CONTRACTS,
             SuppressEoRule.FIELDS_FINAL
         })
-        private String name;
+        private String name = "";
     }
 
     static final class PublicMethod {
