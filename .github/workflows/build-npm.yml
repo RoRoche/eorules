@@ -18,20 +18,20 @@ jobs:
         with:
           ref: ${{ github.head_ref || github.ref_name }}
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v7
+      - name: Install development tools
+        uses: jdx/mise-action@v5
         with:
-          node-version: '22'
-          cache: npm
+          install_args: node npm
+
+      - name: Cache npm dependencies
+        uses: actions/cache@v5
+        with:
+          path: ~/.npm
+          key: npm-${{ runner.os }}-${{ hashFiles('mise.toml', 'package-lock.json') }}
+          restore-keys: npm-${{ runner.os }}-
 
       - name: Install dependencies
         run: npm ci
 
-      - name: Validate branch name
-        run: npx validate-branch-name
-
-      - name: Run markdownlint
-        run: npx markdownlint "**/*.md"
-
-      - name: Textlint
-        run: npx textlint "**/*.md"
+      - name: Lint branch name and Markdown
+        run: mise run lint:node

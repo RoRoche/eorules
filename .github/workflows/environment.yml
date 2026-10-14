@@ -1,0 +1,35 @@
+---
+name: Development environment
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    name: Development tools on ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    env:
+      HUSKY: '0'
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Install development tools
+        uses: jdx/mise-action@v5
+
+      - name: Verify tool versions
+        run: mise run versions
+
+      - name: Install locked project dependencies
+        run: mise run setup

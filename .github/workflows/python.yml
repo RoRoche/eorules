@@ -8,36 +8,21 @@ on:
       - main
 
 jobs:
-  yamllint:
-    name: Lint YAML Files
+  lint:
+    name: Lint YAML and Makefiles
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
 
-      - name: Install uv
-        uses: astral-sh/setup-uv@v7
+      - name: Install development tools
+        uses: jdx/mise-action@v5
+        with:
+          install_args: python uv
 
       - name: Sync Python dependencies
         run: uv sync --frozen
 
-      - name: Run yamllint
-        run: uv run yamllint .
-
-  mbake:
-    name: Validate Makefiles
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v7
-
-      - name: Install uv
-        uses: astral-sh/setup-uv@v7
-
-      - name: Sync Python dependencies
-        run: uv sync --frozen
-
-      - name: Run mbake validate
-        run: uv run mbake validate Makefile
+      - name: Lint YAML and Makefiles
+        run: mise run lint:python
