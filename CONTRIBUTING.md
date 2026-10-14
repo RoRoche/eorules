@@ -226,6 +226,14 @@ Example:
 
 ## Code Quality
 
+[NullAway](https://github.com/uber/NullAway) runs through Error Prone during Maven compilation of production and test sources.
+It treats references in `com.github.roroche` and its subpackages as non-null by default and fails compilation on null-safety violations.
+`mise run lint:java` forces a clean compilation; `mise run test`, `mise run check` and the Java CI build also run NullAway.
+Keep new project packages under this namespace, or update `NullAway:AnnotatedPackages` in `pom.xml` when renaming it.
+Prefer non-null APIs and fix violations instead of adding broad suppressions.
+This complements the existing `youshallnotpass` rule against explicit `null` usage by checking dereferences, arguments, return values and field initialization.
+NullAway stays on the compiler processor path and adds no runtime dependency to the library.
+
 * Keep methods and classes small and readable.
 * Follow Java naming conventions.
 * Ensure all tests pass before committing.
