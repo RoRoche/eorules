@@ -43,6 +43,14 @@ jobs:
       - name: Build with Maven and Error Prone
         run: mvn -B -ntp clean verify
 
+      - name: Upload SpotBugs XML report as artifact
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: spotbugs-report
+          path: target/spotbugsXml.xml
+          if-no-files-found: ignore
+
       - name: Verify JaCoCo XML reports
         shell: bash
         run: |

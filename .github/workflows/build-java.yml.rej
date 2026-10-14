@@ -1,0 +1,16 @@
+diff a/.github/workflows/build-java.yml b/.github/workflows/build-java.yml	(rejected hunks)
+@@ -43,6 +43,14 @@ jobs:
+       - name: Build with Maven
+         run: mvn -B -ntp clean verify
+ 
++      - name: Upload SpotBugs XML report as artifact
++        if: ${{ !cancelled() }}
++        uses: actions/upload-artifact@v7
++        with:
++          name: spotbugs-report
++          path: target/spotbugsXml.xml
++          if-no-files-found: ignore
++
+       - name: Verify JaCoCo XML report
+         shell: bash
+         run: |
