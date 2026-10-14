@@ -47,7 +47,7 @@ run = ['npx --no-install validate-branch-name', 'npx --no-install markdownlint "
 
 [tasks."lint:python"]
 description = "Check YAML and Makefile formatting"
-run = ["uv run --frozen yamllint .", "uv run --frozen mbake format --check Makefile", "uv run --frozen mbake validate Makefile"]
+run = ["uv run --frozen yamllint .", "uv run --frozen mbake format --config .mbake.toml --check Makefile", "uv run --frozen mbake validate --config .mbake.toml Makefile"]
 
 [tasks.lint]
 description = "Run all code quality checks"

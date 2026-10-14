@@ -1,7 +1,3 @@
-line-length = 120
-
-[format]
-wrap-text = true
-
-[lint]
-enabled = true
+[formatter]
+max_line_length = 120
+ensure_final_newline = true
