@@ -5,14 +5,14 @@ We love contributions from the community. By participating, you agree to follow 
 
 ## Table of Contents
 
-1. Getting Started
-2. Development Workflow
-3. Branch Naming Convention
-4. Commit Guidelines
-5. Code Quality
-6. Reporting Issues
-7. Puzzle-driven development
-8. References
+1. [Getting Started](#getting-started)
+2. [Development Workflow](#development-workflow)
+3. [Branch Naming Convention](#branch-naming-convention)
+4. [Commit Guidelines](#commit-guidelines)
+5. [Code Quality](#code-quality)
+6. [Reporting Issues](#reporting-issues)
+7. [Puzzle-Driven Development (PDD)](#puzzle-driven-development-pdd)
+8. [References](#references)
 
 ## Getting Started
 
@@ -93,11 +93,9 @@ git checkout -b feature/issue-number/your-feature-name
 mise run lint
 ```
 
-`lint:java` includes a clean compilation of production and test sources with
-[Error Prone](https://errorprone.info/). Error Prone also runs during Maven compilation,
-including `mise run test`, `mise run check` and the Java CI build. Its default error
-checks fail the build; warning checks report diagnostics. The compiler configuration
-supports JDK 21 and recognizes Qulice's custom `@checkstyle` Javadoc tag.
+This runs Java, Markdown, branch-name, YAML and Makefile checks.
+For Java checks, use `mise run lint:java`.
+See [Code Quality](#code-quality) for the Java analysis tools and their diagnostics.
 
 5. Run tests:
 
@@ -105,7 +103,16 @@ supports JDK 21 and recognizes Qulice's custom `@checkstyle` Javadoc tag.
 mise run test
 ```
 
-6. Push your branch to your fork and open a Pull Request referencing the related issue.
+6. Run the complete Maven verification lifecycle before opening a Pull Request:
+
+```bash
+mise run check
+```
+
+This performs a clean build, runs tests and checks Java quality, including SpotBugs.
+The Java CI build runs the same `clean verify` lifecycle.
+
+7. Push your branch to your fork and open a Pull Request referencing the related issue.
 
 ### Continuous Feedback During Development
 
@@ -170,7 +177,7 @@ This pattern enforces:
 
 #### Description
 
-* Must contain **only lowercase letters and hyphens**
+* Must contain **only lowercase letters, digits and hyphens**
 * Should be concise but descriptive
 * No spaces, underscores, or special characters
 
@@ -226,27 +233,49 @@ Example:
 
 ## Code Quality
 
-[NullAway](https://github.com/uber/NullAway) runs through Error Prone during Maven compilation of production and test sources.
-It treats references in `com.github.roroche` and its subpackages as non-null by default and fails compilation on null-safety violations.
-`mise run lint:java` forces a clean compilation; `mise run test`, `mise run check` and the Java CI build also run NullAway.
-Keep new project packages under this namespace, or update `NullAway:AnnotatedPackages` in `pom.xml` when renaming it.
-Prefer non-null APIs and fix violations instead of adding broad suppressions.
-This complements the existing `youshallnotpass` rule against explicit `null` usage by checking dereferences, arguments, return values and field initialization.
-NullAway stays on the compiler processor path and adds no runtime dependency to the library.
-
 * Keep methods and classes small and readable.
 * Follow Java naming conventions.
 * Ensure all tests pass before committing.
 * Lint YAML and other configuration files.
 * Avoid breaking existing functionality.
 
-SpotBugs analyzes compiled production classes with `Max` effort and includes low-priority findings.
-Findings fail `mise run lint`, `mise run check`, and the Java CI build.
+### Java Analysis Tools
+
+The tools complement each other: Error Prone finds source-level bugs during compilation,
+NullAway adds null-safety checks to Error Prone, and SpotBugs analyzes compiled bytecode.
+Their configuration lives in `pom.xml`.
+
+| Command | Error Prone and NullAway | SpotBugs |
+| --- | --- | --- |
+| `mise run lint:java` or `mise run lint` | Clean compilation of production and test sources | Checks production classes |
+| `mise run test` | Checks sources when Maven compiles them | Does not run |
+| `mise run check` | Clean compilation of production and test sources | Checks production classes during `verify` |
+| Java CI build (`mvn -B -ntp clean verify`) | Clean compilation of production and test sources | Checks production classes during `verify` |
+
+#### Error Prone
+
+[Error Prone](https://errorprone.info/) checks production and test sources during Maven compilation.
+Its default error checks fail compilation; warning checks report diagnostics.
+Fix reported errors and review warnings before submitting changes.
+The compiler configuration supports JDK 21 and recognizes Qulice's custom `@checkstyle` Javadoc tag.
+
+#### NullAway
+
+[NullAway](https://github.com/uber/NullAway) runs through Error Prone during Maven compilation.
+It treats references in `com.github.roroche` and its subpackages as non-null by default.
+Null-safety violations in production or test sources fail compilation.
+Keep new project packages under this namespace, or update `NullAway:AnnotatedPackages` in `pom.xml` when renaming it.
+Prefer non-null APIs and fix violations instead of adding broad suppressions.
+NullAway checks dereferences, arguments, return values and field initialization.
+This complements the `youshallnotpass` rule against explicit `null` usage.
+NullAway stays on the compiler processor path and adds no runtime dependency to the library.
+
+#### SpotBugs
+
+[SpotBugs](https://spotbugs.github.io/) analyzes compiled production classes with `Max` effort and includes low-priority findings.
+Findings fail the check. SpotBugs runs during Maven's `verify` phase and as an explicit step in `lint:java`.
 Run `mise exec -- mvn -B -ntp compile spotbugs:check` for a focused check.
-SpotBugs runs during `mvn verify` and writes each module's XML report to
-`<module>/target/spotbugsXml.xml`. CI uploads these as the `spotbugs-report` artifact.
-`spotbugs-exclude.xml` excludes representation warnings for ArchUnit domain
-objects stored by predicates; collections still require defensive copies.
+SpotBugs writes its XML report to `target/spotbugsXml.xml`. CI uploads it as the `spotbugs-report` artifact.
 
 ## Reporting Issues
 
