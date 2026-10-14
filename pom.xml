@@ -101,17 +101,6 @@
     </dependencies>
   </dependencyManagement>
   <build>
-    <plugins>
-      <plugin>
-        <groupId>org.sonatype.central</groupId>
-        <artifactId>central-publishing-maven-plugin</artifactId>
-        <configuration>
-          <autoPublish>true</autoPublish>
-          <publishingServerId>central</publishingServerId>
-          <waitUntil>published</waitUntil>
-        </configuration>
-      </plugin>
-    </plugins>
     <pluginManagement>
       <plugins>
         <plugin>
@@ -345,6 +334,17 @@
         </plugin>
       </plugins>
     </pluginManagement>
+    <plugins>
+      <plugin>
+        <groupId>org.sonatype.central</groupId>
+        <artifactId>central-publishing-maven-plugin</artifactId>
+        <configuration>
+          <autoPublish>true</autoPublish>
+          <publishingServerId>central</publishingServerId>
+          <waitUntil>published</waitUntil>
+        </configuration>
+      </plugin>
+    </plugins>
   </build>
   <profiles>
     <profile>
