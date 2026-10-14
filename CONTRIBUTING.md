@@ -93,6 +93,12 @@ git checkout -b feature/issue-number/your-feature-name
 mise run lint
 ```
 
+`lint:java` includes a clean compilation of production and test sources with
+[Error Prone](https://errorprone.info/). Error Prone also runs during Maven compilation,
+including `mise run test`, `mise run check` and the Java CI build. Its default error
+checks fail the build; warning checks report diagnostics. The compiler configuration
+supports JDK 21 and recognizes Qulice's custom `@checkstyle` Javadoc tag.
+
 5. Run tests:
 
 ```bash
