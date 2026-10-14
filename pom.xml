@@ -60,6 +60,7 @@
     <sonar.issue.ignore.multicriteria.e1.resourceKey>**/PredicatesMutationTest.java</sonar.issue.ignore.multicriteria.e1.resourceKey>
     <sonar.issue.ignore.multicriteria.e1.ruleKey>java:S1172</sonar.issue.ignore.multicriteria.e1.ruleKey>
     <errorprone.version>2.50.0</errorprone.version>
+    <nullaway.version>0.14.2</nullaway.version>
     <sortpom.version>4.0.0</sortpom.version>
     <youshallnotpass.version>0.6.0</youshallnotpass.version>
   </properties>
@@ -372,7 +373,8 @@
             <arg>-XDaddTypeAnnotationsToSymbol=true</arg>
             <arg>--should-stop=ifError=FLOW</arg>
             <!-- Qulice uses @checkstyle tags for local Checkstyle suppressions. -->
-            <arg>-Xplugin:ErrorProne -XepOpt:Javadoc:customBlockTags=checkstyle</arg>
+            <!-- NullAway checks production and test code in the project namespace. -->
+            <arg>-Xplugin:ErrorProne -XepOpt:Javadoc:customBlockTags=checkstyle -Xep:NullAway:ERROR -XepOpt:NullAway:AnnotatedPackages=com.github.roroche</arg>
             <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED</arg>
             <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED</arg>
             <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.main=ALL-UNNAMED</arg>
@@ -385,6 +387,11 @@
             <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.comp=ALL-UNNAMED</arg>
           </compilerArgs>
           <annotationProcessorPaths>
+            <path>
+              <groupId>com.uber.nullaway</groupId>
+              <artifactId>nullaway</artifactId>
+              <version>${nullaway.version}</version>
+            </path>
             <path>
               <groupId>com.google.errorprone</groupId>
               <artifactId>error_prone_core</artifactId>
