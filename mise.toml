@@ -39,7 +39,7 @@ run = "mvn -B -ntp test-compile org.pitest:pitest-maven:mutationCoverage"
 
 [tasks."lint:java"]
 description = "Check Java formatting, licenses and code quality"
-run = ["mvn sortpom:verify", "mvn license:check", "mvn qulice:check", "mvn jtcop:check"]
+run = ["mvn sortpom:verify", "mvn license:check", "mvn qulice:check", "mvn youshallnotpass:youshallnotpass", "mvn jtcop:check"]
 
 [tasks."lint:node"]
 description = "Check the branch name and Markdown files"
