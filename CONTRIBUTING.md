@@ -232,6 +232,11 @@ Example:
 * Lint YAML and other configuration files.
 * Avoid breaking existing functionality.
 
+SpotBugs analyzes compiled production classes with `Max` effort and includes low-priority findings.
+Findings fail `mise run lint`, `mise run check`, and the Java CI build.
+Run `mise exec -- mvn -B -ntp compile spotbugs:check` for a focused check.
+SpotBugs writes its XML report to `target/spotbugsXml.xml`. CI uploads it as the `spotbugs-report` artifact.
+
 ## Reporting Issues
 
 When reporting a bug or suggesting a feature, please:
