@@ -40,7 +40,7 @@ jobs:
       - name: Verify Java version
         run: java -version
 
-      - name: Build with Maven
+      - name: Build with Maven and Error Prone
         run: mvn -B -ntp clean verify
 
       - name: Verify JaCoCo XML reports
