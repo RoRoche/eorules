@@ -1,0 +1,70 @@
+# Exact versions shared by contributors and CI. npm is pinned independently of Node.
+[tools]
+java = "temurin-21.0.12+8.0.LTS"
+maven = "3.9.12"
+node = "22.23.3"
+npm = "11.18.0"
+python = "3.12.15"
+uv = "0.11.14"
+watchexec = "2.8.0"
+
+# Keep CI jobs scoped to the tools installed by mise-action.
+[settings]
+task.run_auto_install = false
+
+# UV must use the Python selected by Mise, including on machines with an old .venv.
+[env]
+UV_PYTHON = "3.12.15"
+UV_PYTHON_DOWNLOADS = "never"
+
+[tasks.setup]
+description = "Install locked Node and Python dependencies and Git hooks"
+run = ["npm ci", "uv sync --frozen"]
+
+[tasks.versions]
+description = "Display the active development tool versions"
+run = ["java -version", "mvn -version", "node --version", "npm --version", "python --version", "uv --version", "watchexec --version"]
+
+[tasks.test]
+description = "Run Java unit tests"
+run = "mvn -B -ntp test"
+
+[tasks.check]
+description = "Run the complete Maven verification lifecycle"
+run = "mvn -B -ntp clean verify"
+
+[tasks.mutation]
+description = "Run Java mutation testing"
+run = "mvn -B -ntp test-compile org.pitest:pitest-maven:mutationCoverage"
+
+[tasks."lint:java"]
+description = "Check Java formatting, licenses and code quality"
+run = ["mvn sortpom:verify", "mvn license:check", "mvn qulice:check", "mvn jtcop:check"]
+
+[tasks."lint:node"]
+description = "Check the branch name and Markdown files"
+run = ['npx --no-install validate-branch-name', 'npx --no-install markdownlint "**/*.md"', 'npx --no-install textlint "**/*.md"']
+
+[tasks."lint:python"]
+description = "Check YAML and Makefile formatting"
+run = ["uv run --frozen yamllint .", "uv run --frozen mbake format --check Makefile", "uv run --frozen mbake validate Makefile"]
+
+[tasks.lint]
+description = "Run all code quality checks"
+depends = ["lint:java", "lint:node", "lint:python"]
+
+[tasks."lint-fix"]
+description = "Fix POM formatting and Java license headers"
+run = ["mvn sortpom:sort", "mvn license:format"]
+
+[tasks.watch]
+description = "Run unit tests whenever Java sources change"
+run = "watchexec --restart --watch src/main --watch src/test --exts java -- mise run test"
+
+[tasks."watch-check"]
+description = "Run Maven verification whenever sources or pom.xml change"
+run = "watchexec --restart --watch src/main --watch src/test --watch pom.xml --exts java,xml -- mise run check"
+
+[tasks."watch-mutation"]
+description = "Run mutation testing whenever Java sources change"
+run = "watchexec --restart --watch src/main --watch src/test --exts java -- mise run mutation"
