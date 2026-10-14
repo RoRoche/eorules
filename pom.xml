@@ -55,6 +55,7 @@
     <pitest.junit5.plugin.version>1.2.3</pitest.junit5.plugin.version>
     <pitest.version>1.30.0</pitest.version>
     <qulice.version>0.36.0</qulice.version>
+    <spotbugs-maven-plugin.version>4.10.5.0</spotbugs-maven-plugin.version>
     <sonar.issue.ignore.multicriteria>e1</sonar.issue.ignore.multicriteria>
     <sonar.issue.ignore.multicriteria.e1.resourceKey>**/PredicatesMutationTest.java</sonar.issue.ignore.multicriteria.e1.resourceKey>
     <sonar.issue.ignore.multicriteria.e1.ruleKey>java:S1172</sonar.issue.ignore.multicriteria.e1.ruleKey>
@@ -159,6 +160,26 @@
               <goals>
                 <goal>check</goal>
               </goals>
+            </execution>
+          </executions>
+        </plugin>
+        <plugin>
+          <groupId>com.github.spotbugs</groupId>
+          <artifactId>spotbugs-maven-plugin</artifactId>
+          <version>${spotbugs-maven-plugin.version}</version>
+          <configuration>
+            <effort>Max</effort>
+            <threshold>Low</threshold>
+            <failOnError>true</failOnError>
+            <xmlOutput>true</xmlOutput>
+          </configuration>
+          <executions>
+            <execution>
+              <id>spotbugs-check</id>
+              <goals>
+                <goal>check</goal>
+              </goals>
+              <phase>verify</phase>
             </execution>
           </executions>
         </plugin>
