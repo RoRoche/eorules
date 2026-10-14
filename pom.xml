@@ -172,6 +172,7 @@
             <threshold>Low</threshold>
             <failOnError>true</failOnError>
             <xmlOutput>true</xmlOutput>
+            <excludeFilterFile>${maven.multiModuleProjectDirectory}/spotbugs-exclude.xml</excludeFilterFile>
           </configuration>
           <executions>
             <execution>
@@ -391,6 +392,10 @@
             </path>
           </annotationProcessorPaths>
         </configuration>
+      </plugin>
+      <plugin>
+        <groupId>com.github.spotbugs</groupId>
+        <artifactId>spotbugs-maven-plugin</artifactId>
       </plugin>
       <plugin>
         <groupId>org.sonatype.central</groupId>

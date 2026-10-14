@@ -235,7 +235,10 @@ Example:
 SpotBugs analyzes compiled production classes with `Max` effort and includes low-priority findings.
 Findings fail `mise run lint`, `mise run check`, and the Java CI build.
 Run `mise exec -- mvn -B -ntp compile spotbugs:check` for a focused check.
-SpotBugs writes its XML report to `target/spotbugsXml.xml`. CI uploads it as the `spotbugs-report` artifact.
+SpotBugs runs during `mvn verify` and writes each module's XML report to
+`<module>/target/spotbugsXml.xml`. CI uploads these as the `spotbugs-report` artifact.
+`spotbugs-exclude.xml` excludes representation warnings for ArchUnit domain
+objects stored by predicates; collections still require defensive copies.
 
 ## Reporting Issues
 

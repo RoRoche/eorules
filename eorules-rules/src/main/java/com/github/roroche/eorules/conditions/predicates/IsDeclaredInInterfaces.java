@@ -50,12 +50,14 @@ public final class IsDeclaredInInterfaces implements Scalar<Boolean> {
      * @param method The implemented method
      * @param methods The methods declared in interfaces
      */
+    // Copy at construction to prevent callers from changing the predicate's inputs.
+    // @checkstyle ConstructorsCodeFreeCheck (7 lines)
     public IsDeclaredInInterfaces(
         final JavaMethod method,
         final Set<JavaMethod> methods
     ) {
         this.method = method;
-        this.methods = methods;
+        this.methods = Set.copyOf(methods);
     }
 
     @Override

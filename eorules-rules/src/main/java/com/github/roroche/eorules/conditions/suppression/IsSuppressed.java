@@ -28,6 +28,7 @@ import com.tngtech.archunit.core.domain.JavaClass;
 import com.tngtech.archunit.core.domain.JavaMember;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
 import org.cactoos.Scalar;
 
@@ -80,11 +81,13 @@ public final class IsSuppressed implements Scalar<Boolean> {
      * @param declared Suppression declarations
      * @param key Rule key to find
      */
+    // Copy at construction to prevent callers from changing suppression declarations.
+    // @checkstyle ConstructorsCodeFreeCheck (7 lines)
     public IsSuppressed(
         final Collection<Optional<SuppressEoRule>> declared,
         final String key
     ) {
-        this.declared = declared;
+        this.declared = List.copyOf(declared);
         this.key = key;
     }
 

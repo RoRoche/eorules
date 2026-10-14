@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FindBugsFilter>
+  <!-- ArchUnit completes its domain graph during import. JavaMethod and JavaClass
+       expose no public mutation API, so predicates safely retain these objects.
+       Restrict this exception to domain-typed fields; collections are not excluded. -->
+  <Match>
+    <Bug pattern="EI_EXPOSE_REP2"/>
+    <Class name="~com\.github\.roroche\.eorules\.conditions\.predicates\..*"/>
+    <Or>
+      <Field type="com.tngtech.archunit.core.domain.JavaMethod"/>
+      <Field type="com.tngtech.archunit.core.domain.JavaClass"/>
+    </Or>
+  </Match>
+</FindBugsFilter>
