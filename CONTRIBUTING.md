@@ -241,27 +241,20 @@ Example:
 
 ### Java Analysis Tools
 
-The tools complement each other: Error Prone finds source-level bugs during compilation,
-NullAway adds null-safety checks to Error Prone, and SpotBugs analyzes compiled bytecode.
+Qulice runs the general Java quality checks, NullAway checks null safety during compilation,
+and SpotBugs analyzes compiled bytecode.
 Their configuration lives in `pom.xml`.
 
-| Command | Error Prone and NullAway | SpotBugs |
+| Command | NullAway | SpotBugs |
 | --- | --- | --- |
-| `mise run lint:java` or `mise run lint` | Clean compilation of production and test sources | Checks production classes |
+| `mise run lint:java` or `mise run lint` | Checks production sources during compilation | Checks production classes |
 | `mise run test` | Checks sources when Maven compiles them | Does not run |
 | `mise run check` | Clean compilation of production and test sources | Checks production classes during `verify` |
 | Java CI build (`mvn -B -ntp clean verify`) | Clean compilation of production and test sources | Checks production classes during `verify` |
 
-#### Error Prone
-
-[Error Prone](https://errorprone.info/) checks production and test sources during Maven compilation.
-Its default error checks fail compilation; warning checks report diagnostics.
-Fix reported errors and review warnings before submitting changes.
-The compiler configuration supports JDK 21 and recognizes Qulice's custom `@checkstyle` Javadoc tag.
-
 #### NullAway
 
-[NullAway](https://github.com/uber/NullAway) runs through Error Prone during Maven compilation.
+[NullAway](https://github.com/uber/NullAway) runs during Maven compilation.
 It treats references in `com.github.roroche` and its subpackages as non-null by default.
 Null-safety violations in production or test sources fail compilation.
 Keep new project packages under this namespace, or update `NullAway:AnnotatedPackages` in `pom.xml` when renaming it.

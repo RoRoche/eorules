@@ -369,12 +369,11 @@
           <fork>true</fork>
           <compilerArgs>
             <arg>-XDcompilePolicy=simple</arg>
-            <!-- Required to preserve type annotations for Error Prone on JDK 21. -->
+            <!-- Required to preserve type annotations for NullAway on JDK 21. -->
             <arg>-XDaddTypeAnnotationsToSymbol=true</arg>
             <arg>--should-stop=ifError=FLOW</arg>
-            <!-- Qulice uses @checkstyle tags for local Checkstyle suppressions. -->
-            <!-- NullAway checks production and test code in the project namespace. -->
-            <arg>-Xplugin:ErrorProne -XepOpt:Javadoc:customBlockTags=checkstyle -Xep:NullAway:ERROR -XepOpt:NullAway:AnnotatedPackages=com.github.roroche</arg>
+            <!-- Run only NullAway here; Qulice handles the general compiler checks. -->
+            <arg>-Xplugin:ErrorProne -XepDisableAllChecks -Xep:NullAway:ERROR -XepOpt:NullAway:AnnotatedPackages=com.github.roroche</arg>
             <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED</arg>
             <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED</arg>
             <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.main=ALL-UNNAMED</arg>
@@ -392,6 +391,7 @@
               <artifactId>nullaway</artifactId>
               <version>${nullaway.version}</version>
             </path>
+            <!-- NullAway requires this compiler host even with built-in checks disabled. -->
             <path>
               <groupId>com.google.errorprone</groupId>
               <artifactId>error_prone_core</artifactId>

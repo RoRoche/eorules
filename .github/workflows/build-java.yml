@@ -40,7 +40,7 @@ jobs:
       - name: Verify Java version
         run: java -version
 
-      - name: Build with Maven, Error Prone and NullAway
+      - name: Build with Maven and NullAway
         run: mvn -B -ntp clean verify
 
       - name: Upload SpotBugs XML report as artifact

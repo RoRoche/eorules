@@ -38,8 +38,8 @@ description = "Run Java mutation testing"
 run = "mvn -B -ntp test-compile org.pitest:pitest-maven:mutationCoverage"
 
 [tasks."lint:java"]
-description = "Check Java formatting, licenses, Error Prone, NullAway and code quality"
-run = ["mvn sortpom:verify", "mvn license:check", "mvn -B -ntp clean test-compile", "mvn qulice:check", "mvn jtcop:check", "mvn -B -ntp compile spotbugs:check"]
+description = "Check Java formatting, licenses, NullAway and code quality"
+run = ["mvn sortpom:verify", "mvn license:check", "mvn qulice:check", "mvn jtcop:check", "mvn -B -ntp compile spotbugs:check"]
 
 [tasks."lint:node"]
 description = "Check the branch name and Markdown files"
