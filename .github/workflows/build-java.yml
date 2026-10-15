@@ -16,7 +16,7 @@ permissions:
 
 jobs:
   build:
-    name: Build with Java 21
+    name: Build, test and check Java 21 code
     runs-on: ubuntu-latest
 
     steps:
@@ -40,7 +40,7 @@ jobs:
       - name: Verify Java version
         run: java -version
 
-      - name: Build with Maven and NullAway
+      - name: Build, test and run Maven verification checks
         run: mvn -B -ntp clean verify
 
       - name: Upload SpotBugs XML report as artifact
@@ -61,7 +61,7 @@ jobs:
           echo "GitHub ref name: ${GITHUB_REF_NAME}"
           ls -lh target/site/*/jacoco/jacoco.xml
 
-      - name: Upload JaCoCo HTML report as artifact
+      - name: Upload JaCoCo coverage reports as artifact
         uses: actions/upload-artifact@v7
         with:
           name: jacoco-html-reports
@@ -80,10 +80,10 @@ jobs:
           disable_search: true
           verbose: true
 
-      - name: You shall not pass
+      - name: Run You Shall Not Pass code quality checks
         run: mvn youshallnotpass:youshallnotpass
 
-      - name: jtcop
+      - name: Check test quality with Jtcop
         run: mvn jtcop:check
 
       - name: Run PIT mutation testing

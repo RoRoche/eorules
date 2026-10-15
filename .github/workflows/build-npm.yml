@@ -9,7 +9,7 @@ on:
 
 jobs:
   lint:
-    name: Lint Markdown Files
+    name: Lint branch name and Markdown
     runs-on: ubuntu-latest
 
     steps:
