@@ -1,0 +1,45 @@
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "enabledManagers": ["maven", "npm", "github-actions", "mise", "pep621"],
+    "timezone": "Europe/Paris",
+    "schedule": ["* 4 * * 0"],
+    "prConcurrentLimit": 5,
+    "semanticCommits": "disabled",
+    "lockFileMaintenance": {
+        "enabled": true,
+        "schedule": ["* 4 * * 0"]
+    },
+    "packageRules": [
+        {
+            "matchManagers": ["maven"],
+            "reviewers": ["RoRoche"],
+            "labels": ["dependencies", "maven"],
+            "commitMessagePrefix": "⬆️ deps(maven):"
+        },
+        {
+            "matchManagers": ["npm"],
+            "reviewers": ["RoRoche"],
+            "labels": ["dependencies", "npm"],
+            "commitMessagePrefix": "⬆️ deps(npm):",
+            "groupName": "npm-dependencies"
+        },
+        {
+            "matchManagers": ["mise"],
+            "reviewers": ["RoRoche"],
+            "labels": ["dependencies", "mise"],
+            "commitMessagePrefix": "⬆️ deps(mise):"
+        },
+        {
+            "matchManagers": ["pep621"],
+            "reviewers": ["RoRoche"],
+            "labels": ["dependencies", "python"],
+            "commitMessagePrefix": "⬆️ deps(python):",
+            "rangeStrategy": "bump"
+        },
+        {
+            "matchManagers": ["github-actions"],
+            "schedule": ["* * * * 1"],
+            "labels": ["ci", "dependencies"]
+        }
+    ]
+}
