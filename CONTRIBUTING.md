@@ -139,7 +139,7 @@ To keep the repository clean, readable, and easy to maintain, all branches **mus
 Branch names must match the following regular expression:
 
 ```bash
-^(main)$|^(dependabot\/.*)$|^(feature|fix|hotfix|release|doc)\/\d+\/?[a-z0-9-]+$
+^(main)$|^(renovate\/.*)$|^(feature|fix|hotfix|release|doc)\/\d+\/[a-z0-9-]+$
 ```
 
 ### Explanation
@@ -149,7 +149,7 @@ This pattern enforces:
 * A **single protected branch**:
   * `main` → the primary branch of the repository
 
-* Dependabot branches for automated dependency updates
+* Renovate branches for automated dependency updates
 
 * Or a **typed branch** with the following structure:
 
@@ -191,7 +191,7 @@ feature/42/add-login-page
 fix/128/null-pointer-error
 hotfix/12/urgent-crash-fix
 doc/77/improve-installation-guide
-dependabot/npm_and_yarn/lodash-4.17.21
+renovate/npm-dependencies
 ```
 
 ### Invalid Examples
@@ -209,6 +209,27 @@ bugfix/123/fix-issue    # invalid type (use "fix")
 
 * Keep descriptions **short, meaningful, and action-oriented**
 * Use hyphens to separate words (kebab-case)
+
+### Automated Dependency Updates
+
+[Renovate](https://docs.renovatebot.com/) manages Maven, npm, GitHub Actions, Mise and UV dependency updates.
+Its configuration lives in `.github/renovate.json`.
+Install or enable the Renovate GitHub App for this repository to activate updates.
+
+Maven, npm, Mise and UV updates run on Sundays between 04:00 and 05:00 in `Europe/Paris` time.
+GitHub Actions updates run on Mondays. Updates appear on the next Renovate run within each window.
+Renovate groups npm updates into one Pull Request and requests review from `RoRoche`
+for Maven, npm, Mise and UV updates. It allows up to five open update Pull Requests across the repository.
+These update commits use the `⬆️` Gitmoji with an ecosystem scope.
+
+The `mise` manager updates tools pinned in `mise.toml`, including UV itself.
+The `pep621` manager updates Python dependencies in `pyproject.toml` and refreshes `uv.lock`.
+Weekly lockfile maintenance also refreshes locked dependencies within existing version constraints.
+When reviewing Python tool updates, keep `UV_PYTHON` aligned with the Python version in `mise.toml`.
+
+Automated branches use the `renovate/` prefix and do not require an issue number.
+The Java CI workflow skips PIT mutation testing and its report upload for Pull Requests
+authored by `renovate[bot]`; the other Java checks still run.
 
 ## Commit Guidelines
 
