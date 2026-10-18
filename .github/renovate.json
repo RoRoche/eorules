@@ -1,13 +1,15 @@
 {
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "extends": ["config:recommended"],
+    "dependencyDashboard": true,
     "enabledManagers": ["maven", "npm", "github-actions", "mise", "pep621"],
     "timezone": "Europe/Paris",
-    "schedule": ["* 4 * * 0"],
+    "schedule": ["at any time"],
     "prConcurrentLimit": 5,
     "semanticCommits": "disabled",
     "lockFileMaintenance": {
         "enabled": true,
-        "schedule": ["* 4 * * 0"]
+        "schedule": ["at any time"]
     },
     "packageRules": [
         {
