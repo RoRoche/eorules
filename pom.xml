@@ -53,7 +53,7 @@
     <nexus.staging.maven.plugin.version>1.7.0</nexus.staging.maven.plugin.version>
     <pit-dashboard-reporter.version>0.3.21</pit-dashboard-reporter.version>
     <pitest.junit5.plugin.version>1.2.3</pitest.junit5.plugin.version>
-    <pitest.version>1.30.0</pitest.version>
+    <pitest.version>1.30.1</pitest.version>
     <qulice.version>0.36.0</qulice.version>
     <spotbugs-maven-plugin.version>4.10.5.0</spotbugs-maven-plugin.version>
     <sonar.issue.ignore.multicriteria>e1</sonar.issue.ignore.multicriteria>
