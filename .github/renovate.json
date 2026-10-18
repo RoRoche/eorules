@@ -4,12 +4,12 @@
     "dependencyDashboard": true,
     "enabledManagers": ["maven", "npm", "github-actions", "mise", "pep621"],
     "timezone": "Europe/Paris",
-    "schedule": ["at any time"],
+    "schedule": ["* 4-11 * * 0"],
     "prConcurrentLimit": 5,
     "semanticCommits": "disabled",
     "lockFileMaintenance": {
         "enabled": true,
-        "schedule": ["at any time"]
+        "schedule": ["* 4-11 * * 0"]
     },
     "packageRules": [
         {
