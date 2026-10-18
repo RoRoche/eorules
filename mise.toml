@@ -13,8 +13,9 @@ watchexec = "2.8.0"
 task.run_auto_install = false
 
 # UV must use the Python selected by Mise, including on machines with an old .venv.
+# Java and Node CI jobs do not install Python, so leave UV_PYTHON empty there.
 [env]
-UV_PYTHON = { value = "{{ tools.python.version }}", tools = true }
+UV_PYTHON = { value = "{% if tools.python is defined %}{{ tools.python.version }}{% endif %}", tools = true }
 UV_PYTHON_DOWNLOADS = "never"
 
 [tasks.setup]
