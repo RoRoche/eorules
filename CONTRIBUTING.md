@@ -216,7 +216,8 @@ bugfix/123/fix-issue    # invalid type (use "fix")
 Its configuration lives in `.github/renovate.json`.
 Install or enable the Renovate GitHub App for this repository to activate updates.
 
-Maven, npm, Mise and UV updates run on Sundays between 04:00 and 05:00 in `Europe/Paris` time.
+Maven, npm, Mise and UV updates run on Sundays from 04:00 until 12:00 in `Europe/Paris` time
+with the schedule `"schedule": ["* 4-11 * * 0"]`.
 GitHub Actions updates run on Mondays. Updates appear on the next Renovate run within each window.
 Renovate groups npm updates into one Pull Request and requests review from `RoRoche`
 for Maven, npm, Mise and UV updates. It allows up to five open update Pull Requests across the repository.
