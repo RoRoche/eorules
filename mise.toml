@@ -4,7 +4,7 @@ java = "temurin-21.0.12+8.0.LTS"
 maven = "3.9.12"
 node = "22.23.3"
 npm = "11.18.0"
-python = "3.12.15"
+python = "3.15.0"
 uv = "0.11.14"
 watchexec = "2.8.0"
 
