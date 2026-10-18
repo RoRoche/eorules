@@ -51,7 +51,7 @@
     <maven.surefire.plugin.version>3.6.0</maven.surefire.plugin.version>
     <mockito.version>5.24.0</mockito.version>
     <nexus.staging.maven.plugin.version>1.7.0</nexus.staging.maven.plugin.version>
-    <pit-dashboard-reporter.version>0.3.20</pit-dashboard-reporter.version>
+    <pit-dashboard-reporter.version>0.3.21</pit-dashboard-reporter.version>
     <pitest.junit5.plugin.version>1.2.3</pitest.junit5.plugin.version>
     <pitest.version>1.30.0</pitest.version>
     <qulice.version>0.36.0</qulice.version>
