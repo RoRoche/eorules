@@ -67,7 +67,7 @@ and the Maven directory from `mise where maven` as Maven home.
 
 Keep shared tool versions in `mise.toml`; avoid separate version files or global installs.
 Use `mise use --pin <tool>@<version>` to update a tool, then run setup and the checks.
-When updating Python, also update `UV_PYTHON` in `mise.toml`.
+`UV_PYTHON` automatically follows the Python version configured in Mise.
 Update project dependencies with npm or UV and commit their lockfiles.
 Personal overrides belong in the ignored `mise.local.toml`.
 
