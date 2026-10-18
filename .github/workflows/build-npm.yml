@@ -24,7 +24,7 @@ jobs:
           install_args: node npm
 
       - name: Cache npm dependencies
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: ~/.npm
           key: npm-${{ runner.os }}-${{ hashFiles('mise.toml', 'package-lock.json') }}
