@@ -14,7 +14,7 @@ task.run_auto_install = false
 
 # UV must use the Python selected by Mise, including on machines with an old .venv.
 [env]
-UV_PYTHON = "3.12.15"
+UV_PYTHON = { value = "{{ tools.python.version }}", tools = true }
 UV_PYTHON_DOWNLOADS = "never"
 
 [tasks.setup]
