@@ -5,7 +5,7 @@ maven = "3.9.12"
 node = "24.22.0"
 npm = "12.2.0"
 python = "3.15.0"
-uv = "0.13.1"
+uv = "0.13.5"
 watchexec = "2.8.0"
 
 # Keep CI jobs scoped to the tools installed by mise-action.
