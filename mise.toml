@@ -3,7 +3,7 @@
 java = "temurin-25.0.4+101.0.LTS"
 maven = "3.9.12"
 node = "24.22.0"
-npm = "12.2.0"
+npm = "12.2.1"
 python = "3.15.0"
 uv = "0.13.5"
 watchexec = "2.8.0"
