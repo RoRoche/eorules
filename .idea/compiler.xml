@@ -38,10 +38,10 @@
           <entry name="$MAVEN_REPOSITORY$/com/google/protobuf/protobuf-java/4.33.2/protobuf-java-4.33.2.jar" />
           <entry name="$MAVEN_REPOSITORY$/com/google/auto/service/auto-service-annotations/1.0.1/auto-service-annotations-1.0.1.jar" />
           <entry name="$MAVEN_REPOSITORY$/javax/inject/javax.inject/1/javax.inject-1.jar" />
-          <entry name="$MAVEN_REPOSITORY$/com/uber/nullaway/nullaway/0.14.2/nullaway-0.14.2.jar" />
+          <entry name="$MAVEN_REPOSITORY$/com/uber/nullaway/nullaway/0.14.3/nullaway-0.14.3.jar" />
           <entry name="$MAVEN_REPOSITORY$/org/jspecify/jspecify/1.0.1/jspecify-1.0.1.jar" />
-          <entry name="$MAVEN_REPOSITORY$/org/checkerframework/dataflow-nullaway/4.2.3/dataflow-nullaway-4.2.3.jar" />
-          <entry name="$MAVEN_REPOSITORY$/org/checkerframework/checker-qual/4.2.3/checker-qual-4.2.3.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/checkerframework/dataflow-nullaway/4.3.1/dataflow-nullaway-4.3.1.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/checkerframework/checker-qual/4.3.1/checker-qual-4.3.1.jar" />
           <entry name="$MAVEN_REPOSITORY$/com/google/guava/guava/31.1-jre/guava-31.1-jre.jar" />
           <entry name="$MAVEN_REPOSITORY$/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar" />
           <entry name="$MAVEN_REPOSITORY$/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar" />
@@ -63,8 +63,8 @@
           <entry name="$MAVEN_REPOSITORY$/com/google/auto/service/auto-service-annotations/1.0.1/auto-service-annotations-1.0.1.jar" />
           <entry name="$MAVEN_REPOSITORY$/javax/inject/javax.inject/1/javax.inject-1.jar" />
         </processorPath>
-        <module name="eorules-annotations" />
         <module name="eorules" />
+        <module name="eorules-annotations" />
       </profile>
     </annotationProcessing>
   </component>
