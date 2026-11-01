@@ -44,7 +44,15 @@ run = ["mvn sortpom:verify", "mvn license:check", "mvn qulice:check", "mvn jtcop
 
 [tasks."lint:node"]
 description = "Check the branch name and Markdown files"
-run = ['npx --no-install validate-branch-name', 'npx --no-install markdownlint "**/*.md"', 'npx --no-install textlint "**/*.md"']
+run = ["mise run lint:branch", "mise run lint:markdown"]
+
+[tasks."lint:branch"]
+description = "Check the branch name"
+run = "npx --no-install validate-branch-name"
+
+[tasks."lint:markdown"]
+description = "Check Markdown files"
+run = ['npx --no-install markdownlint "**/*.md"', 'npx --no-install textlint "**/*.md"']
 
 [tasks."lint:python"]
 description = "Check YAML and Makefile formatting"

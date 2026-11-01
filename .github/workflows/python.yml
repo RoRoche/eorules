@@ -7,10 +7,16 @@ on:
     branches:
       - main
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   lint:
     name: Lint YAML and Makefiles
     runs-on: ubuntu-latest
+    env:
+      UV_CACHE_DIR: /tmp/uv-cache
 
     steps:
       - name: Checkout repository
@@ -21,8 +27,19 @@ jobs:
         with:
           install_args: python uv
 
+      - name: Cache uv dependencies
+        uses: actions/cache@v6
+        with:
+          path: ${{ env.UV_CACHE_DIR }}
+          key: uv-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('mise.toml', 'pyproject.toml', 'uv.lock') }}
+          restore-keys: uv-${{ runner.os }}-${{ runner.arch }}-
+
       - name: Sync Python dependencies
         run: uv sync --frozen
 
       - name: Lint YAML and Makefiles
         run: mise run lint:python
+
+      - name: Prune uv cache
+        if: ${{ !cancelled() }}
+        run: uv cache prune --ci

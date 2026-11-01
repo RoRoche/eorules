@@ -3,9 +3,33 @@ name: Development environment
 
 on:
   pull_request:
+    paths:
+      - 'mise.toml'
+      - 'mise.lock'
+      - '.github/workflows/environment.yml'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.npmrc'
+      - 'pyproject.toml'
+      - 'uv.lock'
+      - 'uv.toml'
   push:
     branches: [main]
+    paths:
+      - 'mise.toml'
+      - 'mise.lock'
+      - '.github/workflows/environment.yml'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.npmrc'
+      - 'pyproject.toml'
+      - 'uv.lock'
+      - 'uv.toml'
   workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 permissions:
   contents: read

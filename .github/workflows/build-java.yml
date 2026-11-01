@@ -6,9 +6,31 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'src/**'
+      - '**/pom.xml'
+      - '.mvn/**'
+      - 'mise.toml'
+      - 'mise.lock'
+      - 'LICENSE'
+      - '.gitattributes'
+      - '.github/workflows/build-java.yml'
   pull_request:
     branches:
       - main
+    paths:
+      - 'src/**'
+      - '**/pom.xml'
+      - '.mvn/**'
+      - 'mise.toml'
+      - 'mise.lock'
+      - 'LICENSE'
+      - '.gitattributes'
+      - '.github/workflows/build-java.yml'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 permissions:
   contents: read
@@ -82,9 +104,6 @@ jobs:
 
       - name: Run You Shall Not Pass code quality checks
         run: mvn youshallnotpass:youshallnotpass
-
-      - name: Check test quality with Jtcop
-        run: mvn jtcop:check
 
       - name: Run PIT mutation testing
         if: ${{ !github.event.repository.private && github.event.pull_request.user.login != 'renovate[bot]' }}
