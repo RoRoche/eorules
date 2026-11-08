@@ -31,7 +31,7 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
-    { name = "mbake", specifier = ">=1.4.6" },
+    { name = "mbake", specifier = ">=1.5.0" },
     { name = "yamllint", specifier = ">=1.38.0" },
 ]
 
@@ -49,15 +49,15 @@ wheels = [
 
 [[package]]
 name = "mbake"
-version = "1.4.6"
+version = "1.5.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "rich" },
     { name = "typer" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/27/7a/71331f29bfe3fa4c312d05556759e9aacb7f9fa90f5f39aaaa9de46bd995/mbake-1.4.6.tar.gz", hash = "sha256:31b91955326150e7bd7a5abb4e9dc40acde7c2f892edeb4e1abb8b10b19f8113", size = 3081153, upload-time = "2026-03-31T08:03:41.69Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/4f/fb/00188bf6e344262031c813667d0be270d80c5eda068454b160115ca4d8e5/mbake-1.5.0.tar.gz", hash = "sha256:fe8ee29e67d3c0688d0677f901d16d8660e79074ae2dec9dd436d558afb58698", size = 384815, upload-time = "2026-10-28T17:00:30.563Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/84/83/0ecabd3c6afca46387adf212289867327b77afa973584c3dac9b913aac36/mbake-1.4.6-py3-none-any.whl", hash = "sha256:8c7055b0961769a53b0e401ea2dee9f9096e63d7f58149bb29d6757fd52dbbf0", size = 82321, upload-time = "2026-03-31T08:03:40.056Z" },
+    { url = "https://files.pythonhosted.org/packages/a7/17/0c28c19adde1329bfc1c6d9251febe0a42872770a1a4cff709b2e2a4a517/mbake-1.5.0-py3-none-any.whl", hash = "sha256:077b3a8a7b3de8b60b06e8bdd3b759b666315a2024de4c13a97b6c34c45453a4", size = 186802, upload-time = "2026-10-28T17:00:28.958Z" },
 ]
 
 [[package]]
