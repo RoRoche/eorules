@@ -1,7 +1,4 @@
 # Tools
-MVN := mvn
-PITEST_CMD := org.pitest:pitest-maven:mutationCoverage
-
 # Build artifacts and sentinel files
 TARGET_DIR := target
 SENTINEL_DIR := $(TARGET_DIR)/.make
@@ -18,46 +15,15 @@ test: $(SENTINEL_TEST) ## Run unit tests
 
 $(SENTINEL_TEST): $(SOURCES)
 	@mkdir -p $(SENTINEL_DIR)
-	@$(MVN) clean test
+	@mise run test
 	@mkdir -p $(SENTINEL_DIR)
 	@touch $@
-
-check: ## Run the complete Maven verification lifecycle
-	@$(MVN) clean verify
 
 mutation: $(SENTINEL_PIT) ## Run unit tests and mutation testing
 
 $(SENTINEL_PIT): $(SENTINEL_TEST)
-	@$(MVN) $(PITEST_CMD)
+	@mise run mutation
 	@touch $@
-
-watch: ## Run unit tests whenever Java sources change
-	@watchexec --restart \
-		--watch src/main \
-		--watch src/test \
-		--exts java \
-		-- make test
-
-watch-check: ## Run Maven verification whenever sources or pom.xml change
-	@watchexec --restart \
-		--watch src/main \
-		--watch src/test \
-		--watch pom.xml \
-		--exts java,xml \
-		-- make check
-
-watch-mutation: ## Run mutation testing whenever Java sources change
-	@watchexec --restart \
-		--watch src/main \
-		--watch src/test \
-		--exts java \
-		-- make mutation
-
-lint: ## Check code formatting
-	@mise run lint
-
-lint-fix: ## Fix formatting automatically
-	@mise run lint-fix
 
 force-test: ## Force unit tests to run even if sources are unchanged
 	@rm -f $(SENTINEL_TEST)
@@ -67,9 +33,6 @@ force-mutation: ## Force mutation testing to run even if sources are unchanged
 	@rm -f $(SENTINEL_PIT)
 	@$(MAKE) mutation
 
-clean: ## Clean the build and remove sentinel files
-	@$(MVN) clean
-
 help: ## Show this help message
 	@echo ""
 	@echo "Available targets:"
@@ -78,4 +41,4 @@ help: ## Show this help message
 		| awk 'BEGIN {FS = "##"}; {printf "  \033[1;32m%-15s\033[0m %s\n", $$1, $$2}'
 	@echo ""
 
-.PHONY: check clean default force-mutation force-test help lint lint-fix mutation test watch watch-check watch-mutation
+.PHONY: default force-mutation force-test help mutation test

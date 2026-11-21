@@ -28,11 +28,15 @@ run = ["java -version", "mvn -version", "node --version", "npm --version", "pyth
 
 [tasks.test]
 description = "Run Java unit tests"
-run = "mvn -B -ntp test"
+run = "mvn test"
 
 [tasks.check]
 description = "Run the complete Maven verification lifecycle"
 run = "mvn -B -ntp clean verify"
+
+[tasks.clean]
+description = "Clean Maven build artifacts and Make sentinels"
+run = "mvn clean"
 
 [tasks.mutation]
 description = "Run Java mutation testing"
