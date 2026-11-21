@@ -48,7 +48,7 @@ The setup task also installs the Husky Git hooks.
 
 Tasks require `mise install` first. Use `mise run` to list the tasks. These tasks work without shell activation or Make,
 including from PowerShell on Windows. Git hooks also require `mise` on `PATH`.
-The existing Makefile remains available on Linux, macOS and WSL2.
+The optional Makefile provides sentinel-based test and mutation caching on systems with Make.
 
 To run tools directly, prefix commands with `mise exec --`:
 
@@ -102,6 +102,10 @@ See [Code Quality](#code-quality) for the Java analysis tools and their diagnost
 ```bash
 mise run test
 ```
+
+`mise run test` runs Maven tests every time. If you have Make installed, `make test` skips them when the sources have
+not changed; use `make force-test` to run them anyway. `make mutation` similarly caches mutation testing, and
+`make force-mutation` forces it to run. Use `mise run clean` to remove Maven artifacts and these Make sentinels.
 
 6. Run the complete Maven verification lifecycle before opening a Pull Request:
 
