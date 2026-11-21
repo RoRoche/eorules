@@ -5,7 +5,8 @@ assets:
   settings.xml: roroche/home#assets/eorules/settings.xml
   pubring.gpg: roroche/home#assets/pubring.gpg
   secring.gpg: roroche/home#assets/secring.gpg
-architect: RoRoche
+architect:
+  - RoRoche
 install: |
   mvn -version
 merge:
