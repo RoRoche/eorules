@@ -1,6 +1,6 @@
 # Exact versions shared by contributors and CI. npm is pinned independently of Node.
 [tools]
-java = "temurin-25.0.5+100000002.0.LTS"
+java = "temurin-25.0.5+8.0.LTS"
 maven = "3.9.12"
 node = "26.13.0"
 npm = "12.2.1"
